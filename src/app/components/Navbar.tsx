@@ -1,16 +1,25 @@
 "use client";
 
+<<<<<<< HEAD
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+=======
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+>>>>>>> main
 
 const navItems = [
   { label: "เกี่ยวกับ", href: "/about" },
   { label: "กำหนดการ", href: "/agenda" },
   { label: "FAQs", href: "/gallery" },
+<<<<<<< HEAD
 ] as const;
 
 export default function Navbar() {
@@ -100,6 +109,63 @@ export default function Navbar() {
             className="fixed top-[calc(theme(spacing.16)+theme(spacing.2))] sm:top-[calc(theme(spacing.20)+theme(spacing.4))] lg:top-[calc(theme(spacing.24)+theme(spacing.6))] inset-x-2 sm:inset-x-4 lg:inset-x-6 mx-auto max-w-screen-xl flex flex-col items-center gap-3 sm:gap-4 font-bold backdrop-blur-md bg-white/10 py-4 sm:py-6 rounded-b-lg sm:rounded-b-xl shadow-lg border-2 border-white/10 border-t-0 md:hidden z-40"
           >
             {navItems.map(renderNavLink)}
+=======
+];
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+  return (
+    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-screen-xl rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 text-white">
+      <div className="flex justify-between items-center">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.jpg"
+            width={40}
+            height={40}
+            alt="Logo"
+            className="w-10 h-10 object-cover"
+          />
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-6 font-semibold text-sm">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-[#ad8a77] transition">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button onClick={toggleMenu} className="md:hidden">
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col mt-4 gap-3 md:hidden font-semibold"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="hover:text-[#ad8a77] transition text-center"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+>>>>>>> main
           </motion.div>
         )}
       </AnimatePresence>
