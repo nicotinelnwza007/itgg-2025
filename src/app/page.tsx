@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Countdown from "./components/countdown";
 import FAQs from "./components/FAQs";
+import Hero from "./components/Hero";
 export default function Home() {
     // Date.UTC(YEAR, MONTH_INDEX, DAY, HOUR, MINUTE, SECOND)
     // didnt convert to gmt +7 yet this is time gmt +0
@@ -8,7 +9,7 @@ export default function Home() {
     return (
         <div className="flex justify-center items-center font-bold text-9xl min-h-screen ">
             {/* <Countdown targetTime={target} /> */}
-            <FAQs/>
+            <Hero />
         </div>
     );
 }

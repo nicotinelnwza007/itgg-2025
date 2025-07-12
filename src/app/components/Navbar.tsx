@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "เกี่ยวกับ", href: "/about" },
   { label: "กำหนดการ", href: "/agenda" },
-  { label: "FAQs", href: "/gallery" },
+  { label: "FAQs", href: "#FAQs" },
 ];
 
 export default function Navbar() {
