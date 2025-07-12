@@ -47,55 +47,75 @@ export default function Countdown({ targetTime }: CountdownProps) {
     }, []);
 
     if (timeLeft.total <= 0) {
-        return <div className="text-3xl font-bold text-red-600">Time's up!</div>;
+        return (
+            <div className="text-3xl font-bold text-red-600">Time's up!</div>
+        );
     }
 
-  function Colon() {
-    return (
-      <div className="flex items-center justify-center
+    function Colon() {
+        return (
+            <div
+                className="flex items-center justify-center
                       h-[4.5rem] sm:h-[5.5rem] md:h-[8rem] lg:h-[10rem]
-                      px-1 sm:px-2">
-        <span className="select-none font-bold leading-none
+                      px-1 sm:px-2"
+            >
+                <span
+                    className="select-none font-bold leading-none
                          text-4xl sm:text-5xl md:text-7xl lg:text-9xl
-                         text-gray-500">
-          :
-        </span>
-      </div>
-    );
-  }
+                         text-white"
+                >
+                    :
+                </span>
+            </div>
+        );
+    }
 
-  return (
-    <div
-      className="mx-auto flex flex-wrap justify-center items-end
-                 gap-1 sm:gap-2 md:gap-3
-                 text-center text-lg sm:text-xl md:text-3xl lg:text-5xl
-                 font-medium text-gray-800"
-    >
-      <TimeBox label="Days" value={timeLeft.days} />
-      <Colon />
-      <TimeBox label="Hours" value={timeLeft.hours} />
-      <Colon />
-      <TimeBox label="Minutes" value={timeLeft.minutes} />
-      <Colon />
-      <TimeBox label="Seconds" value={timeLeft.seconds} />
-    </div>
-  );
+    return (
+        <div
+            className="mx-auto flex flex-wrap justify-center items-end
+    gap-1 sm:gap-2 md:gap-3
+    text-center text-lg sm:text-xl md:text-3xl lg:text-5xl
+    font-medium text-white text-glow"
+        >
+            <TimeBox
+                label="Days"
+                value={timeLeft.days}
+            />
+            <Colon />
+            <TimeBox
+                label="Hours"
+                value={timeLeft.hours}
+            />
+            <Colon />
+            <TimeBox
+                label="Minutes"
+                value={timeLeft.minutes}
+            />
+            <Colon />
+            <TimeBox
+                label="Seconds"
+                value={timeLeft.seconds}
+            />
+        </div>
+    );
 }
 
 function TimeBox({ label, value }: { label: string; value: number }) {
-  return (
-    <div
-      className="flex flex-col items-center justify-between
+    return (
+        <div
+            className="flex flex-col items-center justify-between
                  px-2 py-3 sm:px-3 sm:py-4
                  h-[4.5rem] sm:h-[5.5rem] md:h-[8rem] lg:h-[10rem]"
-    >
-      <div className="font-bold leading-none
-                      text-4xl sm:text-5xl md:text-7xl lg:text-9xl">
-        {String(value).padStart(2, "0")}
-      </div>
-      <div className="uppercase tracking-wide text-xs sm:text-sm text-gray-500">
-        {label}
-      </div>
-    </div>
-  );
+        >
+            <div
+                className="font-bold leading-none
+                      text-4xl sm:text-5xl md:text-7xl lg:text-9xl"
+            >
+                {String(value).padStart(2, "0")}
+            </div>
+            <div className="uppercase tracking-wide text-xs sm:text-sm text-white">
+                {label}
+            </div>
+        </div>
+    );
 }
