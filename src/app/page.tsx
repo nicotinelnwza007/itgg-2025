@@ -6,7 +6,7 @@ export default function Home() {
   const target = new Date(Date.UTC(2025, 6, 15, 17, 0, 0));
   return (
     <div className="flex justify-center items-center font-bold text-9xl min-h-screen">
-        <Countdown targetTime={target} />
+        {/* <Countdown targetTime={target} /> */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Noto_Sans_Thai } from "next/font/google";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const geist = Geist({
@@ -35,8 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.variable} ${notoSansThai.variable}  antialiased`}
+        className={`${geist.variable} ${notoSansThai.variable} bg-purple-800  antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
     </html>
