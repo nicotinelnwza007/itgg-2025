@@ -35,7 +35,7 @@ export default function FAQs() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-10 text-white" id="#FAQs">
+    <div className="w-full max-w-3xl mx-auto px-4 py-10 text-white" id="FAQs">
       <h2 className="text-3xl font-bold text-center mb-8">คำถามที่พบบ่อย</h2>
       <div className="space-y-4">
         {faqs.map((item, index) => (

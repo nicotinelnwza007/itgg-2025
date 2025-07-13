@@ -7,9 +7,9 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "เกี่ยวกับ", href: "/about" },
-  { label: "กำหนดการ", href: "/agenda" },
-  { label: "FAQs", href: "/gallery" },
+  { label: "เกี่ยวกับ", href: "#about" },
+  { label: "กำหนดการ", href: "#agenda" },
+  { label: "FAQs", href: "#gallery" },
 ];
 
 export default function Navbar() {
