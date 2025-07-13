@@ -46,11 +46,10 @@ export default function Countdown({ targetTime }: CountdownProps) {
         return () => clearInterval(timer);
     }, []);
 
-    if (timeLeft.total <= 0) {
-        return (
-            <div className="text-3xl font-bold text-red-600">Time's up!</div>
-        );
+    if (timeLeft.total > 0) {
+        return null;
     }
+
 
     function Colon() {
         return (
@@ -71,31 +70,33 @@ export default function Countdown({ targetTime }: CountdownProps) {
     }
 
     return (
-        <div
-            className="mx-auto flex flex-wrap justify-center items-end
-    gap-1 sm:gap-2 md:gap-3
-    text-center text-lg sm:text-xl md:text-3xl lg:text-5xl
-    font-medium text-white text-glow"
-        >
-            <TimeBox
-                label="Days"
-                value={timeLeft.days}
-            />
-            <Colon />
-            <TimeBox
-                label="Hours"
-                value={timeLeft.hours}
-            />
-            <Colon />
-            <TimeBox
-                label="Minutes"
-                value={timeLeft.minutes}
-            />
-            <Colon />
-            <TimeBox
-                label="Seconds"
-                value={timeLeft.seconds}
-            />
+        <div className="flex justify-center items-center w-full h-[100vh]">
+            <div
+            className="z-50 rounded-xl backdrop-blur bg-white/25 border border-white/15 px-4 py-3 mx-auto flex flex-wrap justify-center items-end
+            gap-1 sm:gap-2 md:gap-3
+            text-center text-lg sm:text-lg md:text-3xl lg:text-5xl
+        font-medium text-white text-glow"
+            >
+                <TimeBox
+                    label="Days"
+                    value={timeLeft.days}
+                />
+                <Colon />
+                <TimeBox
+                    label="Hours"
+                    value={timeLeft.hours}
+                />
+                <Colon />
+                <TimeBox
+                    label="Minutes"
+                    value={timeLeft.minutes}
+                />
+                <Colon />
+                <TimeBox
+                    label="Seconds"
+                    value={timeLeft.seconds}
+                />
+            </div>
         </div>
     );
 }
