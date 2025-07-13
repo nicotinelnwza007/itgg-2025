@@ -23,10 +23,12 @@ const About = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                     กิจกรรม ITGG คืออะไร?
                 </h2>
-                <p className="text-base sm:text-lg leading-relaxed">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore
-                    corporis, nesciunt rem exercitationem nobis fuga consectetur accusantium sit
-                    eum dolorum culpa id assumenda hic natus, minus amet, qui optio!
+                <p className="text-base sm:text-lg leading-relaxed text-gray-800">
+                        <strong>Pre-Programming 68</strong> เป็นกิจกรรมปรับพื้นฐานด้านการเขียนโปรแกรม ด้วยภาษา Python สำหรับน้องเฟรชชี่ปี 1 คณะไอทีลาดกระบัง 
+                        เพื่อให้น้อง ๆ ได้เรียนรู้ตั้งแต่พื้นฐานไปจนถึงการประยุกต์ใช้งานเบื้องต้น 
+                        ไม่ว่าจะมีหรือไม่มีประสบการณ์การเขียนโค้ดมาก่อน ก็สามารถเข้าร่วมได้! 
+                        กิจกรรมมีทั้งรูปแบบออนไลน์และที่คณะ โดยมีพี่ ๆ คอยดูแลอย่างใกล้ชิดตลอดกิจกรรม 
+                        และจะพาน้อง ๆ ได้รู้จักคณะไอทีลาดกระบังมากขึ้นอีกด้วย
                 </p>
             </div>
         </div>
