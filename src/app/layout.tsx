@@ -38,6 +38,7 @@ export default function RootLayout({
             <body
                 className={`${geist.variable} ${notoSansThai.variable}  antialiased`}
                 style={{
+                    fontFamily: "var(--font-noto-sans-thai)",
                     background:
                         "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
                 }}

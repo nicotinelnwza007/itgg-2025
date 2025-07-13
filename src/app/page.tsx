@@ -12,10 +12,8 @@ export default function Home() {
     // didnt convert to gmt +7 yet this is time gmt +0
     const target = new Date(Date.UTC(2025, 6, 21, 17, 0, 0));
     return (
-        <div className="flex flex-col justify-center items-center font-bold ">
-            <div className="flex justify-center items-center w-full h-[100vh]">
-                <Countdown targetTime={target} />
-            </div>
+        <div className="flex flex-col justify-center items-center font-bold">
+            <Countdown targetTime={target} />
             <Hero/>
             <About/>
             <Benefits/>
