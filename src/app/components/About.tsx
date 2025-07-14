@@ -23,11 +23,12 @@ const About = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                     กิจกรรม ITGG คืออะไร?
                 </h2>
-                <p className="text-base sm:text-lg leading-relaxed">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore
-                    corporis, nesciunt rem exercitationem nobis fuga consectetur accusantium sit
-                    eum dolorum culpa id assumenda hic natus, minus amet, qui optio!
-                </p>
+                <div className="text-base md:text-lg mt-4 lg:text-xl mb-6">
+                    ITGG (InfoTech GateGame) คือมหกรรมการแข่งขันภายในคณะเทคโนโลยีสารสนเทศ สจล. (KMITL) ที่รวมความมันส์ ความคิดสร้างสรรค์ และทักษะด้านเทคโนโลยีเข้าด้วยกัน ผ่านกิจกรรมที่ทั้งสนุกและท้าทาย
+                    ในปี 2025 นี้ ITGG กลับมาอีกครั้งในรูปแบบที่ยิ่งใหญ่กว่าเดิม! กับการแข่งขันสุดมันส์หลากหลายประเภท ทั้ง E-Sports (ROV, Valorant ฯลฯ), การแข่งขันความรู้/ทักษะไอที, กิจกรรมลับสมอง/สร้างสรรค์ และอีกมากมาย
+                    ไม่ว่าคุณจะเป็นสายเกม สายโค้ด สายฮา หรือสายเชียร์ — ที่นี่คือเวทีสำหรับคุณ!
+                </div>
+
             </div>
         </div>
     );
