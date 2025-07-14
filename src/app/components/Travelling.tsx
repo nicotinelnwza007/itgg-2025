@@ -25,9 +25,7 @@ const Travelling = () => {
                     กิจกรรมจัดขึ้นที่ไหน
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore
-                    corporis, nesciunt rem exercitationem nobis fuga consectetur accusantium sit
-                    eum dolorum culpa id assumenda hic natus, minus amet, qui optio!
+                   กิจกรรมรอบออนไซต์จะจัดขึ้นที่ คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง โดยสามารถเดินทางมายังที่คณะได้หลากหลายวิธี ทั้งรถยนต์ส่วนบุคคล รถประจำทาง รถไฟฟ้า และรถไฟ
                 </p>
                 
                 {/* Button Group */}
