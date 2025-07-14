@@ -7,6 +7,7 @@ import Agenda from "./components/Agenda";
 import Travelling from "./components/Travelling";
 import FAQs from "./components/FAQs";
 import ImageSlider from "./components/AutoImageSlide";
+import SweetScoreboard from "./components/Scoreboard";
 export default function Home() {
     // Date.UTC(YEAR, MONTH_INDEX, DAY, HOUR, MINUTE, SECOND)
     // didnt convert to gmt +7 yet this is time gmt +0
@@ -16,11 +17,12 @@ export default function Home() {
             <Countdown targetTime={target} />
             <Hero/>
             <About/>
+            <SweetScoreboard/>
             <Benefits/>
             <Agenda/>
             <Travelling/>
             <FAQs/>
-            <ImageSlider/>
+            {/* <ImageSlider/> */}
         </div>
     );
 }
