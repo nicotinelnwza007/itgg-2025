@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
+import { Facebook, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -36,16 +37,22 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Follow us */}
         <div className="text-[#F8D2A7] font-semibold">
           ติดตามข่าวสาร
           <div className="flex gap-4 mt-2">
-            {/* ตัวอย่างไอคอน */}
-            <a href="#" aria-label="Facebook">
-              <Image src="/facebook.png" alt="Facebook" width={20} height={20} />
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="hover:text-white transition-colors duration-300"
+            >
+              <Facebook size={24} className="text-[#F8D2A7]" />
             </a>
-            <a href="#" aria-label="Line">
-              <Image src="/line.png" alt="Line" width={20} height={20} />
+            <a
+              href="#"
+              aria-label="Line"
+              className="hover:text-white transition-colors duration-300"
+            >
+              <MessageCircle size={24} className="text-[#F8D2A7]" />
             </a>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import PrimaryButton from './sub/PrimaryButton'
 const Travelling = () => {
     return (
         <div
@@ -25,22 +25,20 @@ const Travelling = () => {
                     กิจกรรมจัดขึ้นที่ไหน
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-5">
-                   กิจกรรมรอบออนไซต์จะจัดขึ้นที่ คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง โดยสามารถเดินทางมายังที่คณะได้หลากหลายวิธี ทั้งรถยนต์ส่วนบุคคล รถประจำทาง รถไฟฟ้า และรถไฟ
+                    กิจกรรมรอบออนไซต์จะจัดขึ้นที่ คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง โดยสามารถเดินทางมายังที่คณะได้หลากหลายวิธี ทั้งรถยนต์ส่วนบุคคล รถประจำทาง รถไฟฟ้า และรถไฟ
                 </p>
-                
+
                 {/* Button Group */}
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                    <Link href="/login" className="w-full sm:w-auto">
-                        <button className="w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md bg-amber-700 text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-bold">
-                            ดูวิธีการเดินทาง
-                        </button>
-                    </Link>
 
-                    <Link href="/know" className="w-full sm:w-auto">
-                        <button className="w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-bold">
-                            เปิดใน Google Maps
-                        </button>
-                    </Link>
+                    <PrimaryButton href="/know">
+                        ดูวิธีการเดินทาง
+                    </PrimaryButton>
+
+                    <PrimaryButton href="/know">
+                        เปิดใน Google Maps
+                    </PrimaryButton>
+
                 </div>
             </div>
         </div>
