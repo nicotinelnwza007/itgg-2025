@@ -34,7 +34,7 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
             src={images[index]}
             alt={`Slide ${index + 1}`}
             fill
-            className="object-cover"
+            className="object-contain"
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
           />
@@ -45,10 +45,10 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
 }
 
 const images = [
-  "/imageslide/imageslide1.jpg",
-  "/imageslide/imageslide2.jpg",
-  "/imageslide/imageslide3.jpg",
-  "/imageslide/imageslide4.jpg"
+  "/it.png",
+  "/logo.jpg",
+  "/cedt.png",
+  "/it_kmitl.png"
 ];
 
 export default function ImageSlider() {
