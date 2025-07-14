@@ -6,7 +6,7 @@ import { Plus, X } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'Lorem ipsum dolor sit amet?',
+    question: 'กิจกรรม IT-GG 2025 คืออะไร?',
     answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   },
   {
