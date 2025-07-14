@@ -34,7 +34,7 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
             src={images[index]}
             alt={`Slide ${index + 1}`}
             fill
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </motion.div>
@@ -45,7 +45,9 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
 
 const images = [
   "/it.png",
-  "/logo.jpg"
+  "/logo.jpg",
+  "/cedt.png",
+  "/it_kmitl.png"
 ];
 
 export default function ImageSlider() {
