@@ -7,6 +7,7 @@ import Agenda from "./components/Agenda";
 import Travelling from "./components/Travelling";
 import FAQs from "./components/FAQs";
 import ImageSlider from "./components/AutoImageSlide";
+import SendAnswer from "./components/SendAnswer";
 export default function Home() {
     // Date.UTC(YEAR, MONTH_INDEX, DAY, HOUR, MINUTE, SECOND)
     // didnt convert to gmt +7 yet this is time gmt +0
@@ -15,6 +16,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center">
             <Countdown targetTime={target} />
             <Hero/>
+            <SendAnswer/>
             <About/>
             <Benefits/>
             <Agenda/>
