@@ -39,7 +39,7 @@ function SendAnswer() {
     useEffect(() => {
         const fetchData = async () => {
             const supabase = await createClient();
-            const { data, error } = await supabase.from('quests').select('question, is_answered').eq('is_answered', false)
+            const { data, error } = await supabase.from('quests').select('question, is_answered')
             if (error) {
                 console.error(error)
             } else {
