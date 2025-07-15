@@ -36,7 +36,7 @@ const Hero = () => {
             เข้าสู่ระบบ
           </PrimaryButton>
 
-          <PrimaryButton href="/know">
+          <PrimaryButton href="/Schedule">
             ตารางการแข่งขัน
           </PrimaryButton>
         </div>

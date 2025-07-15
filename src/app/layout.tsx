@@ -22,7 +22,11 @@ const notoSansThai = Noto_Sans_Thai({
 export const metadata: Metadata = {
   title: "itgg-2025",
   description: "itgg-2025",
-  viewport: "width=device-width, initial-scale=1"
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
