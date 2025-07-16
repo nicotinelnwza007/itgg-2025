@@ -1,9 +1,32 @@
 import React from 'react'
-import { login } from '../actions'
+import { login, logout } from '../actions'
+import { createClient } from '@/utils/supabase/server'
 
-function Page() {
+async function Page() {
+
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
   return (
-    <div className='flex flex-col justify-center items-center h-screen'>
+    <div className='flex flex-col justify-center items-center h-screen space-y-4'>
+        {user ? (
+            <div className='flex flex-col items-center gap-4'>
+                <div className='text-2xl font-bold mb-2 text-center text-gray-800'>
+                    You are already logged in
+                    <p>{user?.email}</p>
+                </div>
+                <form action={logout}>
+                    <button
+                        type="submit"
+                        className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors"
+                    >
+                        Logout
+                    </button>
+                </form>
+            </div>
+        ) : (
+            <></>
+        )}
         <form action={login} className="bg-white p-8 rounded-lg shadow-md w-96">
             <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
             <div className="space-y-4">

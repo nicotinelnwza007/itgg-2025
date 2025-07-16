@@ -12,7 +12,7 @@ export default async function Layout({
         redirect("/")
     }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center --font-noto-sans-thai">
         {children}
     </div>
   );
