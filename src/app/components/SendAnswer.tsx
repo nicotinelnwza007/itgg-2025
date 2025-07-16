@@ -1,11 +1,12 @@
 'use client'
 import { createClient } from '@/utils/supabase/client'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus, X } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 interface Quest {
+    id: string;
     question: string;
+    is_answered: boolean;
 }
 
 function SendAnswer() {
@@ -19,10 +20,11 @@ function SendAnswer() {
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
     const answer = formData.get('answer') as string
+    const quest_id = formData.get('quest_id') as string
 
     const response = await fetch('/api/check_answer', {
       method: 'POST',
-      body: JSON.stringify({ answer }),
+      body: JSON.stringify({ answer, quest_id }),
     })
 
     if (response.ok) {
@@ -36,7 +38,7 @@ function SendAnswer() {
   useEffect(() => {
     const fetchData = async () => {
       const supabase = await createClient()
-      const { data, error } = await supabase.from('quests').select('question, is_answered')
+      const { data, error } = await supabase.from('quests').select('id, question, is_answered')
       if (error) {
         console.error(error)
       } else {
@@ -76,6 +78,7 @@ function SendAnswer() {
                 </div>
   
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <input type="hidden" name="quest_id" value={quests[0].id} />
                   <input
                     name="answer"
                     type="text"

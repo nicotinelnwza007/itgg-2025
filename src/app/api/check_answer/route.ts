@@ -12,13 +12,11 @@ export async function POST(request: Request) {
         }
 
         const body = await request.json();
-        const { answer } = body;
+        const { answer, quest_id } = body;
 
-        if (!answer) {
+        if (!answer || !quest_id) {
             return NextResponse.json({ error: "Answer is required" }, { status: 400 });
         }
-
-        console.log("BACKEND: ", user);
 
         // Get user's assigned gate from profiles
         const { data: profile } = await supabase
@@ -26,8 +24,6 @@ export async function POST(request: Request) {
             .select('gate')
             .eq('user', user.id)
             .single();
-
-        console.log(profile);
 
         if (!profile) {
             return NextResponse.json({ error: "Profile not found" }, { status: 404 });
@@ -37,8 +33,11 @@ export async function POST(request: Request) {
         const { data: answerData } = await supabase
             .from('quests')
             .select('id, answer, score')
+            .eq('id', quest_id)
             .eq('is_answered', false)
             .single();
+
+        console.log("ANSWER DATA: ", answerData);
 
         if (!answerData) {
             return NextResponse.json({ error: "Answer not found for gate" }, { status: 404 });
