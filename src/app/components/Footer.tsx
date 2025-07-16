@@ -5,18 +5,18 @@ import { Facebook, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-t from-[#2c4673] to-[#407793] text-white py-8 px-6">
-      <div className="max-w-6xl mx-auto space-y-6 text-sm tracking-wide">
+    <footer className="border-t border-white/10 text-amber-950 py-8 px-6" style={{backgroundImage : "linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%)"}}>
+      <div className="max-w-6xl mx-auto space-y-6 text-lg tracking-wide">
         {/* Logo Section */}
         <div className="flex flex-wrap items-center gap-6">
           <Image src="/logo.png" alt="Logo" width={50} height={50} className="object-contain" />
-          <Image src="/it.png" alt="IT Logo" width={50} height={50} className="object-contain" />
-          <Image src="/logo-kmitl.png" alt="KMITL Logo" width={50} height={50} className="object-contain" />
+          <Image src="/it-kmitl.png" alt="IT Logo" width={80} height={80} className="object-contain" />
+          <Image src="/kmitl.png" alt="KMITL Logo" width={90} height={90} className="object-contain" />
         </div>
 
         {/* Text Info */}
-        <div className="space-y-1 leading-relaxed">
-          <p className="text-base font-semibold text-[#F8D2A7]">
+        <div className="space-y-1 leading-relaxed font-medium">
+          <p className="text-base font-semibold text-amber-950">
             กิจกรรมปรับพื้นฐานด้านการเขียนโปรแกรม Pre-Programming 68
           </p>
           <p>
@@ -37,7 +37,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="text-[#F8D2A7] font-semibold">
+        <div className="text-amber-950 font-semibold">
           ติดตามข่าวสาร
           <div className="flex gap-4 mt-2">
             <a
@@ -45,14 +45,14 @@ export default function Footer() {
               aria-label="Facebook"
               className="hover:text-white transition-colors duration-300"
             >
-              <Facebook size={24} className="text-[#F8D2A7]" />
+              <Facebook size={24} className="text-amber-950" />
             </a>
             <a
               href="#"
               aria-label="Line"
               className="hover:text-white transition-colors duration-300"
             >
-              <MessageCircle size={24} className="text-[#F8D2A7]" />
+              <MessageCircle size={24} className="text-amber-950" />
             </a>
           </div>
         </div>

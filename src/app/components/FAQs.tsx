@@ -6,25 +6,26 @@ import { Plus, X } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'กิจกรรม IT-GG 2025 คืออะไร?',
-    answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    question: 'ITGG คือกิจกรรมแบบไหน?',
+    answer: 'ITGG (InfoTech GateGame) คือกิจกรรมแข่งขันภายในคณะไอทีลาดกระบัง ที่รวมความสนุก ความท้าทาย และการโชว์สกิลทั้งด้านเกม อีสปอร์ต และกีฬา',
   },
   {
-    question: 'Ut enim ad minim veniam?',
-    answer: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    question: 'ต้องเก่งเกมหรือเก่งกีฬาถึงจะเข้าร่วมได้ไหม?',
+    answer: 'ไม่ต้องเลย! กิจกรรมมีหลายสายให้เลือก ทั้งสายเกม, สายฮา, สายกีฬา น้องๆทุกคนสามารถเลือกได้ตามความสนใจเลย',
   },
   {
-    question: 'Duis aute irure dolor in reprehenderit?',
-    answer: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    question: 'ต้องสมัครยังไง?',
+    answer: 'รอประกาศทางเพจ InfoTech GateGame หรือหน้าเว็บนี้เร็ว ๆ นี้ พร้อมเปิดรับสมัครในระบบออนไลน์',
   },
   {
-    question: 'Excepteur sint occaecat cupidatat non proident?',
-    answer: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    question: 'ถ้าไม่แข่ง แค่มาดูได้ไหม?',
+    answer: 'ได้แน่นอน! มีกิจกรรมให้ร่วมสนุกเยอะมาก มาดู มาร่วมเชียร์ และรับของกิจกรรมไปได้เลย',
   },
   {
-    question: 'Curabitur pretium tincidunt lacus?',
-    answer: 'Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra.',
+    question: 'ใครเข้าร่วมได้บ้าง?',
+    answer: 'นักศึกษาคณะเทคโนโลยีสารสนเทศทุกชั้นปี สามารถเข้าร่วมได้',
   },
+
 ];
 
 export default function FAQs() {
