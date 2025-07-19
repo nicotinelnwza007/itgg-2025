@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { createClient } from "@/utils/supabase/client";
 
 type Team = {
   name: string;
@@ -30,6 +31,19 @@ export default function SweetScoreboard() {
     if (updated[index] > 0) updated[index]--;
     setScores(updated);
   };
+
+  useEffect(() => {
+    const fetchScores = async () => {
+      const supabase = await createClient();
+      const { data, error } = await supabase.from('gates').select('score');
+      if (error) {
+        console.error('Error fetching teams:', error);
+      } else {
+        setScores(data.map((gate) => gate.score / 10));
+      }
+    }
+    fetchScores();
+  }, []);
 
   return (
     <div className="z-40 min-h-screen w-[90%] overflow-x-hidden bg-white/25 backdrop-blur border border-white/15 text-white flex items-end py-10">

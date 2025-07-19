@@ -9,7 +9,11 @@ import Travelling from "./components/Travelling";
 import FAQs from "./components/FAQs";
 import ImageSlider from "./components/AutoImageSlide";
 import SweetScoreboard from "./components/Scoreboard";
-import LandingCount from "./components/LandingCount";
+import SendAnswer from "./components/SendAnswer";
+
+const Countdown = dynamic(() => import("./components/countdown"), {
+  ssr: false,
+});
 
 export default function Home() {
 
@@ -17,6 +21,7 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center">
       <LandingCount/>
       <Hero />
+      <SendAnswer/>
       <About />
       <SweetScoreboard />
       <Benefits />
