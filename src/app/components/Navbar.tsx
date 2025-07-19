@@ -32,7 +32,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.jpg"
+            src="/logo/itgglogo.svg"
             width={40}
             height={40}
             alt="Logo"

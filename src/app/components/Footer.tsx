@@ -5,7 +5,7 @@ import { Facebook, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 text-amber-950 py-8 px-6" style={{backgroundImage : "linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%)"}}>
+    <footer className="bg-[#B2842E] border-t border-white/10 text-[#FAF1E5] py-8 px-6 ">
       <div className="max-w-6xl mx-auto space-y-6 text-lg tracking-wide">
         {/* Logo Section */}
         <div className="flex flex-wrap items-center gap-6">
@@ -16,7 +16,7 @@ export default function Footer() {
 
         {/* Text Info */}
         <div className="space-y-1 leading-relaxed font-medium">
-          <p className="text-base font-semibold text-amber-950">
+          <p className="text-base font-semibold text-[#FAF1E5]">
             กิจกรรมปรับพื้นฐานด้านการเขียนโปรแกรม Pre-Programming 68
           </p>
           <p>
@@ -37,7 +37,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="text-amber-950 font-semibold">
+        <div className="text-[#FAF1E5] font-semibold">
           ติดตามข่าวสาร
           <div className="flex gap-4 mt-2">
             <a
@@ -45,14 +45,14 @@ export default function Footer() {
               aria-label="Facebook"
               className="hover:text-white transition-colors duration-300"
             >
-              <Facebook size={24} className="text-amber-950" />
+              <Facebook size={24} className="text-[#FAF1E5]" />
             </a>
             <a
               href="#"
               aria-label="Line"
               className="hover:text-white transition-colors duration-300"
             >
-              <MessageCircle size={24} className="text-amber-950" />
+              <MessageCircle size={24} className="text-[#FAF1E5]" />
             </a>
           </div>
         </div>

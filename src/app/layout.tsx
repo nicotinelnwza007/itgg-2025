@@ -1,10 +1,13 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Noto_Sans_Thai } from "next/font/google";
+import { Geist, Kanit, Kalnia, Agbalumo } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import Footer from "./components/Footer";
+import DessertBackground from "./components/bg/DessertBackground";
 
+
+// Fonts
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
@@ -12,10 +15,24 @@ const geist = Geist({
   display: "swap",
 });
 
-const notoSansThai = Noto_Sans_Thai({
-  variable: "--font-noto-sans-thai",
-  subsets: ["thai"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+const kanit = Kanit({
+  variable: "--font-kanit",
+  subsets: ["thai", "latin"],
+  weight: ["200"], // ExtraLight
+  display: "swap",
+});
+
+const kalnia = Kalnia({
+  variable: "--font-kalnia",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const agbalumo = Agbalumo({
+  variable: "--font-agbalumo",
+  subsets: ["latin"],
+  weight : "400",
   display: "swap",
 });
 
@@ -25,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
 };
 
@@ -35,16 +52,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geist.variable} ${notoSansThai.variable}`}>
-      <body
-        className="antialiased"
-        style={{
-          fontFamily: "var(--font-noto-sans-thai)",
-    background: "linear-gradient(21deg,rgba(74, 53, 53, 1) 13%, rgba(153, 103, 93, 1) 69%)",
-        }}
-      >
+    <html
+      lang="en"
+      className={`${geist.variable} ${kanit.variable} ${kalnia.variable} ${agbalumo.variable}`}
+    >
+      <body className="antialiased font-kanit relative">
+        <DessertBackground />
         <Navbar />
-        {children}
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>
