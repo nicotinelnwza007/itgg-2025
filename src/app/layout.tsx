@@ -34,14 +34,35 @@ const agbalumo = Agbalumo({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "itgg-2025",
-  description: "itgg-2025",
-};
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+};
+
+const siteUrl = ("https://itgg-2025.vercel.app/");
+
+export const metadata: Metadata = {
+  title: {
+    default: "ITGG 2025",
+    template: `%s | ITGG 2025`,
+  },
+  metadataBase: new URL("https://itgg-2025.vercel.app/"),
+  openGraph: {
+    title: "ITGG 2025",
+    description: "ITGG 2025",
+    url: siteUrl,
+    siteName: "ITGG 2025",
+    images: [
+      {
+        url: `${siteUrl}/itggbanner.png`,
+        width: 1200,
+        height: 630,
+        alt: "ITGG 2025",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
