@@ -15,25 +15,28 @@ type TimeLeft = {
   seconds: number;
 };
 
+// ✅ ย้ายออกนอก Component
+function calculateTimeLeft(targetTime: Date): TimeLeft {
+  const now = new Date().getTime();
+  const distance = targetTime.getTime() - now;
+
+  return {
+    total: distance,
+    days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((distance / (1000 * 60)) % 60),
+    seconds: Math.floor((distance / 1000) % 60),
+  };
+}
+
 export default function Countdown({ targetTime }: CountdownProps) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
-
-  function calculateTimeLeft(): TimeLeft {
-    const now = new Date().getTime();
-    const distance = targetTime.getTime() - now;
-
-    return {
-      total: distance,
-      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((distance / (1000 * 60)) % 60),
-      seconds: Math.floor((distance / 1000) % 60),
-    };
-  }
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() =>
+    calculateTimeLeft(targetTime)
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const updated = calculateTimeLeft();
+      const updated = calculateTimeLeft(targetTime);
       setTimeLeft(updated);
 
       if (updated.total <= 0) {
@@ -42,16 +45,14 @@ export default function Countdown({ targetTime }: CountdownProps) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [targetTime]); // ✅ เพิ่ม targetTime
 
-  if (timeLeft.total < 0) {
-    return null;
-  }
+  if (timeLeft.total < 0) return null;
 
-return (
-  <div className="relative flex flex-col justify-center items-center w-full h-screen bg-transparent overflow-hidden">
-    {/* Background decorations */}
-    <Image
+  return (
+    <div className="relative flex flex-col justify-center items-center w-full h-screen bg-transparent overflow-hidden">
+      {/* Floating Images */}
+      <Image
         src="/dessert/cake1.svg"
         alt="top-left"
         className="absolute w-24 sm:w-32 md:w-48 opacity-80 animate-float top-[15%] left-[5%] pointer-events-none"
@@ -80,33 +81,29 @@ return (
         height={200}
       />
 
-<div className="relative flex justify-center items-center mb-6">
+      <div className="relative flex justify-center items-center mb-6">
+        <div className="absolute top-[-100px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.5)_0%,rgba(0,0,0,0)_70%)] blur-3xl opacity-80 pointer-events-none z-10"></div>
 
-  <div className="absolute top-[-100px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.5)_0%,rgba(0,0,0,0)_70%)] blur-3xl opacity-80 pointer-events-none z-10"></div>
+        <Image
+          src="/logo/itgglogo.svg"
+          width={450}
+          height={450}
+          alt="ITGG 2025 Logo"
+          className="z-20 animate-float-slow max-w-[220px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
+        />
+      </div>
 
-  <Image
-    src="/logo/itgglogo.svg"
-    width={450}
-    height={450}
-    alt="ITGG 2025 Logo"
-    className="z-20 animate-float-slow max-w-[220px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
-  />
-</div>
-
-
-    {/* Countdown numbers */}
-    <div className="z-10 rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
-      <TimeBox label="Days" value={timeLeft.days} />
-      <Colon />
-      <TimeBox label="Hours" value={timeLeft.hours} />
-      <Colon />
-      <TimeBox label="Minutes" value={timeLeft.minutes} />
-      <Colon />
-      <TimeBox label="Seconds" value={timeLeft.seconds} />
+      <div className="z-10 rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
+        <TimeBox label="Days" value={timeLeft.days} />
+        <Colon />
+        <TimeBox label="Hours" value={timeLeft.hours} />
+        <Colon />
+        <TimeBox label="Minutes" value={timeLeft.minutes} />
+        <Colon />
+        <TimeBox label="Seconds" value={timeLeft.seconds} />
+      </div>
     </div>
-  </div>
-);
-
+  );
 }
 
 function Colon() {
