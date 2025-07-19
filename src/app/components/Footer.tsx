@@ -9,9 +9,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto space-y-6 text-lg tracking-wide">
         {/* Logo Section */}
         <div className="flex flex-wrap items-center gap-6">
-          <Image src="/logo.png" alt="Logo" width={50} height={50} className="object-contain" />
-          <Image src="/it-kmitl.png" alt="IT Logo" width={80} height={80} className="object-contain" />
-          <Image src="/kmitl.png" alt="KMITL Logo" width={90} height={90} className="object-contain" />
+          <Image src="/logo/itgglogo.svg" alt="Logo" width={80} height={80} className="object-contain" />
+          <Image src="/it-kmitl.png" alt="IT Logo" width={80} height={80} className="object-contain bg-white rounded-full p-2" />
+          <Image src="/kmitl.png" alt="KMITL Logo" width={80} height={80} className="object-contain" />
         </div>
 
         {/* Text Info */}
