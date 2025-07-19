@@ -48,8 +48,7 @@ export default function Countdown({ targetTime }: CountdownProps) {
   }
 
   return (
-    <div className="relative flex justify-center items-center w-full h-screen bg-gradient-to-t from-[#e4a8d6] to-[#7a9dc6] overflow-hidden">
-      {/* ☁️ Floating Clouds */}
+    <div className="relative flex justify-center items-center w-full h-screen bg-[#342016] overflow-hidden">
       <img
         src="/cloud.png"
         alt="cloud"
@@ -76,8 +75,7 @@ export default function Countdown({ targetTime }: CountdownProps) {
         className="absolute w-32 sm:w-48 md:w-64 opacity-60 animate-float-slow bottom-[5%] left-[15%] pointer-events-none"
       />
 
-      {/* ⏳ Countdown Box */}
-      <div className="z-10 rounded-xl backdrop-blur bg-white/25 border border-white/15 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white">
+      <div className="z-10 rounded-xl backdrop-blur bg-white/25 border border-white/15 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
         <TimeBox label="Days" value={timeLeft.days} />
         <Colon />
         <TimeBox label="Hours" value={timeLeft.hours} />
@@ -106,7 +104,7 @@ function TimeBox({ label, value }: { label: string; value: number }) {
       <div className="font-bold leading-none text-4xl sm:text-5xl md:text-7xl lg:text-9xl">
         {String(value).padStart(2, "0")}
       </div>
-      <div className="uppercase tracking-wide text-xs sm:text-sm text-white">
+      <div className="uppercase tracking-wide text-xs sm:text-sm text-white text-glow">
         {label}
       </div>
     </div>
