@@ -58,9 +58,9 @@ export default function RootLayout({
     >
       <body className="antialiased font-kanit relative">
         <DessertBackground />
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="relative z-10">{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

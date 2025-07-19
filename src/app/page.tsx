@@ -10,14 +10,14 @@ import FAQs from "./components/FAQs";
 import ImageSlider from "./components/AutoImageSlide";
 import SweetScoreboard from "./components/Scoreboard";
 import SendAnswer from "./components/SendAnswer";
-
+import LandingCount from "./components/LandingCount";
 
 export default function Home() {
 
   return (
     <div className="flex flex-col justify-center items-center">
       <LandingCount/>
-      <Hero />
+      {/* <Hero />
       <SendAnswer/>
       <About />
       <SweetScoreboard />
@@ -25,7 +25,7 @@ export default function Home() {
       <Agenda />
       <Travelling />
       <FAQs />
-      <ImageSlider />
+      <ImageSlider /> */}
     </div>
   );
 }
