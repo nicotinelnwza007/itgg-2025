@@ -1,9 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Kanit, Kalnia, Agbalumo } from "next/font/google";
-import Navbar from "./components/Navbar";
 import "./globals.css";
-import Footer from "./components/Footer";
 import DessertBackground from "./components/bg/DessertBackground";
 
 
@@ -58,9 +56,7 @@ export default function RootLayout({
     >
       <body className="antialiased font-kanit relative">
         <DessertBackground />
-        {/* <Navbar /> */}
         <main className="relative z-10">{children}</main>
-        {/* <Footer /> */}
       </body>
     </html>
   );
