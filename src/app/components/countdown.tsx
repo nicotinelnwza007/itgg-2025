@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type CountdownProps = {
   targetTime: Date;
@@ -48,34 +49,8 @@ export default function Countdown({ targetTime }: CountdownProps) {
   }
 
   return (
-    <div className="relative flex justify-center items-center w-full h-screen bg-[#342016] overflow-hidden">
-      <img
-        src="/cloud.png"
-        alt="cloud"
-        className="absolute w-40 sm:w-56 md:w-72 opacity-80 animate-float top-[15%] left-[5%] pointer-events-none"
-      />
-      <img
-        src="/cloud.png"
-        alt="cloud"
-        className="absolute w-32 sm:w-48 md:w-64 opacity-60 animate-float top-[15%] right-[10%] pointer-events-none"
-      />
-      <img
-        src="/cloud.png"
-        alt="cloud"
-        className="absolute w-32 sm:w-48 md:w-64 opacity-60 animate-float-slow top-[30%] right-[45%] pointer-events-none"
-      />
-      <img
-        src="/cloud.png"
-        alt="cloud"
-        className="absolute w-32 sm:w-48 md:w-64 opacity-60 animate-float bottom-[20%] right-[15%] pointer-events-none"
-      />
-      <img
-        src="/cloud.png"
-        alt="cloud"
-        className="absolute w-32 sm:w-48 md:w-64 opacity-60 animate-float-slow bottom-[5%] left-[15%] pointer-events-none"
-      />
-
-      <div className="z-10 rounded-xl backdrop-blur bg-white/25 border border-white/15 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
+    <div className="relative flex justify-center items-center w-full h-screen bg-transparent overflow-hidden">
+      <div className="z-10 rounded-xl bg-transparent px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
         <TimeBox label="Days" value={timeLeft.days} />
         <Colon />
         <TimeBox label="Hours" value={timeLeft.hours} />
