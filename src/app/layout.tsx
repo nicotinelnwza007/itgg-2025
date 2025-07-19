@@ -39,14 +39,14 @@ export const viewport = {
   initialScale: 1,
 };
 
-const siteUrl = ("https://itgg-2025.vercel.app/");
+const siteUrl = "https://itgg-2025.vercel.app/";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "ITGG 2025",
     template: `%s | ITGG 2025`,
   },
-  metadataBase: new URL("https://itgg-2025.vercel.app/"),
   openGraph: {
     title: "ITGG 2025",
     description: "ITGG 2025",
@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${siteUrl}/itggbanner.png`,
-        width: 1200,
-        height: 630,
+        width: 5120,
+        height: 2280,
         alt: "ITGG 2025",
       },
     ],
