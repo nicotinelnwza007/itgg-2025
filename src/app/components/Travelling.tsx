@@ -10,13 +10,13 @@ const Travelling = () => {
         >
             {/* Image Section - Mobile First */}
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end order-first lg:order-last">
-                <Image
-                    src="/logo.jpg"
-                    alt="ITGG 2025 Logo"
-                    width={400}
-                    height={300}
-                    className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px] object-cover rounded-lg shadow-lg"
-                />
+            <Image
+                src="/place/itplace.jpg"
+                alt="ITGG 2025 Logo"
+                width={640}
+                height={360}
+                className="w-full max-w-[640px] aspect-video object-cover rounded-xl shadow-2xl"
+            />
             </div>
 
             {/* Text Section */}

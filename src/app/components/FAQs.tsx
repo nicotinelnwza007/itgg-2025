@@ -25,7 +25,6 @@ const faqs = [
     question: 'ใครเข้าร่วมได้บ้าง?',
     answer: 'นักศึกษาคณะเทคโนโลยีสารสนเทศทุกชั้นปี สามารถเข้าร่วมได้',
   },
-
 ];
 
 export default function FAQs() {
@@ -42,22 +41,60 @@ export default function FAQs() {
         {faqs.map((item, index) => (
           <div key={index} className="border-b border-white/50">
             <button
-              className="w-full flex justify-between items-center py-4 text-left text-lg font-semibold"
+              className="w-full flex justify-between items-center py-4 text-left text-lg font-semibold transition-colors hover:text-white/80"
               onClick={() => toggle(index)}
             >
               <span>{item.question}</span>
-              {active === index ? <X size={24} /> : <Plus size={24} />}
+              <motion.div
+                animate={{ rotate: active === index ? 45 : 0 }}
+                transition={{ 
+                  duration: 0.3,
+                  ease: [0.25, 0.1, 0.25, 1]
+                }}
+              >
+                {active === index ? <X size={24} /> : <Plus size={24} />}
+              </motion.div>
             </button>
-            <AnimatePresence initial={false}>
+            <AnimatePresence mode="wait">
               {active === index && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden pb-4 pr-8 text-sm sm:text-base text-white/90"
+                  key={`faq-${index}`}
+                  initial={{ 
+                    height: 0, 
+                    opacity: 0,
+                    y: -10
+                  }}
+                  animate={{ 
+                    height: 'auto', 
+                    opacity: 1,
+                    y: 0
+                  }}
+                  exit={{ 
+                    height: 0, 
+                    opacity: 0,
+                    y: -10
+                  }}
+                  transition={{ 
+                    duration: 0.4,
+                    ease: [0.25, 0.1, 0.25, 1],
+                    opacity: { duration: 0.3 }
+                  }}
+                  style={{ overflow: 'hidden' }}
+                  className="pb-4 pr-8"
                 >
-                  {item.answer}
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 5 }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: 0.1,
+                      ease: "easeOut"
+                    }}
+                    className="text-sm sm:text-base text-white/90 leading-relaxed"
+                  >
+                    {item.answer}
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>

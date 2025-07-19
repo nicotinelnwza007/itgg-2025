@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { label: 'เกี่ยวกับ', href: '#about' },
   { label: 'กำหนดการ', href: '#agenda' },
-  { label: 'FAQs', href: '#gallery' },
+  { label: 'FAQs', href: '#FAQs' },
 ];
 
 export default function Navbar() {
@@ -32,16 +32,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.jpg"
+            src="/logo/itgglogo.svg"
             width={40}
             height={40}
             alt="Logo"
-            className="w-10 h-10 object-cover rounded-full"
+            className="w-14 h-104object-cover rounded-full"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 font-semibold text-sm">
+        <div className="hidden md:flex gap-6 font-semibold text-lg">
           {navItems.map((item) => (
             <Link
               key={item.href}

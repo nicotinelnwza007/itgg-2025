@@ -56,7 +56,7 @@ const Agenda = () => {
                 className="mb-2 mx-auto"
               />
               <h3 className="text-lg font-bold text-white">{event.title}</h3>
-              <p className="text-sm text-white">{event.date}</p>
+              <p className="text-sm text-white w-full text-center">{event.date}</p>
             </div>
           </div>
         ))}
