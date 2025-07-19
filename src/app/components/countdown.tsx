@@ -48,19 +48,65 @@ export default function Countdown({ targetTime }: CountdownProps) {
     return null;
   }
 
-  return (
-    <div className="relative flex justify-center items-center w-full h-screen bg-transparent overflow-hidden">
-      <div className="z-10 rounded-xl bg-transparent px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
-        <TimeBox label="Days" value={timeLeft.days} />
-        <Colon />
-        <TimeBox label="Hours" value={timeLeft.hours} />
-        <Colon />
-        <TimeBox label="Minutes" value={timeLeft.minutes} />
-        <Colon />
-        <TimeBox label="Seconds" value={timeLeft.seconds} />
-      </div>
+return (
+  <div className="relative flex flex-col justify-center items-center w-full h-screen bg-transparent overflow-hidden">
+    {/* Background decorations */}
+    <Image
+        src="/dessert/cake1.svg"
+        alt="top-left"
+        className="absolute w-24 sm:w-32 md:w-48 opacity-80 animate-float top-[15%] left-[5%] pointer-events-none"
+        width={200}
+        height={250}
+      />
+      <Image
+        src="/dessert/cake2.svg"
+        alt="top-right"
+        className="absolute w-24 sm:w-32 md:w-48 opacity-80 animate-float-slow top-[15%] right-[10%] pointer-events-none"
+        width={200}
+        height={250}
+      />
+      <Image
+        src="/dessert/cake3.svg"
+        alt="bottom-right"
+        className="absolute w-24 sm:w-32 md:w-48 opacity-80 animate-float bottom-[20%] right-[15%] pointer-events-none"
+        width={200}
+        height={250}
+      />
+      <Image
+        src="/dessert/cake4.svg"
+        alt="bottom-left"
+        className="absolute w-24 sm:w-32 md:w-48 opacity-80 animate-float-slow bottom-[5%] left-[15%] pointer-events-none"
+        width={150}
+        height={200}
+      />
+
+<div className="relative flex justify-center items-center mb-6">
+
+  <div className="absolute top-[-100px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.5)_0%,rgba(0,0,0,0)_70%)] blur-3xl opacity-80 pointer-events-none z-10"></div>
+
+  <Image
+    src="/logo/itgglogo.svg"
+    width={450}
+    height={450}
+    alt="ITGG 2025 Logo"
+    className="z-20 animate-float-slow max-w-[220px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
+  />
+</div>
+
+
+    {/* Countdown numbers */}
+    <div className="z-10 rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 mx-auto flex flex-wrap justify-center items-end gap-1 sm:gap-2 md:gap-3 text-center text-lg sm:text-lg md:text-3xl lg:text-5xl font-medium text-white text-glow">
+      <TimeBox label="Days" value={timeLeft.days} />
+      <Colon />
+      <TimeBox label="Hours" value={timeLeft.hours} />
+      <Colon />
+      <TimeBox label="Minutes" value={timeLeft.minutes} />
+      <Colon />
+      <TimeBox label="Seconds" value={timeLeft.seconds} />
     </div>
-  );
+  </div>
+);
+
 }
 
 function Colon() {
