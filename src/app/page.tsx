@@ -11,9 +11,6 @@ import ImageSlider from "./components/AutoImageSlide";
 import SweetScoreboard from "./components/Scoreboard";
 import SendAnswer from "./components/SendAnswer";
 
-const Countdown = dynamic(() => import("./components/countdown"), {
-  ssr: false,
-});
 
 export default function Home() {
 
