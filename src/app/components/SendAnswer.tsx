@@ -45,8 +45,18 @@ function SendAnswer() {
 
       if (response.ok) {
         setMessage(data.message)
-        // Refresh the quest data to update answered status
-        // fetchDailyQuest()
+        // Update quest data with the response to ensure consistency
+        if (data.quest) {
+          setDailyQuest(prev => prev ? {
+            ...prev,
+            ...data.quest,
+            hasAnswered: true,
+            wasCorrect: data.correct
+          } : null)
+        } else {
+          // Fallback: refresh the quest data to update answered status
+          fetchDailyQuest()
+        }
       } else {
         setMessage(data.error || 'Failed to check answer')
       }

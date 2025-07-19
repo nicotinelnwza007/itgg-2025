@@ -133,11 +133,38 @@ export async function POST(request: Request) {
             correct: isCorrect,
             message: isCorrect ? `Correct! You earned ${dailyQuest.score} points!` : "Wrong answer, try again tomorrow!",
             score: isCorrect ? dailyQuest.score : 0,
-            answerStatus: isCorrect ? 'correct' : 'incorrect'
+            answerStatus: isCorrect ? 'correct' : 'incorrect',
+            quest: {
+                id: dailyQuest.id,
+                question: dailyQuest.question,
+                score: dailyQuest.score
+            }
         });
 
         // Set cookie that expires at midnight
         response.cookies.set(answerCookieName, 'true', {
+            expires: tomorrow,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax'
+        });
+
+        // Always store the quest ID so we can show the same quest later
+        const questIdCookieName = `quest_id_${todayDateString}`;
+        response.cookies.set(questIdCookieName, dailyQuest.id, {
+            expires: tomorrow,
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax'
+        });
+
+        // Store quest data so we can reconstruct the same quest
+        const questDataCookieName = `quest_data_${todayDateString}`;
+        response.cookies.set(questDataCookieName, JSON.stringify({
+            id: dailyQuest.id,
+            question: dailyQuest.question,
+            score: dailyQuest.score
+        }), {
             expires: tomorrow,
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -177,21 +204,37 @@ export async function GET() {
         const todayDateString = getTodayDateString();
         const answerCookieName = `quest_answered_${todayDateString}`;
         const correctCookieName = `quest_correct_${todayDateString}`;
-        
+        const questDataCookieName = `quest_data_${todayDateString}`;
+
         // Check if user already answered today's quest
         const hasAnsweredToday = cookieStore.get(answerCookieName);
         const wasCorrect = cookieStore.get(correctCookieName);
+        const storedQuestData = cookieStore.get(questDataCookieName);
 
-        // Get today's quest
-        const dailyQuest = await getDailyQuest(supabase);
-        if (!dailyQuest) {
+        let questToReturn;
+
+        // If user has already answered, return the stored quest data
+        if (hasAnsweredToday && storedQuestData) {
+            try {
+                questToReturn = JSON.parse(storedQuestData.value);
+            } catch (error) {
+                console.error('Error parsing stored quest data:', error);
+                // Fallback to daily quest if stored data is corrupted
+                questToReturn = await getDailyQuest(supabase);
+            }
+        } else {
+            // Get today's quest for users who haven't answered yet
+            questToReturn = await getDailyQuest(supabase);
+        }
+
+        if (!questToReturn) {
             return NextResponse.json({ error: "No quest available" }, { status: 404 });
         }
 
         return NextResponse.json({
-            id: dailyQuest.id,
-            question: dailyQuest.question,
-            score: dailyQuest.score,
+            id: questToReturn.id,
+            question: questToReturn.question,
+            score: questToReturn.score,
             hasAnswered: !!hasAnsweredToday,
             wasCorrect: !!wasCorrect,
             date: todayDateString

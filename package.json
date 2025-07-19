@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@g-loot/react-tournament-brackets": "^1.0.31-rc",
         "@supabase/ssr": "^0.6.1",
         "@supabase/supabase-js": "^2.51.0",
         "framer-motion": "^12.23.3",
