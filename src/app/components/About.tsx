@@ -19,7 +19,7 @@ const About = () => {
             </div>
 
             {/* Text Section */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <div className="w-full lg:w-1/2 text-center lg:text-left text-white">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                     กิจกรรม ITGG คืออะไร?
                 </h2>

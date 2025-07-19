@@ -20,7 +20,7 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
   }, [images.length, interval]);
 
   return (
-    <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[450px] aspect-video mx-auto overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg">
+    <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[350px] lg:min-h-[450px] aspect-video mx-auto overflow-hidden rounded-md sm:rounded-xl md:rounded-2xl shadow-lg">
       <AnimatePresence>
         <motion.div
           key={index}
@@ -54,7 +54,7 @@ const images = [
 export default function ImageSlider() {
   return (
     <section className="my-8 md:my-16 px-4 sm:px-6">
-      <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6 text-[#2c4673]">บรรยากาศกิจกรรม</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6 text-white">บรรยากาศกิจกรรม</h2>
       <AutoImageSlider images={images} />
     </section>
   );

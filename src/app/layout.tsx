@@ -22,7 +22,11 @@ const notoSansThai = Noto_Sans_Thai({
 export const metadata: Metadata = {
   title: "itgg-2025",
   description: "itgg-2025",
-  viewport: "width=device-width, initial-scale=1"
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -36,8 +40,7 @@ export default function RootLayout({
         className="antialiased"
         style={{
           fontFamily: "var(--font-noto-sans-thai)",
-          background:
-            "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
+    background: "linear-gradient(21deg,rgba(74, 53, 53, 1) 13%, rgba(153, 103, 93, 1) 69%)",
         }}
       >
         <Navbar />
