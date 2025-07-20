@@ -11,7 +11,7 @@ async function Page() {
     <div className='flex flex-col justify-center items-center h-screen space-y-4'>
         {user ? (
             <div className='flex flex-col items-center gap-4'>
-                <div className='text-2xl font-bold mb-2 text-center text-gray-800'>
+                <div className='text-2xl font-bold mb-2 text-center text-white'>
                     You are already logged in
                     <p>{user?.email}</p>
                 </div>
