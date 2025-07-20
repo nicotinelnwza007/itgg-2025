@@ -4,7 +4,7 @@ import { X, Train, Car, Bus, TrainFront, Truck } from 'lucide-react';
 import PrimaryButton from './sub/PrimaryButton';
 import SecondaryButton from './sub/SecondaryButton';
 
-const TravelModal = ({ isOpen, onClose }) => {
+const TravelModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
   if (!isOpen) return null;
 
   return (
