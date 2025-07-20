@@ -5,26 +5,62 @@ const AgendaEvents = [
   {
     side: "left",
     icon: "/icons/it.svg",
-    title: "เปิดรับสมัครออนไลน์",
-    date: "25 เม.ย. - 28 พ.ค.",
+    title: "First Meet",
+    date: "7 กค 16:30.",
   },
   {
     side: "right",
     icon: "/icons/it.svg",
-    title: "First meet online",
-    date: "10 พ.ค.",
+    title: "First day",
+    date: "21 กค",
   },
   {
     side: "left",
     icon: "/icons/it.svg",
-    title: "เปิดรับสมัครออนไซต์",
-    date: "19 - 30 พ.ค.",
+    title: "รับสมัครนักกีฬาทั้งหมด ",
+    date: "21 กค",
   },
   {
     side: "right",
     icon: "/icons/it.svg",
-    title: "กิจกรรมออนไซต์",
-    date: "5 มิ.ย.",
+    title: "Special Event ",
+    date: "22 กค 16:00",
+  },
+    {
+    side: "left",
+    icon: "/icons/it.svg",
+    title: "Variety day ",
+    date: "24 กค 16:30",
+  },
+  {
+    side: "right",
+    icon: "/icons/it.svg",
+    title: "ปิดรับสมัครกีฬา E-sports ",
+    date: "25 กค",
+  },
+    {
+    side: "left",
+    icon: "/icons/it.svg",
+    title: "เริ่มแข่งValorant และ Rov",
+    date: "28 กค - 31 กค",
+  },
+  {
+    side: "right",
+    icon: "/icons/it.svg",
+    title: "ปิดรับสมัครนักกีฬา",
+    date: "29 กค",
+  },
+  {
+    side: "left",
+    icon: "/icons/it.svg",
+    title: "RoV และ Valorant รอบ Final",
+    date: "31 กค และ 1 สค",
+  },
+  {
+    side: "right",
+    icon: "/icons/it.svg",
+    title: "Last day",
+    date: "6 สค",
   },
 ];
 
@@ -46,7 +82,7 @@ const Agenda = () => {
                 event.side === "left"
                   ? "md:items-end md:text-right md:mr-auto"
                   : "md:items-start md:text-left md:ml-auto"
-              } text-center max-w-[300px] md:max-w-[360px] p-6 rounded-2xl shadow-md border-2 border-white/30 space-y-2`}
+              } text-center max-w-[300px] md:max-w-[360px] p-6 rounded-2xl space-y-2`}
             >
               <Image
                 src={event.icon}

@@ -403,17 +403,7 @@ const TournamentBracket: React.FC = () => {
       </div>
     </div>
   );
-
-  const ConnectorLines: React.FC<{ roundIndex: number; totalRounds: number }> = ({ roundIndex, totalRounds }) => (
-    <div className="hidden lg:flex items-center justify-center px-4">
-      <div className="relative flex items-center justify-center">
-        {roundIndex < totalRounds - 1 && (
-          <div className={`w-16 h-px ${currentTournament.accentColor} opacity-60`}></div>
-        )}
-      </div>
-    </div>
-  );
-
+// Your main component return statement without ConnectorLines
 return (
     <div className="min-h-screen mt-28 text-white p-4 sm:p-6">
       
@@ -423,7 +413,6 @@ return (
           <h1 className={`text-3xl sm:text-5xl font-bold mb-4 ${currentTournament.color}`}>
             {currentTournament.title}
           </h1>
-          <p className="text-gray-400 text-base sm:text-lg">Complete Tournament Bracket • Live Updates</p>
         </div>
 
         {/* Tournament Selector */}
@@ -504,22 +493,30 @@ return (
         )}
       </div>
 
-      {/* Bracket Container with Hidden Scrollbar */}
       <div className="max-w-7xl mx-auto">
         <div 
-          className="bracket-scroll-container"
+          className="bracket-scroll-container overflow-auto"
+          style={{ 
+            maxHeight: '70vh', 
+            minHeight: '400px'
+          }}
           onMouseDown={(e) => {
             const container = e.currentTarget;
             const startX = e.pageX - container.offsetLeft;
+            const startY = e.pageY - container.offsetTop;
             const scrollLeft = container.scrollLeft;
+            const scrollTop = container.scrollTop;
             
             container.classList.add('dragging');
             
             const handleMouseMove = (e) => {
               e.preventDefault();
               const x = e.pageX - container.offsetLeft;
-              const walk = (x - startX) * 2; // Scroll speed multiplier
-              container.scrollLeft = scrollLeft - walk;
+              const y = e.pageY - container.offsetTop;
+              const walkX = (x - startX) * 2; 
+              const walkY = (y - startY) * 2; 
+              container.scrollLeft = scrollLeft - walkX;
+              container.scrollTop = scrollTop - walkY;
             };
             
             const handleMouseUp = () => {
@@ -537,18 +534,11 @@ return (
         >
           <div className="flex items-start justify-center gap-4 sm:gap-6 lg:gap-8 min-w-max px-2 sm:px-4">
             {bracketData?.rounds?.map((round, index) => (
-              <React.Fragment key={round.id || index}>
-                <RoundColumn 
-                  round={round} 
-                  isSmall={bracketData.rounds.length > 4}
-                />
-                {index < bracketData.rounds.length - 1 && (
-                  <ConnectorLines 
-                    roundIndex={index} 
-                    totalRounds={bracketData.rounds.length}
-                  />
-                )}
-              </React.Fragment>
+              <RoundColumn 
+                key={round.id || index}
+                round={round} 
+                isSmall={bracketData.rounds.length > 4}
+              />
             ))}
           </div>
         </div>
@@ -562,8 +552,8 @@ return (
                 <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
                 <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
               </div>
-              <span className="hidden sm:inline font-medium">Click and drag to navigate</span>
-              <span className="sm:hidden font-medium text-center">Touch and drag</span>
+              <span className="hidden sm:inline font-medium">Click and drag to navigate • Scroll vertically</span>
+              <span className="sm:hidden font-medium text-center">Touch and drag • Scroll</span>
               <div className="flex gap-1">
                 <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.3s'}}></div>
                 <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
