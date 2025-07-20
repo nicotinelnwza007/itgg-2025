@@ -48,10 +48,10 @@ export async function register(formData: FormData) {
     let assignedGate: string | null = null;
     
     // It22-23 student
-    if (studentId.startsWith('it67') || studentId.startsWith('it68')) {
+    if (studentId.startsWith('67') || studentId.startsWith('68')) {
         // Find the student in the provided data
         const studentRecord = studentGateData.find(
-            (record) => record.id === studentId.split('it')[1]
+            (record) => record.id === studentId
         );
     
         if (!studentRecord) {
@@ -61,8 +61,8 @@ export async function register(formData: FormData) {
         // Assign the gate from the studentGateData
         assignedGate = studentRecord.gate;
     } else {
-        // also this regex
-        if (!studentId.match(/^it\d{5}$/) || !gates.includes(data.gate)) {
+        // Check if student ID is valid (5 digits) and gate is valid
+        if (!studentId.match(/^\d{5}$/) || !gates.includes(data.gate)) {
             redirect('/error?message=Invalid credentials. IT students must use student ID and a valid gate (AND, OR, NOR, NOT)')
         }
         assignedGate = data.gate;

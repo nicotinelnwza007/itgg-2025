@@ -47,13 +47,14 @@ function Page() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               onChange={(e) => {
                 const value = e.target.value.toLowerCase();
-                if (value.startsWith('it6')) {
-                  // it67 or it68 -> new student
-                  if (value.startsWith('it67') || value.startsWith('it68')) {
+                const emailPart = value.split('@')[0];
+                if (emailPart.startsWith('6')) {
+                  // 67 or 68 -> new student
+                  if (emailPart.startsWith('67') || emailPart.startsWith('68')) {
                     setIsOldStudent(false);
                     setIsGateValid(true);
                   }
-                  // it66 or lower -> old student  
+                  // 66 or lower -> old student  
                   else {
                     setIsOldStudent(true);
                   }
