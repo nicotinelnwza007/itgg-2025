@@ -5,113 +5,104 @@ import { register } from "../actions";
 function Page() {
   const [isOldStudent, setIsOldStudent] = useState(false);
   const [isGateValid, setIsGateValid] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const gates = ['AND', 'OR', 'NOR', 'NOT'];
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <form
-        action={register}
-        className="bg-white p-8 rounded-lg shadow-md w-96"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Register
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <label
-              htmlFor="nickname"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Nickname
-            </label>
-            <input
-              type="text"
-              name="nickname"
-              id="nickname"
-              placeholder="Enter your nickname"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
+      <div className="flex flex-col items-center justify-center px-4">
+        <div className="bg-[#fff7ef] rounded-2xl shadow-lg w-full max-w-sm p-8 space-y-6">
+
+          <div className="flex flex-col items-center space-y-2">
+            <h1 className="text-2xl font-bold text-[#5e3c1b]">Register</h1>
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter your email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              onChange={(e) => {
-                const value = e.target.value.toLowerCase();
-                const emailPart = value.split('@')[0];
-                if (emailPart.startsWith('6')) {
-                  // 67 or 68 -> new student
-                  if (emailPart.startsWith('67') || emailPart.startsWith('68')) {
-                    setIsOldStudent(false);
-                    setIsGateValid(true);
-                  }
-                  // 66 or lower -> old student  
-                  else {
-                    setIsOldStudent(true);
-                  }
-                }
-              }}
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter your password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
-          {isOldStudent && (
-            <div>
-              <label
-                htmlFor="gate"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Gate
-              </label>
+
+          <form className="space-y-4" action={register}>
+            <div className="flex items-center border border-[#e2c9b1] rounded-md bg-[#f9eee3] px-3 py-2">
+              <span className="text-[#8b5e3c] mr-2">👤</span>
               <input
                 type="text"
-                name="gate"
-                id="gate"
-                placeholder="Enter your gate"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                name="nickname"
+                id="nickname"
+                placeholder="Enter your Nickname"
+                className="w-full bg-transparent outline-none text-[#5e3c1b] placeholder-[#b98c68]"
+                required
+              />
+            </div>
+
+            <div className="flex items-center border border-[#e2c9b1] rounded-md bg-[#f9eee3] px-3 py-2">
+              <span className="text-[#8b5e3c] mr-2">📧</span>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                className="w-full bg-transparent outline-none text-[#5e3c1b] placeholder-[#b98c68]"
+                required
                 onChange={(e) => {
-                  const value = e.target.value.toUpperCase();
-                  if (gates.includes(value)) {
-                    setIsGateValid(true);
+                  const value = e.target.value.toLowerCase();
+                  const emailPart = value.split('@')[0];
+                  if (emailPart.startsWith('6')) {
+                    if (emailPart.startsWith('67') || emailPart.startsWith('68')) {
+                      setIsOldStudent(false);
+                      setIsGateValid(true);
+                    } else {
+                      setIsOldStudent(true);
+                      setIsGateValid(false);
+                    }
                   } else {
+                    setIsOldStudent(false);
                     setIsGateValid(false);
                   }
                 }}
               />
             </div>
-          )}
+            <div className="flex items-center border border-[#e2c9b1] rounded-md bg-[#f9eee3] px-3 py-2">
+              <span className="text-[#8b5e3c] mr-2">🔒</span>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="w-full bg-transparent outline-none text-[#5e3c1b] placeholder-[#b98c68]"
+                required
+              />
+              <span
+                className="text-[#8b5e3c] ml-2 cursor-pointer select-none"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </span>
+            </div>
 
-          <button
-            disabled={!isGateValid}
-            type="submit"
-            className="disabled:opacity-50 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Register
-          </button>
+            {isOldStudent && (
+              <div className="flex items-center border border-[#e2c9b1] rounded-md bg-[#f9eee3] px-3 py-2">
+                <span className="text-[#8b5e3c] mr-2">🛡️</span>
+                <input
+                  type="text"
+                  name="gate"
+                  id="gate"
+                  placeholder="Enter your gate"
+                  className="w-full bg-transparent outline-none text-[#5e3c1b] placeholder-[#b98c68]"
+                  required
+                  onChange={(e) => {
+                    const value = e.target.value.toUpperCase();
+                    setIsGateValid(gates.includes(value));
+                  }}
+                />
+              </div>
+            )}
+
+            <button
+              disabled={!isGateValid}
+              type="submit"
+              className={`w-full font-semibold py-2 rounded-lg transition 
+                ${isGateValid ? "bg-[#c27a44] hover:bg-[#a86438] text-white" : "bg-[#e2c9b1] text-[#8b5e3c] cursor-not-allowed"}`}
+            >
+              Submit
+            </button>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
