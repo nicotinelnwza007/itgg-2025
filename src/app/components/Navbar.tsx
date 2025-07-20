@@ -24,13 +24,13 @@ export default function Navbar() {
 
       if (!user) return;
 
-      const { data: { nickname, gate, score } } = await supabase
+      const { data: raw_userData } = await supabase
         .from('profiles')
         .select('nickname, gate, score')
         .eq('user', user?.id)
         .single();
-      console.log(nickname, gate, score);
-      setUserData({ nickname: nickname || null, gate: gate || null, score: score || null });
+      console.log(raw_userData);
+      setUserData({ nickname: raw_userData?.nickname || null, gate: raw_userData?.gate || null, score: raw_userData?.score || null });
     };
     fetchUser();
   }, []);
