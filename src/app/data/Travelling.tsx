@@ -119,7 +119,7 @@ const Travelling = () => {
 
         {/* Text Section */}
         <div className="w-full lg:w-1/2 text-center lg:text-left order-last lg:order-first text-white">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
             กิจกรรมจัดขึ้นที่ไหน
           </h2>
           <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-5">

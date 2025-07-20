@@ -70,7 +70,7 @@ const Agenda = () => {
       id="agenda"
       className="relative w-full max-w-2xl mx-auto px-6 py-16 scroll-mt-24 flex flex-col"
     >
-    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center pb-12">LOGIC GATE</span>
+    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center pb-12">Timeline</span>
       <div className="relative flex flex-col items-center gap-16 md:before:block md:before:absolute md:before:top-0 md:before:bottom-0 md:before:left-1/2 md:before:-translate-x-1/2 md:before:w-2 md:before:bg-[#d7a86e]">
         {AgendaEvents.map((event, index) => {
           const IconComponent = event.icon;

@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { Facebook, MessageCircle } from 'lucide-react';
+import { Facebook, InstagramIcon } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -9,21 +10,24 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Logo Section */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
-          <Image 
+          <Image
+		  	quality={100}
             src="/logo/itgglogo.svg" 
             alt="ITGG Logo" 
             width={60} 
             height={60} 
-            className="object-contain sm:w-20 sm:h-20" 
-          />
+            className="object-contain sm:w-25 sm:h-25" 
+			/>
           <Image 
+			quality={100}
             src="/it-kmitl.png" 
             alt="IT KMITL Logo" 
             width={60} 
             height={60} 
             className="object-contain rounded-full p-1.5 sm:p-2 sm:w-20 sm:h-20" 
-          />
+			/>
           <Image 
+			quality={100}
             src="/kmitl.png" 
             alt="KMITL Logo" 
             width={60} 
@@ -82,26 +86,28 @@ export default function Footer() {
                 ติดตามข่าวสาร
               </h4>
               <div className="flex gap-4 sm:gap-5">
-                <a
-                  href="#"
+                <Link
+                  href="https://www.facebook.com/InfoTechGateGame/"
                   aria-label="Facebook Page"
                   className="group hover:scale-110 transition-all duration-300 ease-out"
+				  target='_blank'
                 >
                   <Facebook 
                     size={28} 
                     className="text-[#FAF1E5] group-hover:text-white transition-colors duration-300 sm:w-8 sm:h-8" 
                   />
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="https://www.instagram.com/itgg.kmitl/"
                   aria-label="Line Official Account"
                   className="group hover:scale-110 transition-all duration-300 ease-out"
+				  target='_blank'
                 >
-                  <MessageCircle 
+                  <InstagramIcon 
                     size={28} 
                     className="text-[#FAF1E5] group-hover:text-white transition-colors duration-300 sm:w-8 sm:h-8" 
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
