@@ -2,9 +2,9 @@
   "football": [
     {
       "id": "football-r1-m1",
-      "name": "Round of 16 - Match 1",
+      "name": "First Round - Match 1",
       "nextMatchId": "football-r2-m1",
-      "tournamentRoundText": "Round of 16",
+      "tournamentRoundText": "First Round",
       "startTime": "2025-07-10",
       "state": "DONE",
       "participants": [
@@ -26,9 +26,9 @@
     },
     {
       "id": "football-r1-m2",
-      "name": "Round of 16 - Match 2",
+      "name": "First Round - Match 2",
       "nextMatchId": "football-r2-m1",
-      "tournamentRoundText": "Round of 16",
+      "tournamentRoundText": "First Round",
       "startTime": "2025-07-10",
       "state": "DONE",
       "participants": [
@@ -49,314 +49,98 @@
       ]
     },
     {
-      "id": "football-r1-m3",
-      "name": "Round of 16 - Match 3",
-      "nextMatchId": "football-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t5",
-          "name": "Football Team 5",
-          "logoUrl": "/logos/football5.png",
-          "isWinner": true,
-          "resultText": "1"
-        },
-        {
-          "id": "football-t6",
-          "name": "Football Team 6",
-          "logoUrl": "/logos/football6.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "football-r1-m4",
-      "name": "Round of 16 - Match 4",
-      "nextMatchId": "football-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t7",
-          "name": "Football Team 7",
-          "logoUrl": "/logos/football7.png",
-          "isWinner": true,
-          "resultText": "4"
-        },
-        {
-          "id": "football-t8",
-          "name": "Football Team 8",
-          "logoUrl": "/logos/football8.png",
-          "isWinner": false,
-          "resultText": "2"
-        }
-      ]
-    },
-    {
-      "id": "football-r1-m5",
-      "name": "Round of 16 - Match 5",
-      "nextMatchId": "football-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t9",
-          "name": "Football Team 9",
-          "logoUrl": "/logos/football9.png",
-          "isWinner": false,
-          "resultText": "1"
-        },
-        {
-          "id": "football-t10",
-          "name": "Football Team 10",
-          "logoUrl": "/logos/football10.png",
-          "isWinner": true,
-          "resultText": "2"
-        }
-      ]
-    },
-    {
-      "id": "football-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "football-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t11",
-          "name": "Football Team 11",
-          "logoUrl": "/logos/football11.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "football-t12",
-          "name": "Football Team 12",
-          "logoUrl": "/logos/football12.png",
-          "isWinner": false,
-          "resultText": "3"
-        }
-      ]
-    },
-    {
-      "id": "football-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "football-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t13",
-          "name": "Football Team 13",
-          "logoUrl": "/logos/football13.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "football-t14",
-          "name": "Football Team 14",
-          "logoUrl": "/logos/football14.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "football-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "football-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "football-t15",
-          "name": "Football Team 15",
-          "logoUrl": "/logos/football15.png",
-          "isWinner": false,
-          "resultText": "1"
-        },
-        {
-          "id": "football-t16",
-          "name": "Football Team 16",
-          "logoUrl": "/logos/football16.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
       "id": "football-r2-m1",
-      "name": "Quarterfinal - Match 1",
+      "name": "Semifinal - Winners",
       "nextMatchId": "football-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
+      "tournamentRoundText": "Semifinal",
+      "startTime": "2025-07-13",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "football-r2-m1-p1",
-          "name": "Winner of football-r1-m1",
-          "logoUrl": "/logos/football-r2p1.png",
+          "id": "football-t1",
+          "name": "Football Team 1",
+          "logoUrl": "/logos/football1.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "football-r2-m1-p2",
-          "name": "Winner of football-r1-m2",
-          "logoUrl": "/logos/football-r2p2.png",
+          "id": "football-t4",
+          "name": "Football Team 4",
+          "logoUrl": "/logos/football4.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "football-r2-m2",
-      "name": "Quarterfinal - Match 2",
-      "nextMatchId": "football-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "football-r2-m2-p1",
-          "name": "Winner of football-r1-m3",
-          "logoUrl": "/logos/football-r2p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "football-r2-m2-p2",
-          "name": "Winner of football-r1-m4",
-          "logoUrl": "/logos/football-r2p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "football-r2-m3",
-      "name": "Quarterfinal - Match 3",
+      "name": "Semifinal - Losers",
       "nextMatchId": "football-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
+      "tournamentRoundText": "Semifinal",
+      "startTime": "2025-07-13",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "football-r2-m3-p1",
-          "name": "Winner of football-r1-m5",
-          "logoUrl": "/logos/football-r2p5.png",
+          "id": "football-t2",
+          "name": "Football Team 2",
+          "logoUrl": "/logos/football2.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "football-r2-m3-p2",
-          "name": "Winner of football-r1-m6",
-          "logoUrl": "/logos/football-r2p6.png",
+          "id": "football-t3",
+          "name": "Football Team 3",
+          "logoUrl": "/logos/football3.png",
           "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "football-r2-m4",
-      "name": "Quarterfinal - Match 4",
-      "nextMatchId": "football-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "football-r2-m4-p1",
-          "name": "Winner of football-r1-m7",
-          "logoUrl": "/logos/football-r2p7.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "football-r2-m4-p2",
-          "name": "Winner of football-r1-m8",
-          "logoUrl": "/logos/football-r2p8.png",
-          "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "football-r3-m1",
-      "name": "Semifinal - Match 1",
-      "nextMatchId": "football-r4-m1",
-      "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
+      "name": "Final",
+      "nextMatchId": null,
+      "tournamentRoundText": "Final",
+      "startTime": "2025-07-16",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "football-r3-m1-p1",
-          "name": "Winner of football-r2-m1",
-          "logoUrl": "/logos/football-r3p1.png",
+          "id": "TBD-SF-W1",
+          "name": "Winner of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "football-r3-m1-p2",
-          "name": "Winner of football-r2-m2",
-          "logoUrl": "/logos/football-r3p2.png",
+          "id": "TBD-SF-W2",
+          "name": "Loser of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "football-r3-m2",
-      "name": "Semifinal - Match 2",
-      "nextMatchId": "football-r4-m1",
-      "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "football-r3-m2-p1",
-          "name": "Winner of football-r2-m3",
-          "logoUrl": "/logos/football-r3p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "football-r3-m2-p2",
-          "name": "Winner of football-r2-m4",
-          "logoUrl": "/logos/football-r3p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "football-r4-m1",
-      "name": "Final - Match 1",
+      "name": "Third Place Playoff",
       "nextMatchId": null,
-      "tournamentRoundText": "Final",
-      "startTime": "2025-07-13",
+      "tournamentRoundText": "3rd Place",
+      "startTime": "2025-07-15",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "football-r4-m1-p1",
-          "name": "Winner of football-r3-m1",
-          "logoUrl": "/logos/football-r4p1.png",
+          "id": "TBD-SF-L1",
+          "name": "Winner of Semifinal - Losers",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "football-r4-m1-p2",
-          "name": "Winner of football-r3-m2",
-          "logoUrl": "/logos/football-r4p2.png",
+          "id": "TBD-SF-L2",
+          "name": "Loser of Semifinal - Losers",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     }
@@ -364,1085 +148,291 @@
   "basketball": [
     {
       "id": "basketball-r1-m1",
-      "name": "Round of 16 - Match 1",
+      "name": "First Round - Match 1",
       "nextMatchId": "basketball-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
+      "tournamentRoundText": "First Round",
+      "startTime": "2025-07-11",
       "state": "DONE",
       "participants": [
         {
           "id": "basketball-t1",
-          "name": "Basketball Team 1",
+          "name": "Thunder Hawks",
           "logoUrl": "/logos/basketball1.png",
           "isWinner": true,
-          "resultText": "80"
+          "resultText": "89"
         },
         {
           "id": "basketball-t2",
-          "name": "Basketball Team 2",
+          "name": "Lightning Bolts",
           "logoUrl": "/logos/basketball2.png",
           "isWinner": false,
-          "resultText": "75"
+          "resultText": "76"
         }
       ]
     },
     {
       "id": "basketball-r1-m2",
-      "name": "Round of 16 - Match 2",
+      "name": "First Round - Match 2",
       "nextMatchId": "basketball-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
+      "tournamentRoundText": "First Round",
+      "startTime": "2025-07-11",
       "state": "DONE",
       "participants": [
         {
           "id": "basketball-t3",
-          "name": "Basketball Team 3",
+          "name": "Storm Riders",
           "logoUrl": "/logos/basketball3.png",
           "isWinner": false,
-          "resultText": "70"
+          "resultText": "82"
         },
         {
           "id": "basketball-t4",
-          "name": "Basketball Team 4",
+          "name": "Fire Dragons",
           "logoUrl": "/logos/basketball4.png",
           "isWinner": true,
-          "resultText": "85"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m3",
-      "name": "Round of 16 - Match 3",
-      "nextMatchId": "basketball-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t5",
-          "name": "Basketball Team 5",
-          "logoUrl": "/logos/basketball5.png",
-          "isWinner": true,
-          "resultText": "90"
-        },
-        {
-          "id": "basketball-t6",
-          "name": "Basketball Team 6",
-          "logoUrl": "/logos/basketball6.png",
-          "isWinner": false,
-          "resultText": "88"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m4",
-      "name": "Round of 16 - Match 4",
-      "nextMatchId": "basketball-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t7",
-          "name": "Basketball Team 7",
-          "logoUrl": "/logos/basketball7.png",
-          "isWinner": true,
           "resultText": "95"
-        },
-        {
-          "id": "basketball-t8",
-          "name": "Basketball Team 8",
-          "logoUrl": "/logos/basketball8.png",
-          "isWinner": false,
-          "resultText": "93"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m5",
-      "name": "Round of 16 - Match 5",
-      "nextMatchId": "basketball-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t9",
-          "name": "Basketball Team 9",
-          "logoUrl": "/logos/basketball9.png",
-          "isWinner": false,
-          "resultText": "78"
-        },
-        {
-          "id": "basketball-t10",
-          "name": "Basketball Team 10",
-          "logoUrl": "/logos/basketball10.png",
-          "isWinner": true,
-          "resultText": "80"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "basketball-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t11",
-          "name": "Basketball Team 11",
-          "logoUrl": "/logos/basketball11.png",
-          "isWinner": true,
-          "resultText": "85"
-        },
-        {
-          "id": "basketball-t12",
-          "name": "Basketball Team 12",
-          "logoUrl": "/logos/basketball12.png",
-          "isWinner": false,
-          "resultText": "82"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "basketball-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t13",
-          "name": "Basketball Team 13",
-          "logoUrl": "/logos/basketball13.png",
-          "isWinner": false,
-          "resultText": "88"
-        },
-        {
-          "id": "basketball-t14",
-          "name": "Basketball Team 14",
-          "logoUrl": "/logos/basketball14.png",
-          "isWinner": true,
-          "resultText": "89"
-        }
-      ]
-    },
-    {
-      "id": "basketball-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "basketball-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "basketball-t15",
-          "name": "Basketball Team 15",
-          "logoUrl": "/logos/basketball15.png",
-          "isWinner": true,
-          "resultText": "92"
-        },
-        {
-          "id": "basketball-t16",
-          "name": "Basketball Team 16",
-          "logoUrl": "/logos/basketball16.png",
-          "isWinner": false,
-          "resultText": "90"
         }
       ]
     },
     {
       "id": "basketball-r2-m1",
-      "name": "Quarterfinal - Match 1",
+      "name": "Semifinal - Winners",
       "nextMatchId": "basketball-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
+      "tournamentRoundText": "Semifinal",
+      "startTime": "2025-07-14",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "basketball-r2-m1-p1",
-          "name": "Winner of basketball-r1-m1",
-          "logoUrl": "/logos/basketball-r2p1.png",
+          "id": "basketball-t1",
+          "name": "Thunder Hawks",
+          "logoUrl": "/logos/basketball1.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "basketball-r2-m1-p2",
-          "name": "Winner of basketball-r1-m2",
-          "logoUrl": "/logos/basketball-r2p2.png",
+          "id": "basketball-t4",
+          "name": "Fire Dragons",
+          "logoUrl": "/logos/basketball4.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "basketball-r2-m2",
-      "name": "Quarterfinal - Match 2",
-      "nextMatchId": "basketball-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "basketball-r2-m2-p1",
-          "name": "Winner of basketball-r1-m3",
-          "logoUrl": "/logos/basketball-r2p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "basketball-r2-m2-p2",
-          "name": "Winner of basketball-r1-m4",
-          "logoUrl": "/logos/basketball-r2p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "basketball-r2-m3",
-      "name": "Quarterfinal - Match 3",
+      "name": "Semifinal - Losers",
       "nextMatchId": "basketball-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
+      "tournamentRoundText": "Semifinal",
+      "startTime": "2025-07-14",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "basketball-r2-m3-p1",
-          "name": "Winner of basketball-r1-m5",
-          "logoUrl": "/logos/basketball-r2p5.png",
+          "id": "basketball-t2",
+          "name": "Lightning Bolts",
+          "logoUrl": "/logos/basketball2.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "basketball-r2-m3-p2",
-          "name": "Winner of basketball-r1-m6",
-          "logoUrl": "/logos/basketball-r2p6.png",
+          "id": "basketball-t3",
+          "name": "Storm Riders",
+          "logoUrl": "/logos/basketball3.png",
           "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "basketball-r2-m4",
-      "name": "Quarterfinal - Match 4",
-      "nextMatchId": "basketball-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "basketball-r2-m4-p1",
-          "name": "Winner of basketball-r1-m7",
-          "logoUrl": "/logos/basketball-r2p7.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "basketball-r2-m4-p2",
-          "name": "Winner of basketball-r1-m8",
-          "logoUrl": "/logos/basketball-r2p8.png",
-          "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "basketball-r3-m1",
-      "name": "Semifinal - Match 1",
-      "nextMatchId": "basketball-r4-m1",
-      "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
+      "name": "Final",
+      "nextMatchId": null,
+      "tournamentRoundText": "Final",
+      "startTime": "2025-07-17",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "basketball-r3-m1-p1",
-          "name": "Winner of basketball-r2-m1",
-          "logoUrl": "/logos/basketball-r3p1.png",
+          "id": "TBD-SF-W1",
+          "name": "Winner of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "basketball-r3-m1-p2",
-          "name": "Winner of basketball-r2-m2",
-          "logoUrl": "/logos/basketball-r3p2.png",
+          "id": "TBD-SF-W2",
+          "name": "Loser of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
       "id": "basketball-r3-m2",
-      "name": "Semifinal - Match 2",
-      "nextMatchId": "basketball-r4-m1",
-      "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "basketball-r3-m2-p1",
-          "name": "Winner of basketball-r2-m3",
-          "logoUrl": "/logos/basketball-r3p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "basketball-r3-m2-p2",
-          "name": "Winner of basketball-r2-m4",
-          "logoUrl": "/logos/basketball-r3p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "basketball-r4-m1",
-      "name": "Final - Match 1",
+      "name": "Third Place Playoff",
       "nextMatchId": null,
-      "tournamentRoundText": "Final",
-      "startTime": "2025-07-13",
+      "tournamentRoundText": "3rd Place",
+      "startTime": "2025-07-16",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "basketball-r4-m1-p1",
-          "name": "Winner of basketball-r3-m1",
-          "logoUrl": "/logos/basketball-r4p1.png",
+          "id": "TBD-SF-L1",
+          "name": "Winner of Semifinal - Losers",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "basketball-r4-m1-p2",
-          "name": "Winner of basketball-r3-m2",
-          "logoUrl": "/logos/basketball-r4p2.png",
+          "id": "TBD-SF-L2",
+          "name": "Loser of Semifinal - Losers",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     }
   ],
-  "badminton": [
+  "shareball": [
     {
-      "id": "badminton-r1-m1",
-      "name": "Round of 16 - Match 1",
-      "nextMatchId": "badminton-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t1",
-          "name": "Badminton Team 1",
-          "logoUrl": "/logos/badminton1.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t2",
-          "name": "Badminton Team 2",
-          "logoUrl": "/logos/badminton2.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m2",
-      "name": "Round of 16 - Match 2",
-      "nextMatchId": "badminton-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t3",
-          "name": "Badminton Team 3",
-          "logoUrl": "/logos/badminton3.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t4",
-          "name": "Badminton Team 4",
-          "logoUrl": "/logos/badminton4.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m3",
-      "name": "Round of 16 - Match 3",
-      "nextMatchId": "badminton-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t5",
-          "name": "Badminton Team 5",
-          "logoUrl": "/logos/badminton5.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t6",
-          "name": "Badminton Team 6",
-          "logoUrl": "/logos/badminton6.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m4",
-      "name": "Round of 16 - Match 4",
-      "nextMatchId": "badminton-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t7",
-          "name": "Badminton Team 7",
-          "logoUrl": "/logos/badminton7.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t8",
-          "name": "Badminton Team 8",
-          "logoUrl": "/logos/badminton8.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m5",
-      "name": "Round of 16 - Match 5",
-      "nextMatchId": "badminton-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t9",
-          "name": "Badminton Team 9",
-          "logoUrl": "/logos/badminton9.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t10",
-          "name": "Badminton Team 10",
-          "logoUrl": "/logos/badminton10.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "badminton-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t11",
-          "name": "Badminton Team 11",
-          "logoUrl": "/logos/badminton11.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t12",
-          "name": "Badminton Team 12",
-          "logoUrl": "/logos/badminton12.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "badminton-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t13",
-          "name": "Badminton Team 13",
-          "logoUrl": "/logos/badminton13.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t14",
-          "name": "Badminton Team 14",
-          "logoUrl": "/logos/badminton14.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "badminton-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "badminton-t15",
-          "name": "Badminton Team 15",
-          "logoUrl": "/logos/badminton15.png",
-          "isWinner": true,
-          "resultText": "2"
-        },
-        {
-          "id": "badminton-t16",
-          "name": "Badminton Team 16",
-          "logoUrl": "/logos/badminton16.png",
-          "isWinner": false,
-          "resultText": "1"
-        }
-      ]
-    },
-    {
-      "id": "badminton-r2-m1",
-      "name": "Quarterfinal - Match 1",
-      "nextMatchId": "badminton-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r2-m1-p1",
-          "name": "Winner of badminton-r1-m1",
-          "logoUrl": "/logos/badminton-r2p1.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r2-m1-p2",
-          "name": "Winner of badminton-r1-m2",
-          "logoUrl": "/logos/badminton-r2p2.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r2-m2",
-      "name": "Quarterfinal - Match 2",
-      "nextMatchId": "badminton-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r2-m2-p1",
-          "name": "Winner of badminton-r1-m3",
-          "logoUrl": "/logos/badminton-r2p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r2-m2-p2",
-          "name": "Winner of badminton-r1-m4",
-          "logoUrl": "/logos/badminton-r2p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r2-m3",
-      "name": "Quarterfinal - Match 3",
-      "nextMatchId": "badminton-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r2-m3-p1",
-          "name": "Winner of badminton-r1-m5",
-          "logoUrl": "/logos/badminton-r2p5.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r2-m3-p2",
-          "name": "Winner of badminton-r1-m6",
-          "logoUrl": "/logos/badminton-r2p6.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r2-m4",
-      "name": "Quarterfinal - Match 4",
-      "nextMatchId": "badminton-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r2-m4-p1",
-          "name": "Winner of badminton-r1-m7",
-          "logoUrl": "/logos/badminton-r2p7.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r2-m4-p2",
-          "name": "Winner of badminton-r1-m8",
-          "logoUrl": "/logos/badminton-r2p8.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r3-m1",
-      "name": "Semifinal - Match 1",
-      "nextMatchId": "badminton-r4-m1",
-      "tournamentRoundText": "Semifinal",
+      "id": "shareball-r1-m1",
+      "name": "First Round - Match 1",
+      "nextMatchId": "shareball-r2-m1",
+      "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r3-m1-p1",
-          "name": "Winner of badminton-r2-m1",
-          "logoUrl": "/logos/badminton-r3p1.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r3-m1-p2",
-          "name": "Winner of badminton-r2-m2",
-          "logoUrl": "/logos/badminton-r3p2.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r3-m2",
-      "name": "Semifinal - Match 2",
-      "nextMatchId": "badminton-r4-m1",
-      "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r3-m2-p1",
-          "name": "Winner of badminton-r2-m3",
-          "logoUrl": "/logos/badminton-r3p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r3-m2-p2",
-          "name": "Winner of badminton-r2-m4",
-          "logoUrl": "/logos/badminton-r3p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "badminton-r4-m1",
-      "name": "Final - Match 1",
-      "nextMatchId": null,
-      "tournamentRoundText": "Final",
-      "startTime": "2025-07-13",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "badminton-r4-m1-p1",
-          "name": "Winner of badminton-r3-m1",
-          "logoUrl": "/logos/badminton-r4p1.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "badminton-r4-m1-p2",
-          "name": "Winner of badminton-r3-m2",
-          "logoUrl": "/logos/badminton-r4p2.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    }
-  ],
-  "running": [
-    {
-      "id": "running-r1-m1",
-      "name": "Round of 16 - Match 1",
-      "nextMatchId": "running-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
       "state": "DONE",
       "participants": [
         {
-          "id": "running-t1",
-          "name": "Running Team 1",
-          "logoUrl": "/logos/running1.png",
+          "id": "shareball-t1",
+          "name": "Quantum Shares",
+          "logoUrl": "/logos/shareball1.png",
           "isWinner": false,
-          "resultText": "12"
-        },
-        {
-          "id": "running-t2",
-          "name": "Running Team 2",
-          "logoUrl": "/logos/running2.png",
-          "isWinner": true,
-          "resultText": "13"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m2",
-      "name": "Round of 16 - Match 2",
-      "nextMatchId": "running-r2-m1",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t3",
-          "name": "Running Team 3",
-          "logoUrl": "/logos/running3.png",
-          "isWinner": true,
-          "resultText": "10"
-        },
-        {
-          "id": "running-t4",
-          "name": "Running Team 4",
-          "logoUrl": "/logos/running4.png",
-          "isWinner": false,
-          "resultText": "9"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m3",
-      "name": "Round of 16 - Match 3",
-      "nextMatchId": "running-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t5",
-          "name": "Running Team 5",
-          "logoUrl": "/logos/running5.png",
-          "isWinner": true,
-          "resultText": "15"
-        },
-        {
-          "id": "running-t6",
-          "name": "Running Team 6",
-          "logoUrl": "/logos/running6.png",
-          "isWinner": false,
-          "resultText": "14"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m4",
-      "name": "Round of 16 - Match 4",
-      "nextMatchId": "running-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t7",
-          "name": "Running Team 7",
-          "logoUrl": "/logos/running7.png",
-          "isWinner": false,
-          "resultText": "11"
-        },
-        {
-          "id": "running-t8",
-          "name": "Running Team 8",
-          "logoUrl": "/logos/running8.png",
-          "isWinner": true,
-          "resultText": "12"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m5",
-      "name": "Round of 16 - Match 5",
-      "nextMatchId": "running-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t9",
-          "name": "Running Team 9",
-          "logoUrl": "/logos/running9.png",
-          "isWinner": true,
           "resultText": "14"
         },
         {
-          "id": "running-t10",
-          "name": "Running Team 10",
-          "logoUrl": "/logos/running10.png",
-          "isWinner": false,
-          "resultText": "13"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "running-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t11",
-          "name": "Running Team 11",
-          "logoUrl": "/logos/running11.png",
+          "id": "shareball-t2",
+          "name": "Network Nodes",
+          "logoUrl": "/logos/shareball2.png",
           "isWinner": true,
-          "resultText": "13"
-        },
-        {
-          "id": "running-t12",
-          "name": "Running Team 12",
-          "logoUrl": "/logos/running12.png",
-          "isWinner": false,
-          "resultText": "12"
+          "resultText": "21"
         }
       ]
     },
     {
-      "id": "running-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "running-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t13",
-          "name": "Running Team 13",
-          "logoUrl": "/logos/running13.png",
-          "isWinner": true,
-          "resultText": "16"
-        },
-        {
-          "id": "running-t14",
-          "name": "Running Team 14",
-          "logoUrl": "/logos/running14.png",
-          "isWinner": false,
-          "resultText": "15"
-        }
-      ]
-    },
-    {
-      "id": "running-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "running-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "DONE",
-      "participants": [
-        {
-          "id": "running-t15",
-          "name": "Running Team 15",
-          "logoUrl": "/logos/running15.png",
-          "isWinner": true,
-          "resultText": "11"
-        },
-        {
-          "id": "running-t16",
-          "name": "Running Team 16",
-          "logoUrl": "/logos/running16.png",
-          "isWinner": false,
-          "resultText": "10"
-        }
-      ]
-    },
-    {
-      "id": "running-r2-m1",
-      "name": "Quarterfinal - Match 1",
-      "nextMatchId": "running-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "running-r2-m1-p1",
-          "name": "Winner of running-r1-m1",
-          "logoUrl": "/logos/running-r2p1.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "running-r2-m1-p2",
-          "name": "Winner of running-r1-m2",
-          "logoUrl": "/logos/running-r2p2.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "running-r2-m2",
-      "name": "Quarterfinal - Match 2",
-      "nextMatchId": "running-r3-m1",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "running-r2-m2-p1",
-          "name": "Winner of running-r1-m3",
-          "logoUrl": "/logos/running-r2p3.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "running-r2-m2-p2",
-          "name": "Winner of running-r1-m4",
-          "logoUrl": "/logos/running-r2p4.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "running-r2-m3",
-      "name": "Quarterfinal - Match 3",
-      "nextMatchId": "running-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "running-r2-m3-p1",
-          "name": "Winner of running-r1-m5",
-          "logoUrl": "/logos/running-r2p5.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "running-r2-m3-p2",
-          "name": "Winner of running-r1-m6",
-          "logoUrl": "/logos/running-r2p6.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "running-r2-m4",
-      "name": "Quarterfinal - Match 4",
-      "nextMatchId": "running-r3-m2",
-      "tournamentRoundText": "Quarterfinal",
-      "startTime": "2025-07-11",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "running-r2-m4-p1",
-          "name": "Winner of running-r1-m7",
-          "logoUrl": "/logos/running-r2p7.png",
-          "isWinner": false,
-          "resultText": ""
-        },
-        {
-          "id": "running-r2-m4-p2",
-          "name": "Winner of running-r1-m8",
-          "logoUrl": "/logos/running-r2p8.png",
-          "isWinner": false,
-          "resultText": ""
-        }
-      ]
-    },
-    {
-      "id": "running-r3-m1",
-      "name": "Semifinal - Match 1",
-      "nextMatchId": "running-r4-m1",
-      "tournamentRoundText": "Semifinal",
+      "id": "shareball-r1-m2",
+      "name": "First Round - Match 2",
+      "nextMatchId": "shareball-r2-m1",
+      "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
-      "state": "SCHEDULED",
+      "state": "DONE",
       "participants": [
         {
-          "id": "running-r3-m1-p1",
-          "name": "Winner of running-r2-m1",
-          "logoUrl": "/logos/running-r3p1.png",
-          "isWinner": false,
-          "resultText": ""
+          "id": "shareball-t3",
+          "name": "Data Dynamos",
+          "logoUrl": "/logos/shareball3.png",
+          "isWinner": true,
+          "resultText": "28"
         },
         {
-          "id": "running-r3-m1-p2",
-          "name": "Winner of running-r2-m2",
-          "logoUrl": "/logos/running-r3p2.png",
+          "id": "shareball-t4",
+          "name": "Cloud Crushers",
+          "logoUrl": "/logos/shareball4.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": "17"
         }
       ]
     },
     {
-      "id": "running-r3-m2",
-      "name": "Semifinal - Match 2",
-      "nextMatchId": "running-r4-m1",
+      "id": "shareball-r2-m1",
+      "name": "Semifinal - Winners",
+      "nextMatchId": "shareball-r3-m1",
       "tournamentRoundText": "Semifinal",
-      "startTime": "2025-07-12",
+      "startTime": "2025-07-15",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "running-r3-m2-p1",
-          "name": "Winner of running-r2-m3",
-          "logoUrl": "/logos/running-r3p3.png",
+          "id": "shareball-t2",
+          "name": "Network Nodes",
+          "logoUrl": "/logos/shareball2.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "running-r3-m2-p2",
-          "name": "Winner of running-r2-m4",
-          "logoUrl": "/logos/running-r3p4.png",
+          "id": "shareball-t3",
+          "name": "Data Dynamos",
+          "logoUrl": "/logos/shareball3.png",
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         }
       ]
     },
     {
-      "id": "running-r4-m1",
-      "name": "Final - Match 1",
+      "id": "shareball-r2-m2",
+      "name": "Semifinal - Losers",
+      "nextMatchId": "shareball-r3-m2",
+      "tournamentRoundText": "Semifinal",
+      "startTime": "2025-07-15",
+      "state": "SCHEDULED",
+      "participants": [
+        {
+          "id": "shareball-t1",
+          "name": "Quantum Shares",
+          "logoUrl": "/logos/shareball1.png",
+          "isWinner": false,
+          "resultText": null
+        },
+        {
+          "id": "shareball-t4",
+          "name": "Cloud Crushers",
+          "logoUrl": "/logos/shareball4.png",
+          "isWinner": false,
+          "resultText": null
+        }
+      ]
+    },
+    {
+      "id": "shareball-r3-m1",
+      "name": "Final",
       "nextMatchId": null,
       "tournamentRoundText": "Final",
-      "startTime": "2025-07-13",
+      "startTime": "2025-07-18",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "running-r4-m1-p1",
-          "name": "Winner of running-r3-m1",
-          "logoUrl": "/logos/running-r4p1.png",
+          "id": "TBD-SF-W1",
+          "name": "Winner of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
         },
         {
-          "id": "running-r4-m1-p2",
-          "name": "Winner of running-r3-m2",
-          "logoUrl": "/logos/running-r4p2.png",
+          "id": "TBD-SF-W2",
+          "name": "Loser of Semifinal - Winners",
+          "logoUrl": null,
           "isWinner": false,
-          "resultText": ""
+          "resultText": null
+        }
+      ]
+    },
+    {
+      "id": "shareball-r3-m2",
+      "name": "Third Place Playoff",
+      "nextMatchId": null,
+      "tournamentRoundText": "3rd Place",
+      "startTime": "2025-07-17",
+      "state": "SCHEDULED",
+      "participants": [
+        {
+          "id": "TBD-SF-L1",
+          "name": "Winner of Semifinal - Losers",
+          "logoUrl": null,
+          "isWinner": false,
+          "resultText": null
+        },
+        {
+          "id": "TBD-SF-L2",
+          "name": "Loser of Semifinal - Losers",
+          "logoUrl": null,
+          "isWinner": false,
+          "resultText": null
         }
       ]
     }

@@ -1,80 +1,83 @@
 @import "tailwindcss";
 
 .text-glow {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.952),
-        0 0 20px rgba(255, 255, 255, 0.719);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.952),
+    0 0 20px rgba(255, 255, 255, 0.719);
 }
 
 .button {
-    --main-color: #f472b6;
-    --border-color: #ec4899;
-    --shadow-color: #fd6ab666;   
-  
-    cursor: pointer;
-    width: 250px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #fff;
-    background: var(--main-color);
-    border: 2px solid var(--border-color);
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 0 var(--border-color);
-    transform: skew(-10deg);
-    transition: all 0.1s ease;
-    filter: drop-shadow(0 15px 20px var(--shadow-color));
-  }
-  
-  .button:active {
-    letter-spacing: 0px;
-    transform: skew(-10deg) translateY(8px);
-    box-shadow: 0 0 0 var(--shadow-color);
-  }
-  
+  --main-color: #f472b6;
+  --border-color: #ec4899;
+  --shadow-color: #fd6ab666;
+
+  cursor: pointer;
+  width: 250px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  background: var(--main-color);
+  border: 2px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 0 var(--border-color);
+  transform: skew(-10deg);
+  transition: all 0.1s ease;
+  filter: drop-shadow(0 15px 20px var(--shadow-color));
+}
+
+.button:active {
+  letter-spacing: 0px;
+  transform: skew(-10deg) translateY(8px);
+  box-shadow: 0 0 0 var(--shadow-color);
+}
+
 @layer utilities {
   .font-kanit {
     font-family: var(--font-kanit);
   }
-  
+
   .font-geist {
     font-family: var(--font-geist);
   }
-  
+
   .font-kalnia {
     font-family: var(--font-kalnia);
   }
-  
+
   .font-agbalumo {
     font-family: var(--font-agbalumo);
   }
-  
+
   .text-glow {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.95),
-                 0 0 20px rgba(255, 255, 255, 0.72);
+      0 0 20px rgba(255, 255, 255, 0.72);
   }
-  
+
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-30px);
     }
   }
-  
+
   .animate-float {
     animation: float 4s ease-in-out infinite;
   }
-  
+
   .animate-float-slow {
     animation: float 7s ease-in-out infinite;
   }
-  
+
   /* Smoother dessert disappearing animations with better easing */
   @keyframes dessert-float-up {
     0% {
@@ -82,146 +85,245 @@
       transform: translateY(0) scale(1);
       filter: blur(0px);
     }
+
     15% {
       opacity: 0.95;
       transform: translateY(-10px) scale(0.98);
       filter: blur(0px);
     }
+
     35% {
       opacity: 0.7;
       transform: translateY(-40px) scale(0.85);
       filter: blur(1px);
     }
+
     60% {
       opacity: 0.3;
       transform: translateY(-80px) scale(0.6);
       filter: blur(4px);
     }
+
     85% {
       opacity: 0.05;
       transform: translateY(-120px) scale(0.25);
       filter: blur(10px);
     }
+
     100% {
       opacity: 0;
       transform: translateY(-140px) scale(0.1);
       filter: blur(15px);
     }
   }
-  
+
   @keyframes dessert-float-right {
     0% {
       opacity: 1;
       transform: translateX(0) translateY(0) scale(1) rotate(0deg);
       filter: blur(0px);
     }
+
     15% {
       opacity: 0.95;
       transform: translateX(15px) translateY(-8px) scale(0.98) rotate(5deg);
       filter: blur(0px);
     }
+
     35% {
       opacity: 0.7;
       transform: translateX(50px) translateY(-30px) scale(0.85) rotate(15deg);
       filter: blur(1px);
     }
+
     60% {
       opacity: 0.3;
       transform: translateX(90px) translateY(-60px) scale(0.6) rotate(25deg);
       filter: blur(4px);
     }
+
     85% {
       opacity: 0.05;
       transform: translateX(130px) translateY(-100px) scale(0.25) rotate(35deg);
       filter: blur(10px);
     }
+
     100% {
       opacity: 0;
       transform: translateX(160px) translateY(-120px) scale(0.1) rotate(40deg);
       filter: blur(15px);
     }
   }
-  
+
   @keyframes dessert-float-left {
     0% {
       opacity: 1;
       transform: translateX(0) translateY(0) scale(1) rotate(0deg);
       filter: blur(0px);
     }
+
     15% {
       opacity: 0.95;
       transform: translateX(-15px) translateY(-8px) scale(0.98) rotate(-5deg);
       filter: blur(0px);
     }
+
     35% {
       opacity: 0.7;
       transform: translateX(-50px) translateY(-30px) scale(0.85) rotate(-15deg);
       filter: blur(1px);
     }
+
     60% {
       opacity: 0.3;
       transform: translateX(-90px) translateY(-60px) scale(0.6) rotate(-25deg);
       filter: blur(4px);
     }
+
     85% {
       opacity: 0.05;
       transform: translateX(-130px) translateY(-100px) scale(0.25) rotate(-35deg);
       filter: blur(10px);
     }
+
     100% {
       opacity: 0;
       transform: translateX(-160px) translateY(-120px) scale(0.1) rotate(-40deg);
       filter: blur(15px);
     }
   }
-  
+
   @keyframes dessert-float-diagonal {
     0% {
       opacity: 1;
       transform: translateX(0) translateY(0) scale(1) rotate(0deg);
       filter: blur(0px);
     }
+
     15% {
       opacity: 0.95;
       transform: translateX(12px) translateY(12px) scale(0.98) rotate(8deg);
       filter: blur(0px);
     }
+
     35% {
       opacity: 0.7;
       transform: translateX(35px) translateY(35px) scale(0.85) rotate(20deg);
       filter: blur(1px);
     }
+
     60% {
       opacity: 0.3;
       transform: translateX(70px) translateY(70px) scale(0.6) rotate(35deg);
       filter: blur(4px);
     }
+
     85% {
       opacity: 0.05;
       transform: translateX(110px) translateY(110px) scale(0.25) rotate(50deg);
       filter: blur(10px);
     }
+
     100% {
       opacity: 0;
       transform: translateX(140px) translateY(140px) scale(0.1) rotate(60deg);
       filter: blur(15px);
     }
   }
-  
+
   /* Animation classes with cubic-bezier easing for smoother motion */
   .dessert-float-up {
     animation: dessert-float-up var(--duration, 6s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .dessert-float-right {
     animation: dessert-float-right var(--duration, 6s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .dessert-float-left {
     animation: dessert-float-left var(--duration, 6s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .dessert-float-diagonal {
     animation: dessert-float-diagonal var(--duration, 6s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+}
+
+.bracket-scroll-container {
+  overflow-y: hidden;
+  padding-bottom: 1rem;
+  /* Hide scrollbar for all browsers */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Touch scrolling optimization for mobile */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+
+  /* Cursor indicates horizontal scrolling */
+  cursor: grab;
+}
+
+.bracket-scroll-container:active {
+  cursor: grabbing;
+}
+
+.bracket-scroll-container::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .bracket-scroll-container {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-bottom: 0.75rem;
+
+    /* Better touch scrolling on mobile */
+    scroll-snap-type: x proximity;
+  }
+
+  /* Snap points for better mobile experience */
+  .bracket-scroll-container>div>* {
+    scroll-snap-align: start;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .bracket-scroll-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .bracket-scroll-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Prevent text selection while dragging */
+.bracket-scroll-container * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Re-enable text selection for important content */
+.bracket-scroll-container [data-selectable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
 }

@@ -13,8 +13,7 @@ import {
 const sports = [
   { name: 'Football', icon: <Circle className="w-5 h-5 text-blue-500" />, href: '/tournament/football' },
   { name: 'Basketball', icon: <Dribbble className="w-5 h-5 text-blue-500" />, href: '/tournament/basketball' },
-  { name: 'Badminton', icon: <Feather className="w-5 h-5 text-blue-500" />, href: '/tournament/badminton' },
-  { name: 'Running', icon: <Activity className="w-5 h-5 text-blue-500" />, href: '/tournament/running' },
+  { name: 'Shareball', icon: <Feather className="w-5 h-5 text-blue-500" />, href: '/tournament/shareball' },
 ];
 
 const esports = [
