@@ -1,59 +1,176 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const benefits = [
   {
     icon: "/dessert/hawaii.svg",
     title: "AND",
+    description: "เหมือนการคูณ เงื่อนไขทั้งสองต้องเป็นจริงเท่านั้นถึงจะผ่าน",
     bgColor: "bg-[#070158]",
     borderColor: "border-blue-300",
+    accentColor: "bg-blue-500",
   },
   {
     icon: "/dessert/matcha.svg",
     title: "OR",
+    description: "เงื่อนไขอย่างน้อยหนึ่งข้อ หรือทั้งสองข้อ ต้องเป็นจริง",
     bgColor: "bg-[#1a2f1c]",
     borderColor: "border-green-300",
+    accentColor: "bg-green-500",
   },
   {
     icon: "/dessert/strawberry.svg",
     title: "NOR",
+    description: "เงื่อนไขทั้งสองข้อจะต้องไม่เป็นจริงเลย เป็นตรงข้ามกับ OR",
     bgColor: "bg-[#390101]",
     borderColor: "border-pink-300",
+    accentColor: "bg-pink-500",
   },
   {
     icon: "/dessert/macaron.svg",
     title: "NOT",
+    description: "กลับค่าความจริง เช่น จริงจะกลายเป็นเท็จ และเท็จจะกลายเป็นจริง",
     bgColor: "bg-[#230d3d]",
     borderColor: "border-purple-300",
+    accentColor: "bg-purple-500",
   },
 ];
 
 const Benefits = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = benefits[activeIndex];
+
   return (
-    <section className="py-16 px-6 text-center text-white">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-12">
-        GATE
-      </h2>
-       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-8xl mx-auto">
-        {benefits.map((item, index) => (
-          <div
-            key={index}
-            className={`${item.bgColor} border-4 ${item.borderColor} rounded-3xl p-14 flex flex-col items-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out`}
-          >
-            <Image
-              src={item.icon}
-              alt={item.title}
-              width={125}
-              height={125}
-              className="mb-4"
-            />
-            <h3 className="text-2xl font-bold text-[#FAF1E5] mb-2 text-center">
-              {item.title}
-            </h3>
+    <div className="min-h-screen p-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Logic Gate
+          </h1>
+          <p className="text-xl text-slate-300">
+            Select a gate
+          </p>
+        </div>
+
+        {/* Character Selector */}
+        <div className="flex justify-center mb-16">
+          <div className="flex gap-6 p-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10">
+            {benefits.map((item, i) => (
+              <motion.button
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveIndex(i)}
+                className={`relative p-4 rounded-xl transition-all duration-300 ${
+                  i === activeIndex
+                    ? `${item.bgColor} ${item.borderColor} border-2 shadow-lg`
+                    : "bg-white/10 hover:bg-white/20 border border-white/20"
+                }`}
+              >
+                <div className="w-16 h-16 mx-auto mb-2">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="text-white font-semibold text-sm">
+                  {item.title}
+                </div>
+                {i === activeIndex && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 ${item.accentColor} rounded-full`}
+                  />
+                )}
+              </motion.button>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* Main Character Display */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          {/* Character Portrait */}
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-1 flex justify-center"
+          >
+            <div className={`relative p-8 rounded-3xl ${active.bgColor} ${active.borderColor} border-2 shadow-2xl`}>
+              <div className="w-48 h-48 mx-auto">
+                <Image
+                  src={active.icon}
+                  alt={active.title}
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-contain filter drop-shadow-lg"
+                />
+              </div>
+              <div className={`absolute -top-3 -right-3 w-6 h-6 ${active.accentColor} rounded-full shadow-lg`} />
+              <div className={`absolute -bottom-3 -left-3 w-4 h-4 ${active.accentColor} rounded-full shadow-lg`} />
+            </div>
+          </motion.div>
+
+          {/* Character Info */}
+          <motion.div
+            key={`info-${activeIndex}`}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-2 space-y-8"
+          >
+            {/* Name Badge */}
+            <div className="flex items-center gap-4">
+              <div className={`px-4 py-2 ${active.accentColor} rounded-full`}>
+                <span className="text-white font-bold text-sm">LOGIC GATE</span>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold text-white">
+                {active.title}
+              </h2>
+            </div>
+
+            {/* Description Card */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-4">Ability Description</h3>
+              <p className="text-lg text-slate-200 leading-relaxed">
+                {active.description}
+              </p>
+            </div>
+
+            {/* Stats/Properties */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h4 className="text-white font-semibold mb-2">Type</h4>
+                <p className="text-slate-300">Boolean Logic Operator</p>
+              </div>
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h4 className="text-white font-semibold mb-2">Complexity</h4>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-3 h-3 rounded-full ${
+                        i < (activeIndex === 3 ? 2 : activeIndex === 0 ? 3 : activeIndex === 1 ? 2 : 4)
+                          ? active.accentColor
+                          : "bg-white/20"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
       </div>
-    </section>
+    </div>
   );
 };
 
