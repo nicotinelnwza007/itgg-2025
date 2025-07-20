@@ -5,7 +5,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Benefits from "./components/Benefits";
 import Agenda from "./components/Agenda";
-import Travelling from "./components/Travelling";
+import Travelling from "./data/Travelling";
 import FAQs from "./components/FAQs";
 import ImageSlider from "./components/AutoImageSlide";
 import SweetScoreboard from "./components/Scoreboard";
