@@ -338,3 +338,11 @@
   -moz-user-select: text;
   -ms-user-select: text;
 }
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-floating {
+  animation: floating 6s ease-in-out infinite;
+}
