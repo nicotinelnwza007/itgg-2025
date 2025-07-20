@@ -46,7 +46,6 @@ function AutoImageSlider({ images, interval = 3000 }: AutoImageSliderProps) {
 
 const images = [
   "/imageslide/imageslide1.jpg",
-  "/imageslide/imageslide2.jpg",
   "/imageslide/imageslide3.jpg",
   "/imageslide/imageslide4.jpg"
 ];
