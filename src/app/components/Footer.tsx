@@ -5,7 +5,7 @@ import { Facebook, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#B2842E] border-t border-white/10 text-[#FAF1E5] py-6 sm:py-8 lg:py-12 px-4 sm:px-6">
+    <footer className="bg-[#c29533] border-t border-white/10 text-[#FAF1E5] py-6 sm:py-8 lg:py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Logo Section */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
@@ -21,7 +21,7 @@ export default function Footer() {
             alt="IT KMITL Logo" 
             width={60} 
             height={60} 
-            className="object-contain bg-white rounded-full p-1.5 sm:p-2 sm:w-20 sm:h-20" 
+            className="object-contain rounded-full p-1.5 sm:p-2 sm:w-20 sm:h-20" 
           />
           <Image 
             src="/kmitl.png" 
@@ -38,8 +38,8 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3 sm:space-y-4">
             <div className="space-y-2 sm:space-y-3 leading-relaxed">
               <h3 className="text-base sm:text-lg font-semibold text-[#FAF1E5] leading-tight">
-                กิจกรรมปรับพื้นฐานด้านการเขียนโปรแกรม Pre-Programming 68
-              </h3>
+                กิจกรรม InfoTech Tournament GateGame 2025 - ITGG2025
+                              </h3>
               
               <div className="text-sm sm:text-base space-y-1 sm:space-y-2 font-medium">
                 <p className="leading-relaxed">
@@ -110,7 +110,7 @@ export default function Footer() {
         {/* Copyright/Bottom Section */}
         <div className="pt-4 sm:pt-6 border-t border-white/20">
           <p className="text-xs sm:text-sm text-center lg:text-left text-[#FAF1E5]/80 font-medium">
-            © 2024 InfoTech GateGame - Faculty of Information Technology, KMITL
+            © 2025 InfoTech Tournament GateGame - Faculty of Information Technology, KMITL
           </p>
         </div>
       </div>

@@ -92,6 +92,16 @@ function SendAnswer() {
     }
   };
 
+/*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Fetches the daily quest from the server and updates the component state
+   * accordingly.
+   *
+   * If the daily quest has not been deployed yet, sets the daily quest to null.
+   *
+   * @returns {Promise<void>}
+   */
+/*******  dfce7328-f381-403f-ae57-f060551c5d0e  *******/
   const fetchDailyQuest = async () => {
     try {
       if (!isDailyQuestDeployed) {

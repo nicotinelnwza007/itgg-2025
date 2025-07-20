@@ -17,23 +17,23 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userData, setUserData] = useState<{ nickname: string | null, gate: string | null, score: number | null } | null>(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const supabase = await createClient();
-      const { data: { user } } = await supabase.auth.getUser();
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       const supabase = await createClient();
+//       const { data: { user } } = await supabase.auth.getUser();
 
-      if (!user) return;
+//       if (!user) return;
 
-      const { data: { nickname, gate, score } } = await supabase
-        .from('profiles')
-        .select('nickname, gate, score')
-        .eq('user', user?.id)
-        .single();
-      console.log(nickname, gate, score);
-      setUserData({ nickname: nickname || null, gate: gate || null, score: score || null });
-    };
-    fetchUser();
-  }, []);
+//       const { data: { nickname, gate, score } } = await supabase
+//         .from('profiles')
+//         .select('nickname, gate, score')
+//         .eq('user', user?.id)
+//         .single();
+//       console.log(nickname, gate, score);
+//       setUserData({ nickname: nickname || null, gate: gate || null, score: score || null });
+//     };
+//     fetchUser();
+//   }, []);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
@@ -71,13 +71,13 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          {userData && (
+          {/* {userData && (
             <div className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold">
               <p className="text-lg">{userData.nickname}</p>
               <p className="text-lg">{userData.gate}</p>
               <p className="text-lg">คะแนน: {userData.score}</p>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Mobile Menu Toggle */}

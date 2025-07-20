@@ -20,20 +20,20 @@ const Hero = () => {
         {/* Text Section */}
         <div className="text-center  text-white">
           <h1 className="font-agbalumo text-3xl sm:text-4xl md:text-8xl font-bold mb-2 text-glow">
-            ITGG-2025
+            ITGG - 2025
           </h1>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-12">
-              ITGG 2025: มหกรรมการแข่งขันที่ยิ่งใหญ่ที่สุดในไอทีลาดกระบัง เตรียมตัวให้พร้อม! กับเวทีโชว์ศักยภาพ ทักษะด้านกีฬา และ E-sports
+              InfoTech Tournament GateGame 2025 หรือ ITGG 2025 : มหกรรมการแข่งขันที่ยิ่งใหญ่ที่สุดในไอทีลาดกระบัง เตรียมตัวให้พร้อม! กับเวทีโชว์ศักยภาพ ทักษะด้านกีฬา และ E-sports
             </p>
 
         </div>
 
         {/* Button Group */}
-        <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto h-[10px] mt-2">
+        {/* <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto h-[10px] mt-2">
           <PrimaryButton href="/auth/login">เข้าสู่ระบบ</PrimaryButton>
 
           <PrimaryButton href="/tournament">ตารางการแข่งขัน</PrimaryButton>
-        </div>
+        </div> */}
       </div>
     </section>
   );

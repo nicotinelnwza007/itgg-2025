@@ -145,13 +145,13 @@ const Benefits = () => {
             </div>
 
             {/* Stats/Properties */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
               <div className="bg-white/5 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/10">
                 <h4 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Type</h4>
                 <p className="text-slate-300 text-xs sm:text-sm lg:text-base">Boolean Logic Operator</p>
               </div>
-              <div className="bg-white/5 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/10">
-                <h4 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Complexity</h4>
+              {/* <div className="bg-white/5 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/10">
+                <h4 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Handsome</h4>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <div
@@ -164,7 +164,7 @@ const Benefits = () => {
                     />
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
