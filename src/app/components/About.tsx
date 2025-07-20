@@ -4,7 +4,7 @@ import Image from 'next/image';
 const About = () => {
     return (
         <div
-            className="flex flex-col lg:flex-row items-center justify-between gap-12 px-8 py-20 max-w-7xl mx-auto w-full min-h-screen max-h-[1552px]"
+            className="flex flex-col lg:flex-row items-center justify-center gap-12 px-8 py-20 max-w-7xl mx-auto w-full min-h-screen max-h-[1552px]"
             id="about"
         >
             {/* Logo Section */}

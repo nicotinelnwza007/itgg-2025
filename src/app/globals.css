@@ -6,9 +6,9 @@
 }
 
 .button {
-  --main-color: #f472b6;
-  --border-color: #ec4899;
-  --shadow-color: #fd6ab666;
+  --main-color: #a05a2c;
+  --border-color: #804621;
+  --shadow-color: #a05a2c66;  
 
   cursor: pointer;
   width: 250px;
@@ -18,7 +18,7 @@
   justify-content: center;
   gap: 1rem;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 800; 
   letter-spacing: 2px;
   color: #fff;
   background: var(--main-color);

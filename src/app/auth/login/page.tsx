@@ -8,7 +8,7 @@ async function Page() {
     const { data: { user } } = await supabase.auth.getUser();
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#fff7ef] to-[#fcebdd] px-4">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br">
             {user ? (
                 <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full text-center space-y-4">
                     <h2 className="text-2xl font-bold text-[#5e3c1b]">You're already logged in</h2>
@@ -78,14 +78,14 @@ async function Page() {
                         </div>
 
                         <form className="space-y-4" action={login}>
-                            <InputField
+                            {/* <InputField
                                 icon="👤"
                                 type="text"
                                 name="nickname"
                                 id="nickname"
                                 placeholder="Enter your Nickname"
                                 required
-                            />
+                            /> */}
                             <InputField
                                 icon="📧"
                                 type="email"
@@ -103,13 +103,13 @@ async function Page() {
 
                             <button
                                 type="submit"
-                                className="w-full font-semibold py-2 rounded-lg transition"
+                                className="w-full font-semibold py-2 rounded-lg transition bg-[#c27a44] hover:bg-[#a86438] text-white"
                             >
                                 Submit
                             </button>
 
                             <div className="text-center">
-                                <a href="#" className="text-sm text-[#a05a2c] hover:underline">
+                                <a href="/auth/register" className="text-sm text-[#a05a2c] hover:underline">
                                     Forgot password?
                                 </a>
                             </div>
