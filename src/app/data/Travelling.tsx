@@ -4,7 +4,7 @@ import { X, Train, Car, Bus, TrainFront, Truck } from 'lucide-react';
 import PrimaryButton from '../components/sub/PrimaryButton';
 import SecondaryButton from '../components/sub/SecondaryButton';
 
-const TravelModal = ({ isOpen, onClose }) => {
+const TravelModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
   if (!isOpen) return null;
 
   return (
@@ -119,7 +119,7 @@ const Travelling = () => {
 
         {/* Text Section */}
         <div className="w-full lg:w-1/2 text-center lg:text-left order-last lg:order-first text-white">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
             กิจกรรมจัดขึ้นที่ไหน
           </h2>
           <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-5">
@@ -128,12 +128,12 @@ const Travelling = () => {
 
           {/* Button Group */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-            <button
+            {/* <button
               onClick={() => setIsModalOpen(true)}
               className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold"
             >
               ดูวิธีการเดินทาง
-            </button>
+            </button> */}
 
             <SecondaryButton
               href="https://maps.app.goo.gl/heBpHSrB8KABpFwN8"

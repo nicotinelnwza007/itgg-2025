@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+*{
+    scroll-behavior: smooth;
+}
 .text-glow {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.952),
-    0 0 20px rgba(255, 255, 255, 0.719);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.952),
+    0 0 10px rgba(255, 255, 255, 0.719);
 }
 
 .button {
@@ -278,6 +281,13 @@
   /* Chrome, Safari and Opera */
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Mobile optimizations */
 @media (max-width: 640px) {

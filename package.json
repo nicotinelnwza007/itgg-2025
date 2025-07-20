@@ -9,7 +9,6 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@g-loot/react-tournament-brackets": "^1.0.31-rc",
         "@supabase/ssr": "^0.6.1",
         "@supabase/supabase-js": "^2.51.0",
         "framer-motion": "^12.23.3",
@@ -24,7 +23,6 @@
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
-        "eslint": "^9",
         "eslint-config-next": "15.3.5",
         "tailwindcss": "^4",
         "typescript": "^5"

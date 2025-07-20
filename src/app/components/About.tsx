@@ -14,7 +14,7 @@ const About = () => {
                     width={700}
                     height={700}
                     alt="ITGG 2025 Logo"
-                    className="w-full max-w-[520px] h-auto object-contain"
+                    className="w-full max-w-[520px] h-auto object-contain rounded-3xl"
                 />
             </div>
 

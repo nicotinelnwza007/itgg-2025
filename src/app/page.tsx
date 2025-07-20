@@ -21,7 +21,6 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center">
       {/* <LandingCount/>  */}
       <Hero />
-      <SendAnswer/>
       <About />
       <SweetScoreboard />
       <Benefits />

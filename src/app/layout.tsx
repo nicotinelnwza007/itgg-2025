@@ -36,9 +36,29 @@ const agbalumo = Agbalumo({
   display: "swap",
 });
 
+const siteUrl = "https://itgg-2025.vercel.app";
 export const metadata: Metadata = {
-  title: "itgg-2025",
-  description: "itgg-2025",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ITGG 2025",
+    template: `%s | ITGG 2025`,
+  },
+  openGraph: {
+    title: "ITGG 2025",
+    description: "ITGG 2025",
+    url: siteUrl,
+    siteName: "ITGG 2025",
+    images: [
+      {
+        url: `${siteUrl}/itggbanner.png`,
+        width: 5120,
+        height: 2280,
+        alt: "ITGG 2025",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export const viewport = {
