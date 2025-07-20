@@ -6,13 +6,13 @@
       "nextMatchId": "football-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "football-t1",
           "name": "Football Team 1",
           "logoUrl": "/logos/football1.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "2"
         },
         {
@@ -30,7 +30,7 @@
       "nextMatchId": "football-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "football-t3",
@@ -43,7 +43,7 @@
           "id": "football-t4",
           "name": "Football Team 4",
           "logoUrl": "/logos/football4.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         }
       ]
@@ -152,13 +152,13 @@
       "nextMatchId": "basketball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-11",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "basketball-t1",
           "name": "Thunder Hawks",
           "logoUrl": "/logos/basketball1.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "89"
         },
         {
@@ -176,7 +176,7 @@
       "nextMatchId": "basketball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-11",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "basketball-t3",
@@ -189,7 +189,7 @@
           "id": "basketball-t4",
           "name": "Fire Dragons",
           "logoUrl": "/logos/basketball4.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "95"
         }
       ]
@@ -298,7 +298,7 @@
       "nextMatchId": "shareball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "shareball-t1",
@@ -311,7 +311,7 @@
           "id": "shareball-t2",
           "name": "Network Nodes",
           "logoUrl": "/logos/shareball2.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "21"
         }
       ]
@@ -322,13 +322,13 @@
       "nextMatchId": "shareball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "shareball-t3",
           "name": "Data Dynamos",
           "logoUrl": "/logos/shareball3.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "28"
         },
         {
@@ -444,13 +444,13 @@
       "nextMatchId": "rov-r2-m1",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t1",
           "name": "RoV Team 1",
           "logoUrl": "/logos/rov1.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -468,13 +468,13 @@
       "nextMatchId": "rov-r2-m1",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t3",
           "name": "RoV Team 3",
           "logoUrl": "/logos/rov3.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -492,13 +492,13 @@
       "nextMatchId": "rov-r2-m2",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t5",
           "name": "RoV Team 5",
           "logoUrl": "/logos/rov5.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -516,13 +516,13 @@
       "nextMatchId": "rov-r2-m2",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t7",
           "name": "RoV Team 7",
           "logoUrl": "/logos/rov7.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -540,13 +540,13 @@
       "nextMatchId": "rov-r2-m3",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t9",
           "name": "RoV Team 9",
           "logoUrl": "/logos/rov9.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -564,13 +564,13 @@
       "nextMatchId": "rov-r2-m3",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t11",
           "name": "RoV Team 11",
           "logoUrl": "/logos/rov11.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -588,13 +588,13 @@
       "nextMatchId": "rov-r2-m4",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t13",
           "name": "RoV Team 13",
           "logoUrl": "/logos/rov13.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -612,13 +612,13 @@
       "nextMatchId": "rov-r2-m4",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "rov-t15",
           "name": "RoV Team 15",
           "logoUrl": "/logos/rov15.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "3"
         },
         {
@@ -806,13 +806,13 @@
       "nextMatchId": "valorant-r2-m1",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t1",
           "name": "Valorant Team 1",
           "logoUrl": "/logos/valorant1.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -830,13 +830,13 @@
       "nextMatchId": "valorant-r2-m1",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t3",
           "name": "Valorant Team 3",
           "logoUrl": "/logos/valorant3.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -854,13 +854,13 @@
       "nextMatchId": "valorant-r2-m2",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t5",
           "name": "Valorant Team 5",
           "logoUrl": "/logos/valorant5.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -878,13 +878,13 @@
       "nextMatchId": "valorant-r2-m2",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t7",
           "name": "Valorant Team 7",
           "logoUrl": "/logos/valorant7.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -902,13 +902,13 @@
       "nextMatchId": "valorant-r2-m3",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t9",
           "name": "Valorant Team 9",
           "logoUrl": "/logos/valorant9.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -926,13 +926,13 @@
       "nextMatchId": "valorant-r2-m3",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t11",
           "name": "Valorant Team 11",
           "logoUrl": "/logos/valorant11.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -950,13 +950,13 @@
       "nextMatchId": "valorant-r2-m4",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t13",
           "name": "Valorant Team 13",
           "logoUrl": "/logos/valorant13.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
@@ -974,13 +974,13 @@
       "nextMatchId": "valorant-r2-m4",
       "tournamentRoundText": "Round of 16",
       "startTime": "2025-07-10",
-      "state": "DONE",
+      "state": "SCHEDULED",
       "participants": [
         {
           "id": "valorant-t15",
           "name": "Valorant Team 15",
           "logoUrl": "/logos/valorant15.png",
-          "isWinner": true,
+          "isWinner": false,
           "resultText": "13"
         },
         {
