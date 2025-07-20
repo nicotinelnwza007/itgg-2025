@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import PrimaryButton from './sub/PrimaryButton'
+import SecondaryButton from './sub/SecondaryButton'
 const Travelling = () => {
     return (
         <div
@@ -35,9 +35,9 @@ const Travelling = () => {
                         ดูวิธีการเดินทาง
                     </PrimaryButton>
 
-                    <PrimaryButton href="/know">
+                    <SecondaryButton href="/know">
                         เปิดใน Google Maps
-                    </PrimaryButton>
+                    </SecondaryButton>
 
                 </div>
             </div>

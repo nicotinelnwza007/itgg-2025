@@ -3,6 +3,16 @@ import Image from "next/image";
 const DessertBackground: React.FC = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-full z-[-50] bg-gradient-to-br from-[#2A1810] via-[#342016] to-[#1F1209] overflow-hidden">
+      
+      {/* SVG Pattern Overlay - Full Cover */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-8"
+        style={{
+          zIndex: 1,
+          backgroundImage: 'url(/line.svg)'
+        }}
+      />
+
       <div 
         className="absolute -top-[120px] -left-[120px] w-96 h-96 bg-gradient-to-r from-[#B2842E] to-[#D4A574] opacity-15 blur-[80px] rounded-full animate-pulse" 
       />
@@ -23,9 +33,11 @@ const DessertBackground: React.FC = () => {
         style={{ animationDelay: '1.5s' }} 
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#342016]/20 to-[#342016]/40" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#342016]/30 via-transparent to-[#342016]/20" />
+      {/* Gradient Overlays - positioned above pattern */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#342016]/20 to-[#342016]/40" style={{ zIndex: 2 }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#342016]/30 via-transparent to-[#342016]/20" style={{ zIndex: 2 }} />
 
+      {/* Dessert Images - positioned above everything */}
       <Image
         src="/dessert/hawaii.svg"
         alt="Strawberry"
@@ -34,7 +46,8 @@ const DessertBackground: React.FC = () => {
         className="absolute top-[8%] left-[5%] dessert-float-up opacity-50 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
         style={{ 
           animationDuration: '7s',
-          animationDelay: '0s' 
+          animationDelay: '0s',
+          zIndex: 3
         }}
       />
       
@@ -46,7 +59,8 @@ const DessertBackground: React.FC = () => {
         className="absolute top-[25%] right-[6%] dessert-float-right opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-xl"
         style={{ 
           animationDuration: '8s',
-          animationDelay: '1.5s' 
+          animationDelay: '1.5s',
+          zIndex: 3
         }}
       />
       
@@ -58,7 +72,8 @@ const DessertBackground: React.FC = () => {
         className="absolute bottom-[20%] left-[8%] dessert-float-left opacity-85 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
         style={{ 
           animationDuration: '6.5s',
-          animationDelay: '3s' 
+          animationDelay: '3s',
+          zIndex: 3
         }}
       />
       
@@ -70,7 +85,8 @@ const DessertBackground: React.FC = () => {
         className="absolute bottom-[8%] right-[12%] dessert-float-diagonal opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-xl"
         style={{ 
           animationDuration: '7.5s',
-          animationDelay: '0.8s' 
+          animationDelay: '0.8s',
+          zIndex: 3
         }}
       />
       
@@ -82,7 +98,8 @@ const DessertBackground: React.FC = () => {
         className="absolute top-[15%] left-[35%] dessert-float-up opacity-75 hover:opacity-100 transition-opacity duration-300 drop-shadow-md"
         style={{ 
           animationDuration: '6s',
-          animationDelay: '2.2s' 
+          animationDelay: '2.2s',
+          zIndex: 3
         }}
       />
 
@@ -94,7 +111,8 @@ const DessertBackground: React.FC = () => {
         className="absolute top-[60%] left-[25%] dessert-float-right opacity-60 hover:opacity-90 transition-opacity duration-300 drop-shadow-md"
         style={{ 
           animationDuration: '8.5s',
-          animationDelay: '4.1s' 
+          animationDelay: '4.1s',
+          zIndex: 3
         }}
       />
       
@@ -106,7 +124,8 @@ const DessertBackground: React.FC = () => {
         className="absolute bottom-[40%] right-[40%] dessert-float-left opacity-70 hover:opacity-95 transition-opacity duration-300 drop-shadow-lg"
         style={{ 
           animationDuration: '7.2s',
-          animationDelay: '5.3s' 
+          animationDelay: '5.3s',
+          zIndex: 3
         }}
       />
       
@@ -118,25 +137,26 @@ const DessertBackground: React.FC = () => {
         className="absolute top-[45%] right-[25%] dessert-float-diagonal opacity-65 hover:opacity-90 transition-opacity duration-300 drop-shadow-md"
         style={{ 
           animationDuration: '6.8s',
-          animationDelay: '1.7s' 
+          animationDelay: '1.7s',
+          zIndex: 3
         }}
       />
 
       <div 
         className="absolute top-[20%] left-[20%] w-2 h-2 bg-[#E6C79C] rounded-full animate-ping opacity-40"
-        style={{ animationDelay: '0.5s' }}
+        style={{ animationDelay: '0.5s', zIndex: 4 }}
       />
       <div 
         className="absolute top-[70%] left-[60%] w-1 h-1 bg-[#D4A574] rounded-full animate-ping opacity-50"
-        style={{ animationDelay: '2.1s' }}
+        style={{ animationDelay: '2.1s', zIndex: 4 }}
       />
       <div 
         className="absolute top-[40%] right-[15%] w-1.5 h-1.5 bg-[#B2842E] rounded-full animate-ping opacity-45"
-        style={{ animationDelay: '3.7s' }}
+        style={{ animationDelay: '3.7s', zIndex: 4 }}
       />
       <div 
         className="absolute bottom-[30%] left-[70%] w-1 h-1 bg-[#E6C79C] rounded-full animate-ping opacity-40"
-        style={{ animationDelay: '1.3s' }}
+        style={{ animationDelay: '1.3s', zIndex: 4 }}
       />
     </div>
   );
