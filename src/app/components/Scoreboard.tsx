@@ -53,7 +53,7 @@ export default function SweetScoreboard() {
   }, []);
 
   return (
-    <div className="z-40 flex-col w-[100%] md:w-[90%] overflow-x-hidden bg-[#342016] backdrop-blur border border-[#c29533]  text-white flex items-center py-10 rounded-lg scale-90 md:scale-100 p-5">
+    <div className="z-40 flex-col w-[100%] md:w-[90%] overflow-x-hidden bg-[#342016] backdrop-blur border border-[#c29533]  text-white flex items-center py-10 rounded-3xl scale-90 md:scale-100 p-5">
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center pb-12">SCOREBOARD</h2>
       <div className="grid grid-cols-4 gap-8 w-full max-w-screen-xl mx-auto px-2">
         {teams.map((team, index) => (
