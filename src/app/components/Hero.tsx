@@ -13,13 +13,13 @@ const Hero = () => {
             width={600}
             height={600}
             alt="ITGG 2025 Logo"
-            className="w-full max-w-[220px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
+            className="w-full max-w-[290px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
           />
         </div>
 
         {/* Text Section */}
         <div className="text-center  text-white">
-        <h1 className="font-agbalumo text-6xl sm:text-5xl md:text-8xl font-bold mb-2 text-glow break-words max-w-full text-center">
+        <h1 className="font-agbalumo text-5xl sm:text-5xl md:text-8xl font-bold mb-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,30)] break-words max-w-full text-center">
           ITGG 2025
         </h1>
 
