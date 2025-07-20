@@ -1,37 +1,47 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { createClient } from '@/utils/supabase/client';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from "@/utils/supabase/client";
 
 const navItems = [
-  { label: 'หน้าหลัก', href: '#' },
-  { label: 'เกี่ยวกับ', href: '#about' },
-  { label: 'กำหนดการ', href: '#agenda' },
-  { label: 'FAQs', href: '#FAQs' },
+  { label: "หน้าหลัก", href: "#" },
+  { label: "เกี่ยวกับ", href: "#about" },
+  { label: "กำหนดการ", href: "#agenda" },
+  { label: "FAQs", href: "#FAQs" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [userData, setUserData] = useState<{ nickname: string | null, gate: string | null, score: number | null } | null>(null);
+  const [userData, setUserData] = useState<{
+    nickname: string | null;
+    gate: string | null;
+    score: number | null;
+  } | null>(null);
 
-//   useEffect(() => {
-//     const fetchUser = async () => {
-//       const supabase = await createClient();
-//       const { data: { user } } = await supabase.auth.getUser();
+  useEffect(() => {
+    const fetchUser = async () => {
+      const supabase = await createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-//       if (!user) return;
+      if (!user) return;
 
       const { data: raw_userData } = await supabase
-        .from('profiles')
-        .select('nickname, gate, score')
-        .eq('user', user?.id)
+        .from("profiles")
+        .select("nickname, gate, score")
+        .eq("user", user?.id)
         .single();
       console.log(raw_userData);
-      setUserData({ nickname: raw_userData?.nickname || null, gate: raw_userData?.gate || null, score: raw_userData?.score || null });
+      setUserData({
+        nickname: raw_userData?.nickname || null,
+        gate: raw_userData?.gate || null,
+        score: raw_userData?.score || null,
+      });
     };
     fetchUser();
   }, []);
@@ -44,27 +54,27 @@ export default function Navbar() {
       // Get the current scroll position
       const scrollY = window.scrollY;
       // Apply styles to prevent scroll and maintain position
-      document.body.style.position = 'fixed';
+      document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      document.body.style.width = "100%";
     } else {
       // Get the scroll position from the body style
       const scrollY = document.body.style.top;
       // Restore normal scrolling
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       // Restore scroll position
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
       }
     }
 
     // Cleanup function
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
     };
   }, [menuOpen]);
 
@@ -119,7 +129,7 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden md:hidden"
