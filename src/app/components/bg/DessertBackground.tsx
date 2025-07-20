@@ -27,11 +27,11 @@ const DessertBackground: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#342016]/30 via-transparent to-[#342016]/20" />
 
       <Image
-        src="/dessert/strawberry.svg"
+        src="/dessert/hawaii.svg"
         alt="Strawberry"
         width={120}
         height={120}
-        className="absolute top-[8%] left-[5%] dessert-float-up opacity-80 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
+        className="absolute top-[8%] left-[5%] dessert-float-up opacity-50 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
         style={{ 
           animationDuration: '7s',
           animationDelay: '0s' 
@@ -39,10 +39,10 @@ const DessertBackground: React.FC = () => {
       />
       
       <Image
-        src="/dessert/cake.svg"
+        src="/dessert/macaron.svg"
         alt="Cake"
-        width={150}
-        height={150}
+        width={140}
+        height={140}
         className="absolute top-[25%] right-[6%] dessert-float-right opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-xl"
         style={{ 
           animationDuration: '8s',
@@ -63,7 +63,7 @@ const DessertBackground: React.FC = () => {
       />
       
       <Image
-        src="/dessert/bluehawaii.svg"
+        src="/dessert/strawberry.svg"
         alt="Blue Hawaii"
         width={140}
         height={140}
@@ -75,7 +75,7 @@ const DessertBackground: React.FC = () => {
       />
       
       <Image
-        src="/dessert/macaron.svg"
+        src="/dessert/cake.svg"
         alt="Macaron"
         width={100}
         height={100}
@@ -87,7 +87,7 @@ const DessertBackground: React.FC = () => {
       />
 
       <Image
-        src="/dessert/strawberry.svg"
+        src="/dessert/cake1.svg"
         alt="Strawberry"
         width={80}
         height={80}
@@ -99,7 +99,7 @@ const DessertBackground: React.FC = () => {
       />
       
       <Image
-        src="/dessert/macaron.svg"
+        src="/dessert/cake2.svg"
         alt="Macaron"
         width={110}
         height={110}
@@ -111,7 +111,7 @@ const DessertBackground: React.FC = () => {
       />
       
       <Image
-        src="/dessert/cake.svg"
+        src="/dessert/cake3.svg"
         alt="Cake"
         width={90}
         height={90}
