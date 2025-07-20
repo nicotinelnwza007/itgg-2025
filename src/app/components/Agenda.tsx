@@ -29,14 +29,14 @@ const AgendaEvents = [
 	{
 	  side: "left",
 	  icon: Users,
-	  title: "เปิดรับสมัครกีฬาสากลและพื้นบ้าน",
-	  date: "21 - 29 กรกฎาคม",
+	  title: "เปิดรับสมัครการแข่งขัน E-Sport",
+	  date: "21 - 25 กรกฎาคม",
 	},
 	{
 	  side: "right",
 	  icon: Users,
-	  title: "เปิดรับสมัครการแข่งขัน E-Sport",
-	  date: "21 - 25 กรกฎาคม",
+	  title: "เปิดรับสมัครกีฬาสากลและพื้นบ้าน",
+	  date: "21 - 29 กรกฎาคม",
 	},
 	{
     side: "left",
