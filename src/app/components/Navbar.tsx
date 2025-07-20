@@ -37,26 +37,47 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // Optional: Prevent scrolling when mobile menu is open
+  // Improved scroll prevention without layout shift
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      // Get the current scroll position
+      const scrollY = window.scrollY;
+      // Apply styles to prevent scroll and maintain position
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
     } else {
-      document.body.style.overflow = '';
+      // Get the scroll position from the body style
+      const scrollY = document.body.style.top;
+      // Restore normal scrolling
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      // Restore scroll position
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
+
+    // Cleanup function
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-screen-xl rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 text-white">
-      <div className="flex justify-between items-center">
+    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 text-white">
+      <div className="flex justify-between items-center min-h-[40px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center flex-shrink-0">
           <Image
             src="/logo/itgglogo.svg"
             width={40}
             height={40}
             alt="Logo"
-            className="w-14 h-104object-cover rounded-full"
+            className="w-10 h-10 object-cover rounded-full"
           />
         </Link>
 
@@ -72,10 +93,10 @@ export default function Navbar() {
             </Link>
           ))}
           {userData && (
-            <div className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold">
-              <p className="text-lg">{userData.nickname}</p>
-              <p className="text-lg">{userData.gate}</p>
-              <p className="text-lg">คะแนน: {userData.score}</p>
+            <div className="whitespace-nowrap cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg font-bold">
+              <p className="text-sm">{userData.nickname}</p>
+              <p className="text-sm">{userData.gate}</p>
+              <p className="text-sm">คะแนน: {userData.score}</p>
             </div>
           )}
         </div>
@@ -83,40 +104,44 @@ export default function Navbar() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
-          className="md:hidden focus:outline-none"
+          className="md:hidden focus:outline-none flex-shrink-0 p-1"
           aria-label="Toggle navigation menu"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="w-6 h-6 flex items-center justify-center">
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="flex flex-col mt-4 gap-4 md:hidden font-semibold text-sm bg-white/20 backdrop-blur rounded-lg p-4"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden md:hidden"
           >
-            {userData && (
-              <div className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold">
-                <p className="text-lg">{userData.nickname}</p>
-                <p className="text-lg">{userData.gate}</p>
-                <p className="text-lg">คะแนน: {userData.score}</p>
-              </div>
-            )}
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="hover:text-[#ad8a77] transition-colors text-center"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            <div className="flex flex-col mt-4 gap-4 font-semibold text-sm bg-white/20 backdrop-blur rounded-lg p-4">
+              {userData && (
+                <div className="whitespace-nowrap w-full cursor-pointer inline-flex items-center justify-center gap-1 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md transition-all duration-200 ease-in-out h-11 px-4 py-2 text-sm font-bold">
+                  <p>{userData.nickname}</p>
+                  <p>{userData.gate}</p>
+                  <p>คะแนน: {userData.score}</p>
+                </div>
+              )}
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="hover:text-[#ad8a77] transition-colors text-center py-2"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
