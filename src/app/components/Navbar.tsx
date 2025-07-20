@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@/utils/supabase/client';
 
 const navItems = [
+  { label: 'หน้าหลัก', href: '#' },
   { label: 'เกี่ยวกับ', href: '#about' },
   { label: 'กำหนดการ', href: '#agenda' },
   { label: 'FAQs', href: '#FAQs' },
@@ -68,21 +69,21 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 py-3 text-white">
+    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-12 py-3 text-white">
       <div className="flex justify-between items-center min-h-[40px]">
         {/* Logo */}
         <Link href="/" className="flex items-center flex-shrink-0">
           <Image
             src="/logo/itgglogo.svg"
-            width={40}
-            height={40}
+            width={80}
+            height={80}
             alt="Logo"
-            className="w-10 h-10 object-cover rounded-full"
+            className="object-cover rounded-full"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6 font-semibold text-lg">
+        <div className="hidden md:flex items-center gap-10 font-semibold text-lg">
           {navItems.map((item) => (
             <Link
               key={item.href}
