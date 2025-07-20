@@ -79,7 +79,7 @@ const Agenda = () => {
                   event.side === "left"
                     ? "md:text-center md:mr-auto"
                     : "md:text-center md:ml-auto"
-                } text-center max-w-[300px] md:max-w-[360px] p-6 rounded-2xl space-y-2`}
+                } text-center max-w-[325px] md:max-w-[360px] p-6 rounded-2xl space-y-2`}
               >
                 <IconComponent size={64} color="white" className="mb-2 mx-auto" />
                 <h3 className="text-xl md:text-xl font-bold text-white text-center">{event.title}</h3>
