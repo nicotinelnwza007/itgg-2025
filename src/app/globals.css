@@ -281,6 +281,13 @@
   /* Chrome, Safari and Opera */
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Mobile optimizations */
 @media (max-width: 640px) {
