@@ -23,7 +23,7 @@ export async function login(formData: FormData) {
     redirect('/error')
   }
 
-  revalidatePath('/', 'layout')
+  revalidatePath('/')
   redirect('/')
 }
 
@@ -93,12 +93,13 @@ export async function register(formData: FormData) {
         redirect('/error?message=' + error.message)
     }
 
-    revalidatePath('/', 'layout')
+    revalidatePath('/')
     redirect('/')
 }
 
 export async function logout() {
     const supabase = await createClient()
     await supabase.auth.signOut()
+    revalidatePath('/')
     redirect('/')
 }
