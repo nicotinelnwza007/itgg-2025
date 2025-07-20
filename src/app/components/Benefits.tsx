@@ -131,6 +131,7 @@ const Benefits = () => {
                 <Image
                   src={active.icon}
                   alt={active.title}
+                  quality={125}
                   width={192}
                   height={192}
                   className="w-full h-full object-contain filter drop-shadow-lg"
