@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@/utils/supabase/client';
 
 const navItems = [
-  { label: 'หน้าหลัก', href: '#' },
+  { label: 'หน้าหลัก', href: '#top' },
   { label: 'เกี่ยวกับ', href: '#about' },
   { label: 'กำหนดการ', href: '#agenda' },
   { label: 'FAQs', href: '#FAQs' },
@@ -69,11 +69,12 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 md:px-8 lg:px-12 py-3 text-white">
-      <div className="flex justify-between items-center min-h-[40px]">
+    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 md:px-8 lg:px-12 text-white">
+      <div className="flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
+        <Link href="#top" className="flex items-center flex-shrink-0">
           <Image
+		  	quality={200}
             src="/logo/itgglogo.svg"
             width={80}
             height={80}
