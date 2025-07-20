@@ -15,30 +15,30 @@ const AgendaEvents = [
     date: "21 กรกฎาคม",
   },
   {
-    side: "left",
-    icon: Users,
-    title: "รับสมัครนักกีฬาทั้งหมด ",
-    date: "21 กรกฎาคม",
-  },
-  {
-    side: "right",
-    icon: Star,
-    title: "Special Event ",
-    date: "22 กรกฎาคม 16:00",
-  },
-  {
-    side: "left",
-    icon: Calendar,
-    title: "Variety day ",
-    date: "24 กรกฎาคม 16:30",
-  },
-  {
-    side: "right",
-    icon: Users,
-    title: "ปิดรับสมัครกีฬา E-sports ",
-    date: "25 กรกฎาคม",
-  },
-  {
+	  side: "left",
+	  icon: Star,
+	  title: "Special Event ",
+	  date: "22 กรกฎาคม 16:00",
+	},
+	{
+		side: "right",
+		icon: Calendar,
+		title: "Variety day ",
+		date: "24 กรกฎาคม 16:30",
+	},
+	{
+	  side: "left",
+	  icon: Users,
+	  title: "เปิดรับสมัครการแข่งขัน E-Sport",
+	  date: "21 - 25 กรกฎาคม",
+	},
+	{
+	  side: "right",
+	  icon: Users,
+	  title: "เปิดรับสมัครกีฬาสากลและพื้นบ้าน",
+	  date: "21 - 29 กรกฎาคม",
+	},
+	{
     side: "left",
     icon: Gamepad,
     title: "เริ่มแข่ง Rov และ Valorant",
@@ -46,18 +46,12 @@ const AgendaEvents = [
   },
   {
     side: "right",
-    icon: Users,
-    title: "ปิดรับสมัครนักกีฬา",
-    date: "29 กรกฎาคม",
-  },
-  {
-    side: "left",
     icon: Gamepad,
     title: "Rov และ Valorant รอบ Final",
     date: "31 กรกฎาคม และ 1 สิงหาคม",
   },
   {
-    side: "right",
+    side: "left",
     icon: Flag,
     title: "Last day",
     date: "6 สิงหาคม",
@@ -85,7 +79,7 @@ const Agenda = () => {
                   event.side === "left"
                     ? "md:text-center md:mr-auto"
                     : "md:text-center md:ml-auto"
-                } text-center max-w-[400px] md:max-w-[360px] p-6 rounded-2xl space-y-2`}
+                     } text-center max-w-[325px] md:max-w-[360px] p-6 rounded-2xl space-y-2`}
               >
                 <IconComponent size={64} color="white" className="mb-2 mx-auto" />
                 <h3 className="text-xl md:text-xl font-bold text-white text-center">{event.title}</h3>
