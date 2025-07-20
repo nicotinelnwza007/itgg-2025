@@ -128,12 +128,12 @@ const Travelling = () => {
 
           {/* Button Group */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-            <button
+            {/* <button
               onClick={() => setIsModalOpen(true)}
               className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md hover:scale-105 active:scale-95 disabled:opacity-50 disabled:pointer-events-none outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold"
             >
               ดูวิธีการเดินทาง
-            </button>
+            </button> */}
 
             <SecondaryButton
               href="https://maps.app.goo.gl/heBpHSrB8KABpFwN8"

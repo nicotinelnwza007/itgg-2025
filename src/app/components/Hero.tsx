@@ -1,11 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import PrimaryButton from "./sub/PrimaryButton";
 const Hero = () => {
   return (
     <section className="flex justify-center items-center w-full min-h-screen px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20">
-      <div className="max-w-5xl mx-auto flex flex-col items-center space-y-4 sm:space-y-5 md:space-y-6">
+      <div className="max-w-5xl mx-auto flex flex-col items-center space-y-2 sm:space-y-5 md:space-y-2">
         {/* Logo Section */}
         <div className="w-full flex justify-center">
           <Image
