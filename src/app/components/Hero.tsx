@@ -12,6 +12,7 @@ const Hero = () => {
             src="/logo/itgglogo.svg"
             width={600}
             height={600}
+			quality={200}
             alt="ITGG 2025 Logo"
             className="w-full max-w-[290px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[550px] h-auto object-contain"
           />
