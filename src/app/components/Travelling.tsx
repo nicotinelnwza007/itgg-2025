@@ -31,8 +31,7 @@ const TravelModal = ({ isOpen, onClose }) => {
               <h3 className="text-xl font-semibold">รถไฟฟ้า</h3>
             </div>
             <p className="text-sm leading-relaxed">
-              รถไฟฟ้าสายสีเขียวคาดยศทหารบรรดาศักดิ์จากสถานีหุ้งหงใหญ่ (SA City Line)
-              ลงที่สถานีสุวรรณภูมิ แล้วต่อรถไฟฟ้าสายใหม่ รถไฟฟ้าสีทองหรือรถโดยสารประจำทาง
+                รถไฟฟ้าสายท่าอากาศยานสุวรรณภูมิจากสถานีพญาไท (SA City Line) ลงที่สถานีลาดกระบัง แล้วต่อรถไฟที่สถานี รถไฟลาดกระบัง หรือ รถโดยสารขนาดเล็ก
             </p>
           </div>
 
@@ -43,7 +42,7 @@ const TravelModal = ({ isOpen, onClose }) => {
               <h3 className="text-xl font-semibold">รถไฟ</h3>
             </div>
             <p className="text-sm leading-relaxed">
-              รถไฟสายตะวันออก ลงที่ป้ายหยุดรถไฟพระจอมเกล้าฯ หรือสถานีหัวตะเข้
+              รถไฟสายตะวันออก ลงที่ป้ายหยุดรถไฟพระจอมเกล้า หรือ สถานีหัวตะเข้
             </p>
           </div>
 
