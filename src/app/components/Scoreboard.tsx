@@ -1,90 +1,94 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { createClient } from "@/utils/supabase/client";
 
 type Team = {
   name: string;
   color: string;
-  cake: string;
+  bgColor: string;
+  hoverColor: string;
 };
 
 const teams: Team[] = [
-  { name: "Strawberry", color: "pink", cake: "/cake-layer.png" },
-  { name: "Chocolate", color: "yellow", cake: "/cake-layer.png" },
-  { name: "Mint", color: "green", cake: "/cake-layer.png" },
-  { name: "Blueberry", color: "blue", cake: "/cake-layer.png" },
+  { name: "AND", color: "text-pink-400", bgColor: "bg-pink-500", hoverColor: "hover:bg-pink-600" },
+  { name: "OR", color: "text-yellow-400", bgColor: "bg-yellow-500", hoverColor: "hover:bg-yellow-600" },
+  { name: "NOR", color: "text-green-400", bgColor: "bg-green-500", hoverColor: "hover:bg-green-600" },
+  { name: "NOT", color: "text-blue-400", bgColor: "bg-blue-500", hoverColor: "hover:bg-blue-600" },
 ];
 
 export default function SweetScoreboard() {
-  const [scores, setScores] = useState<number[]>([3, 5, 2, 4]);
+  const [scores, setScores] = useState<number[]>([0, 0, 0, 0]);
+  const [percentages, setPercentages] = useState<number[]>([0, 0, 0, 0]);
 
-  const increment = (index: number) => {
-    const updated = [...scores];
-    updated[index]++;
-    setScores(updated);
-  };
-
-  const decrement = (index: number) => {
-    const updated = [...scores];
-    if (updated[index] > 0) updated[index]--;
-    setScores(updated);
+  const updatePercentages = (currentScores: number[]) => {
+    const newPercentages = currentScores.map(score => (score / 50000) * 100);
+    setPercentages(newPercentages);
   };
 
   useEffect(() => {
     const fetchScores = async () => {
       const supabase = await createClient();
-      const { data, error } = await supabase.from('gates').select('score');
+      const { data, error } = await supabase
+        .from('gates')
+        .select('score, name')
+        .order('name', { ascending: true });
+        
       if (error) {
-        console.error('Error fetching teams:', error);
+        console.error('Error fetching gates:', error);
       } else {
-        setScores(data.map((gate) => gate.score / 10));
+        // Map scores in AND, OR, NOR, NOT order
+        const orderedScores = [
+          data.find(gate => gate.name === 'AND')?.score || 0,
+          data.find(gate => gate.name === 'OR')?.score || 0, 
+          data.find(gate => gate.name === 'NOR')?.score || 0,
+          data.find(gate => gate.name === 'NOT')?.score || 0
+        ];
+        
+        setScores(orderedScores);
+        updatePercentages(orderedScores);
       }
     }
     fetchScores();
   }, []);
 
   return (
-    <div className="z-40 min-h-screen w-[90%] overflow-x-hidden bg-white/25 backdrop-blur border border-white/15 text-white flex items-end py-10">
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-screen-xl mx-auto">
+    <div className="z-40 min-h-screen w-[100%] md:w-[90%] overflow-x-hidden bg-[#342016] backdrop-blur border border-white/15 text-white flex items-center py-10 rounded-lg">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full max-w-screen-xl mx-auto px-2">
         {teams.map((team, index) => (
           <div key={team.name} className="flex flex-col items-center w-full">
-            {/* Cake stack */}
-            <div className="relative h-64 w-20 sm:w-24 md:w-28 lg:w-32 flex flex-col-reverse items-center justify-start">
-              {Array.from({ length: scores[index] }).map((_, i) => (
-                <Image
-                  key={i}
-                  src={team.cake}
-                  alt="cake"
-                  width={120}
-                  height={100}
-                  className="object-contain -mt-2"
-                />
-              ))}
+            {/* Score display */}
+            <div className="mb-4 text-center">
+              <p className={`${team.color} font-bold text-lg md:text-xl`}>
+                {scores[index].toLocaleString()}
+              </p>
+            </div>
+
+            {/* Vertical bar graph */}
+            <div className="relative h-[32rem] w-full max-w-[12rem] bg-white/10 rounded-lg overflow-hidden">
+              <div 
+                className={`absolute bottom-0 w-full ${team.bgColor} transition-all duration-500 ease-out rounded-lg`}
+                style={{ 
+                  height: `${Math.min(percentages[index], 100)}%`,
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+              </div>
+              
+              {/* Percentage text inside bar */}
+              {percentages[index] > 5 && (
+                <div className="absolute bottom-2 left-0 right-0 text-center">
+                  <span className="text-white font-semibold text-xs">
+                    {percentages[index].toFixed(1)}%
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Team name */}
-            <p className={`text-${team.color}-400 font-semibold text-base md:text-lg mb-2 mt-3`}>
+            <p className={`${team.color} font-semibold text-base md:text-lg mb-2 mt-3`}>
               {team.name}
             </p>
-
-            {/* Control buttons */}
-            <div className="flex gap-3">
-              <button
-                onClick={() => increment(index)}
-                className={`bg-${team.color}-500 hover:bg-${team.color}-600 text-white rounded-full px-3 py-1 text-lg`}
-              >
-                +
-              </button>
-              <button
-                onClick={() => decrement(index)}
-                className={`bg-${team.color}-500 hover:bg-${team.color}-600 text-white rounded-full px-3 py-1 text-lg`}
-              >
-                –
-              </button>
-            </div>
           </div>
         ))}
       </div>
