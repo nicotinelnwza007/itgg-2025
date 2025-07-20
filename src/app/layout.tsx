@@ -9,21 +9,21 @@ import DessertBackground from "./components/bg/DessertBackground";
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const kanit = Kanit({
   variable: "--font-kanit",
   subsets: ["thai", "latin"],
-  weight: ["200"], // ExtraLight
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const kalnia = Kalnia({
   variable: "--font-kalnia",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   display: "swap",
 });
 
