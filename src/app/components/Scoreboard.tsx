@@ -11,10 +11,10 @@ type Team = {
 };
 
 const teams: Team[] = [
-  { name: "AND", color: "text-blue-400", bgColor: "bg-blue-500", hoverColor: "hover:bg-pink-600" },
-  { name: "OR", color: "text-green-400", bgColor: "bg-green-500", hoverColor: "hover:bg-yellow-600" },
-  { name: "NOR", color: "text-pink-400", bgColor: "bg-pink-500", hoverColor: "hover:bg-green-600" },
-  { name: "NOT", color: "text-purple-400", bgColor: "bg-purple-500", hoverColor: "hover:bg-blue-600" },
+  { name: "AND", color: "text-blue-400", bgColor: "bg-blue-500", hoverColor: "hover:bg-blue-600" },
+  { name: "OR", color: "text-green-400", bgColor: "bg-green-500", hoverColor: "hover:bg-green-600" },
+  { name: "NOR", color: "text-red-400", bgColor: "bg-red-500", hoverColor: "hover:bg-red-600" },
+  { name: "NOT", color: "text-purple-500", bgColor: "bg-purple-500", hoverColor: "hover:bg-purple-600" },
 ];
 
 export default function SweetScoreboard() {
@@ -60,7 +60,7 @@ export default function SweetScoreboard() {
           <div key={team.name} className="flex flex-col items-center w-full">
             {/* Score display */}
             <div className="mb-4 text-center">
-              <p className={`${team.color} font-bold text-lg md:text-xl`}>
+              <p className={`${team.color} font-bold text-lg md:text-3xl`}>
                 {scores[index].toLocaleString()}
               </p>
             </div>
@@ -75,19 +75,10 @@ export default function SweetScoreboard() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
               </div>
-              
-              {/* Percentage text inside bar */}
-              {percentages[index] > 5 && (
-                <div className="absolute bottom-2 left-0 right-0 text-center">
-                  <span className="text-white font-semibold text-xs">
-                    {percentages[index].toFixed(1)}%
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Team name */}
-            <p className={`${team.color} font-semibold text-base md:text-lg mb-2 mt-3`}>
+            <p className={`${team.color} font-semibold text-base md:text-3xl mb-2 mt-3`}>
               {team.name}
             </p>
           </div>

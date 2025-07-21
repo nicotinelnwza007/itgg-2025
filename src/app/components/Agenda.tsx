@@ -11,7 +11,7 @@ const AgendaEvents = [
   {
     side: "right",
     icon: Calendar,
-    title: "First day",
+    title: "First Day",
     date: "21 กรกฎาคม",
   },
   {
@@ -23,7 +23,7 @@ const AgendaEvents = [
 	{
 		side: "right",
 		icon: Calendar,
-		title: "Variety day ",
+		title: "Variety Day ",
 		date: "24 กรกฎาคม 16:30 น.",
 	},
 	{
@@ -53,7 +53,7 @@ const AgendaEvents = [
   {
     side: "left",
     icon: Flag,
-    title: "Last day",
+    title: "Last Day",
     date: "6 สิงหาคม",
   },
 ];
