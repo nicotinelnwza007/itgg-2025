@@ -12,7 +12,7 @@ const AgendaEvents = [
     side: "right",
     icon: Calendar,
     title: "First Day",
-    date: "21 กรกฎาคม",
+    date: "21 กรกฎาคม 16:30 น.",
   },
   {
 	  side: "left",
@@ -41,20 +41,20 @@ const AgendaEvents = [
 	{
     side: "left",
     icon: Gamepad,
-    title: "เริ่มแข่ง Rov และ Valorant",
+    title: "เริ่มแข่ง ROV และ Valorant",
     date: "28 กรกฎาคม - 31 กรกฎาคม",
   },
   {
     side: "right",
     icon: Gamepad,
-    title: "Rov และ Valorant รอบ Final",
+    title: "ROV และ Valorant รอบ Final",
     date: "31 กรกฎาคม และ 1 สิงหาคม",
   },
   {
     side: "left",
     icon: Flag,
     title: "Last Day",
-    date: "6 สิงหาคม",
+    date: "??????",
   },
 ];
 
