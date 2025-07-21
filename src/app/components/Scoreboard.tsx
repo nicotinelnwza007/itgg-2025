@@ -11,10 +11,10 @@ type Team = {
 };
 
 const teams: Team[] = [
-  { name: "AND", color: "text-pink-400", bgColor: "bg-pink-500", hoverColor: "hover:bg-pink-600" },
-  { name: "OR", color: "text-yellow-400", bgColor: "bg-yellow-500", hoverColor: "hover:bg-yellow-600" },
-  { name: "NOR", color: "text-green-400", bgColor: "bg-green-500", hoverColor: "hover:bg-green-600" },
-  { name: "NOT", color: "text-blue-400", bgColor: "bg-blue-500", hoverColor: "hover:bg-blue-600" },
+  { name: "AND", color: "text-blue-400", bgColor: "bg-blue-500", hoverColor: "hover:bg-pink-600" },
+  { name: "OR", color: "text-green-400", bgColor: "bg-green-500", hoverColor: "hover:bg-yellow-600" },
+  { name: "NOR", color: "text-pink-400", bgColor: "bg-pink-500", hoverColor: "hover:bg-green-600" },
+  { name: "NOT", color: "text-purple-400", bgColor: "bg-purple-500", hoverColor: "hover:bg-blue-600" },
 ];
 
 export default function SweetScoreboard() {

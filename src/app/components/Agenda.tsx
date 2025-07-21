@@ -6,7 +6,7 @@ const AgendaEvents = [
     side: "left",
     icon: Calendar,
     title: "First Meet",
-    date: "7 กรกฎาคม 16:30",
+    date: "7 กรกฎาคม 16:30 น.",
   },
   {
     side: "right",
@@ -18,13 +18,13 @@ const AgendaEvents = [
 	  side: "left",
 	  icon: Star,
 	  title: "Special Event ",
-	  date: "22 กรกฎาคม 16:00",
+	  date: "22 กรกฎาคม 16:00 น.",
 	},
 	{
 		side: "right",
 		icon: Calendar,
 		title: "Variety day ",
-		date: "24 กรกฎาคม 16:30",
+		date: "24 กรกฎาคม 16:30 น.",
 	},
 	{
 	  side: "left",

@@ -26,7 +26,7 @@ const Hero = () => {
 
 
             <p className="text-base sm:text-lg md:text-2xl leading-relaxed max-w-5xlxl mx-auto mt-12">
-              InfoTech Tournament GateGame 2025 หรือ ITGG 2025 : มหกรรมการแข่งขันที่ยิ่งใหญ่ที่สุดในไอทีลาดกระบัง เตรียมตัวให้พร้อม! กับเวทีโชว์ศักยภาพ ทักษะด้านกีฬา และ E-sports
+              Infotech Tournament GateGame หรือ ITGG 2025 : มหกรรมการแข่งขันที่ยิ่งใหญ่ที่สุดในไอทีลาดกระบัง เตรียมตัวให้พร้อม! กับเวทีโชว์ศักยภาพ ทักษะด้านกีฬา และ E-Sport
             </p>
 
         </div>
