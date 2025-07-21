@@ -138,7 +138,7 @@ function SendAnswer() {
       <div className="w-full px-4 py-10 relative">
         <div className="flex items-center justify-center">
           <button onClick={toggleQuiz} className={`button`}>
-            Start Quiz 🎀
+            Start Quiz 💫
           </button>
 
           <AnimatePresence>
