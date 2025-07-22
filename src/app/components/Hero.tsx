@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import SendAnswer from "./SendAnswer";
+import PrimaryButton from "./sub/PrimaryButton";
 const Hero = () => {
   return (
     <section className="flex justify-center items-center w-full min-h-screen mt-8 px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20 overflow-x-hidden">
@@ -31,13 +32,12 @@ const Hero = () => {
 
         </div>
 
-		<SendAnswer/>
-        {/* Button Group */}
-        {/* <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto h-[10px] mt-2">
+        <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto h-[10px] mt-12">
           <PrimaryButton href="/auth/login">เข้าสู่ระบบ</PrimaryButton>
 
           <PrimaryButton href="/tournament">ตารางการแข่งขัน</PrimaryButton>
-        </div> */}
+        </div>
+		<SendAnswer/>
       </div>
     </section>
   );

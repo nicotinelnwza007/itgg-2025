@@ -291,105 +291,105 @@
       ]
     }
   ],
-  "shareball": [
+  "chairball": [
     {
-      "id": "shareball-r1-m1",
+      "id": "chairball-r1-m1",
       "name": "First Round - Match 1",
-      "nextMatchId": "shareball-r2-m1",
+      "nextMatchId": "chairball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "shareball-t1",
-          "name": "Quantum Shares",
-          "logoUrl": "/logos/shareball1.png",
+          "id": "chairball-t1",
+          "name": "Quantum chairs",
+          "logoUrl": "/logos/chairball1.png",
           "isWinner": false,
           "resultText": "14"
         },
         {
-          "id": "shareball-t2",
+          "id": "chairball-t2",
           "name": "Network Nodes",
-          "logoUrl": "/logos/shareball2.png",
+          "logoUrl": "/logos/chairball2.png",
           "isWinner": false,
           "resultText": "21"
         }
       ]
     },
     {
-      "id": "shareball-r1-m2",
+      "id": "chairball-r1-m2",
       "name": "First Round - Match 2",
-      "nextMatchId": "shareball-r2-m1",
+      "nextMatchId": "chairball-r2-m1",
       "tournamentRoundText": "First Round",
       "startTime": "2025-07-12",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "shareball-t3",
+          "id": "chairball-t3",
           "name": "Data Dynamos",
-          "logoUrl": "/logos/shareball3.png",
+          "logoUrl": "/logos/chairball3.png",
           "isWinner": false,
           "resultText": "28"
         },
         {
-          "id": "shareball-t4",
+          "id": "chairball-t4",
           "name": "Cloud Crushers",
-          "logoUrl": "/logos/shareball4.png",
+          "logoUrl": "/logos/chairball4.png",
           "isWinner": false,
           "resultText": "17"
         }
       ]
     },
     {
-      "id": "shareball-r2-m1",
+      "id": "chairball-r2-m1",
       "name": "Semifinal - Winners",
-      "nextMatchId": "shareball-r3-m1",
+      "nextMatchId": "chairball-r3-m1",
       "tournamentRoundText": "Semifinal",
       "startTime": "2025-07-15",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "shareball-t2",
+          "id": "chairball-t2",
           "name": "Network Nodes",
-          "logoUrl": "/logos/shareball2.png",
+          "logoUrl": "/logos/chairball2.png",
           "isWinner": false,
           "resultText": null
         },
         {
-          "id": "shareball-t3",
+          "id": "chairball-t3",
           "name": "Data Dynamos",
-          "logoUrl": "/logos/shareball3.png",
+          "logoUrl": "/logos/chairball3.png",
           "isWinner": false,
           "resultText": null
         }
       ]
     },
     {
-      "id": "shareball-r2-m2",
+      "id": "chairball-r2-m2",
       "name": "Semifinal - Losers",
-      "nextMatchId": "shareball-r3-m2",
+      "nextMatchId": "chairball-r3-m2",
       "tournamentRoundText": "Semifinal",
       "startTime": "2025-07-15",
       "state": "SCHEDULED",
       "participants": [
         {
-          "id": "shareball-t1",
-          "name": "Quantum Shares",
-          "logoUrl": "/logos/shareball1.png",
+          "id": "chairball-t1",
+          "name": "Quantum chairs",
+          "logoUrl": "/logos/chairball1.png",
           "isWinner": false,
           "resultText": null
         },
         {
-          "id": "shareball-t4",
+          "id": "chairball-t4",
           "name": "Cloud Crushers",
-          "logoUrl": "/logos/shareball4.png",
+          "logoUrl": "/logos/chairball4.png",
           "isWinner": false,
           "resultText": null
         }
       ]
     },
     {
-      "id": "shareball-r3-m1",
+      "id": "chairball-r3-m1",
       "name": "Final",
       "nextMatchId": null,
       "tournamentRoundText": "Final",
@@ -413,7 +413,7 @@
       ]
     },
     {
-      "id": "shareball-r3-m2",
+      "id": "chairball-r3-m2",
       "name": "Third Place Playoff",
       "nextMatchId": null,
       "tournamentRoundText": "3rd Place",
@@ -437,6 +437,7 @@
       ]
     }
   ],
+  
   "rov": [
     {
       "id": "rov-r1-m1",
@@ -1160,5 +1161,298 @@
         }
       ]
     }
-  ]
+  ],
+  "tugofwar": [
+  {
+    "id": "tugofwar-r1-m1",
+    "name": "First Round - Match 1",
+    "nextMatchId": "tugofwar-r2-m1",
+    "tournamentRoundText": "First Round",
+    "startTime": "2025-07-12",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "tugofwar-t1",
+        "name": "Iron Pullers",
+        "logoUrl": "/logos/tugofwar1.png",
+        "isWinner": false,
+        "resultText": "Lost"
+      },
+      {
+        "id": "tugofwar-t2",
+        "name": "Rope Warriors",
+        "logoUrl": "/logos/tugofwar2.png",
+        "isWinner": false,
+        "resultText": "Won"
+      }
+    ]
+  },
+  {
+    "id": "tugofwar-r1-m2",
+    "name": "First Round - Match 2",
+    "nextMatchId": "tugofwar-r2-m1",
+    "tournamentRoundText": "First Round",
+    "startTime": "2025-07-12",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "tugofwar-t3",
+        "name": "Power Tuggers",
+        "logoUrl": "/logos/tugofwar3.png",
+        "isWinner": false,
+        "resultText": "Won"
+      },
+      {
+        "id": "tugofwar-t4",
+        "name": "Grip Masters",
+        "logoUrl": "/logos/tugofwar4.png",
+        "isWinner": false,
+        "resultText": "Lost"
+      }
+    ]
+  },
+  {
+    "id": "tugofwar-r2-m1",
+    "name": "Semifinal - Winners",
+    "nextMatchId": "tugofwar-r3-m1",
+    "tournamentRoundText": "Semifinal",
+    "startTime": "2025-07-15",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "tugofwar-t2",
+        "name": "Rope Warriors",
+        "logoUrl": "/logos/tugofwar2.png",
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "tugofwar-t3",
+        "name": "Power Tuggers",
+        "logoUrl": "/logos/tugofwar3.png",
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "tugofwar-r2-m2",
+    "name": "Semifinal - Losers",
+    "nextMatchId": "tugofwar-r3-m2",
+    "tournamentRoundText": "Semifinal",
+    "startTime": "2025-07-15",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "tugofwar-t1",
+        "name": "Iron Pullers",
+        "logoUrl": "/logos/tugofwar1.png",
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "tugofwar-t4",
+        "name": "Grip Masters",
+        "logoUrl": "/logos/tugofwar4.png",
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "tugofwar-r3-m1",
+    "name": "Final",
+    "nextMatchId": null,
+    "tournamentRoundText": "Final",
+    "startTime": "2025-07-18",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "TBD-SF-W1",
+        "name": "Winner of Semifinal - Winners",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "TBD-SF-W2",
+        "name": "Loser of Semifinal - Winners",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "tugofwar-r3-m2",
+    "name": "Third Place Playoff",
+    "nextMatchId": null,
+    "tournamentRoundText": "3rd Place",
+    "startTime": "2025-07-17",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "TBD-SF-L1",
+        "name": "Winner of Semifinal - Losers",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "TBD-SF-L2",
+        "name": "Loser of Semifinal - Losers",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  }
+],
+
+"sprint": [
+  {
+    "id": "sprint-r1-m1",
+    "name": "First Round - Match 1",
+    "nextMatchId": "sprint-r2-m1",
+    "tournamentRoundText": "First Round",
+    "startTime": "2025-07-12",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "sprint-t1",
+        "name": "Lightning Runners",
+        "logoUrl": "/logos/sprint1.png",
+        "isWinner": false,
+        "resultText": "2:45"
+      },
+      {
+        "id": "sprint-t2",
+        "name": "Speed Demons",
+        "logoUrl": "/logos/sprint2.png",
+        "isWinner": false,
+        "resultText": "2:38"
+      }
+    ]
+  },
+  {
+    "id": "sprint-r1-m2",
+    "name": "First Round - Match 2",
+    "nextMatchId": "sprint-r2-m1",
+    "tournamentRoundText": "First Round",
+    "startTime": "2025-07-12",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "sprint-t3",
+        "name": "Flash Relay",
+        "logoUrl": "/logos/sprint3.png",
+        "isWinner": false,
+        "resultText": "2:41"
+      },
+      {
+        "id": "sprint-t4",
+        "name": "Turbo Squad",
+        "logoUrl": "/logos/sprint4.png",
+        "isWinner": false,
+        "resultText": "2:52"
+      }
+    ]
+  },
+  {
+    "id": "sprint-r2-m1",
+    "name": "Semifinal - Winners",
+    "nextMatchId": "sprint-r3-m1",
+    "tournamentRoundText": "Semifinal",
+    "startTime": "2025-07-15",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "sprint-t2",
+        "name": "Speed Demons",
+        "logoUrl": "/logos/sprint2.png",
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "sprint-t3",
+        "name": "Flash Relay",
+        "logoUrl": "/logos/sprint3.png",
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "sprint-r2-m2",
+    "name": "Semifinal - Losers",
+    "nextMatchId": "sprint-r3-m2",
+    "tournamentRoundText": "Semifinal",
+    "startTime": "2025-07-15",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "sprint-t1",
+        "name": "Lightning Runners",
+        "logoUrl": "/logos/sprint1.png",
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "sprint-t4",
+        "name": "Turbo Squad",
+        "logoUrl": "/logos/sprint4.png",
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "sprint-r3-m1",
+    "name": "Final",
+    "nextMatchId": null,
+    "tournamentRoundText": "Final",
+    "startTime": "2025-07-18",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "TBD-SF-W1",
+        "name": "Winner of Semifinal - Winners",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "TBD-SF-W2",
+        "name": "Loser of Semifinal - Winners",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  },
+  {
+    "id": "sprint-r3-m2",
+    "name": "Third Place Playoff",
+    "nextMatchId": null,
+    "tournamentRoundText": "3rd Place",
+    "startTime": "2025-07-17",
+    "state": "SCHEDULED",
+    "participants": [
+      {
+        "id": "TBD-SF-L1",
+        "name": "Winner of Semifinal - Losers",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      },
+      {
+        "id": "TBD-SF-L2",
+        "name": "Loser of Semifinal - Losers",
+        "logoUrl": null,
+        "isWinner": false,
+        "resultText": null
+      }
+    ]
+  }
+]
 }

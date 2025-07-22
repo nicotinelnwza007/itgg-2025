@@ -403,7 +403,7 @@ const TournamentBracket: React.FC = () => {
       </div>
     </div>
   );
-// Your main component return statement without ConnectorLines
+
 return (
     <div className="min-h-screen mt-28 text-white p-4 sm:p-6">
       

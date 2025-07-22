@@ -1,46 +1,47 @@
-export const TOURNAMENT_DATA = {
-  'football': {
-    title: 'Football Championship',
-    color: 'text-green-400'
-  },
-  'basketball': {
-    title: 'Basketball Tournament',
-    color: 'text-orange-400'
-  },
-  'rov': {
-    title: 'Arena of Valor Championship',
-    color: 'text-blue-400'
-  },
-  'valorant': {
-    title: 'Valorant Masters',
-    color: 'text-red-400'
-  },
-  'shareball': {
-    title: 'Badminton Championship',
-    color: 'text-yellow-400'
-  }
-} as const;
-
-// File: src/app/types/tournament.ts
 export interface Participant {
   id: string;
   name: string;
-  logoUrl: string;
-  isWinner: boolean;
-  resultText: string;
+  resultText?: string;
+  isWinner?: boolean;
 }
 
 export interface Match {
   id: string;
-  name: string;
-  nextMatchId: string | null;
-  tournamentRoundText: string;
-  startTime: string;
-  state: 'DONE' | 'SCHEDULED' | 'RUNNING';
   participants: Participant[];
+  tournamentRoundText: string;
+  state: 'DONE' | 'RUNNING' | 'SCHEDULED';
+  startTime?: string;
+  venue?: string;
+  time?: string;
 }
 
-export interface Tournament {
-  title: string;
-  color: string;
+export interface TransformedMatch {
+  id: string;
+  team1: { id?: string; name?: string } | string;
+  team2: { id?: string; name?: string } | string;
+  score1?: string | number;
+  score2?: string | number;
+  winner?: string;
+  status: 'completed' | 'live' | 'upcoming' | 'scheduled';
+  date?: string;
+  venue?: string;
+  time?: string;
+}
+
+export interface Round {
+  id: string;
+  name: string;
+  matches: TransformedMatch[];
+}
+
+export interface BracketData {
+  rounds: Round[];
+}
+
+export interface TournamentStats {
+  totalMatches: number;
+  completed: number;
+  upcoming: number;
+  live: number;
+  totalTeams?: number;
 }
