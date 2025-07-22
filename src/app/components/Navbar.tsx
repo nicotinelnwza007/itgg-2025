@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "@/utils/supabase/client";
 
 const navItems = [
-  { label: "หน้าหลัก", href: "#" },
-  { label: "เกี่ยวกับ", href: "#about" },
-  { label: "กำหนดการ", href: "#agenda" },
-  { label: "FAQs", href: "#FAQs" },
+  { label: 'หน้าหลัก', href: '#top' },
+  { label: 'เกี่ยวกับ', href: '#about' },
+  { label: 'กำหนดการ', href: '#agenda' },
+  { label: 'FAQs', href: '#FAQs' },
 ];
 
 export default function Navbar() {
@@ -79,11 +79,12 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 md:px-8 lg:px-12 py-3 text-white">
-      <div className="flex justify-between items-center min-h-[40px]">
+    <nav className="fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-full rounded-xl backdrop-blur bg-white/10 border border-white/10 px-4 md:px-8 lg:px-12 text-white">
+      <div className="flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
+        <Link href="#top" className="flex items-center flex-shrink-0">
           <Image
+		  	quality={200}
             src="/logo/itgglogo.svg"
             width={80}
             height={80}
@@ -134,7 +135,7 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden md:hidden"
           >
-            <div className="flex flex-col mt-4 gap-4 font-semibold text-sm bg-white/20 backdrop-blur rounded-lg p-4">
+            <div className="flex flex-col mt-4 gap-4 font-semibold text-sm  rounded-lg p-4">
               {userData && (
                 <div className="whitespace-nowrap w-full cursor-pointer inline-flex items-center justify-center gap-1 rounded-md border border-amber-700 text-amber-700 bg-white hover:bg-amber-700 hover:text-white shadow-md transition-all duration-200 ease-in-out h-11 px-4 py-2 text-sm font-bold">
                   <p>{userData.nickname}</p>
@@ -146,7 +147,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="hover:text-[#ad8a77] transition-colors text-center py-2"
+                  className=" text-center py-2"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

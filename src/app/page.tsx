@@ -18,7 +18,7 @@ const Countdown = dynamic(() => import("./components/countdown"), {
 export default function Home() {
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center overflow-x-hidden">
       {/* <LandingCount/>  */}
       <Hero />
       <About />

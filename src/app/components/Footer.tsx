@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-3 sm:space-y-4">
             <div className="space-y-2 sm:space-y-3 leading-relaxed">
               <h3 className="text-base sm:text-lg font-semibold text-[#FAF1E5] leading-tight">
-                กิจกรรม InfoTech Tournament GateGame 2025 - ITGG2025
+                กิจกรรม Infotech Tournament GateGame 2025 - ITGG 2025
                               </h3>
               
               <div className="text-sm sm:text-base space-y-1 sm:space-y-2 font-medium">
@@ -116,7 +116,7 @@ export default function Footer() {
         {/* Copyright/Bottom Section */}
         <div className="pt-4 sm:pt-6 border-t border-white/20">
           <p className="text-xs sm:text-sm text-center lg:text-left text-[#FAF1E5]/80 font-medium">
-            © 2025 InfoTech Tournament GateGame - Faculty of Information Technology, KMITL
+            © 2025 Infotech Tournament GateGame - Faculty of Information Technology, KMITL
           </p>
         </div>
       </div>

@@ -25,8 +25,8 @@ const benefits = [
     title: "NOR",
     description: "เงื่อนไขทั้งสองข้อจะต้องไม่เป็นจริงเลย เป็นตรงข้ามกับ OR",
     bgColor: "bg-[#390101]",
-    borderColor: "border-pink-300",
-    accentColor: "bg-pink-500",
+    borderColor: "border-red-300",
+    accentColor: "bg-red-500",
   },
   {
     icon: "/dessert/macaron.svg",
@@ -43,7 +43,7 @@ const Benefits = () => {
   const active = benefits[activeIndex];
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen p-10 sm:p-12 lg:p-16 mt-14">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
@@ -131,6 +131,7 @@ const Benefits = () => {
                 <Image
                   src={active.icon}
                   alt={active.title}
+                  quality={125}
                   width={192}
                   height={192}
                   className="w-full h-full object-contain filter drop-shadow-lg"

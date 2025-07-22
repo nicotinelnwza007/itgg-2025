@@ -52,7 +52,7 @@ const images = [
 
 export default function ImageSlider() {
   return (
-    <section className="my-8 md:my-16 px-4">
+    <section className="my-8 md:my-16">
       <h2 className="text-3xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 text-white">บรรยากาศกิจกรรม</h2>
       <AutoImageSlider images={images} />
     </section>
