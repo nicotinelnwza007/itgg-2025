@@ -11,8 +11,8 @@ function getTodayDateString(): string {
 // Get daily quest using date as seed for consistent selection
 async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>) {
     const { data: allQuests } = await supabase
-        .from('quests')
-        .select('id, question, answer, score, is_answered')
+        .from('quests_test')
+        .select('id, question, answer, score, is_answered, type, code, image')
         .eq('is_answered', false);
     
     if (!allQuests || allQuests.length === 0) {
@@ -235,6 +235,8 @@ export async function GET() {
             id: questToReturn.id,
             question: questToReturn.question,
             score: questToReturn.score,
+            code: questToReturn.code,
+            image: questToReturn.image,
             hasAnswered: !!hasAnsweredToday,
             wasCorrect: !!wasCorrect,
             date: todayDateString

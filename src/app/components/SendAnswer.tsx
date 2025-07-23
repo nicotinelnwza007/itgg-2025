@@ -2,11 +2,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { X } from 'lucide-react';
+import hljs from 'highlight.js';
+import python from 'highlight.js/lib/languages/python';
+import 'highlight.js/styles/github.css';
 
 interface DailyQuest {
   id: string;
   question: string;
   score: number;
+  code: string;
+  image: string;
   hasAnswered: boolean;
   wasCorrect: boolean;
   date: string;
@@ -14,7 +19,7 @@ interface DailyQuest {
 
 function SendAnswer() {
   const [dailyQuest, setDailyQuest] = useState<DailyQuest | null>(null);
-  const [isDailyQuestDeployed, setIsDailyQuestDeployed] = useState(false);
+  const [isDailyQuestDeployed, setIsDailyQuestDeployed] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
@@ -39,11 +44,11 @@ function SendAnswer() {
   ];
 
   // Check if the date is 25 July
-  useEffect(() => {
-    const today = new Date();
-    const is25July = today.getDate() === 25 && today.getMonth() === 7;
-    setIsDailyQuestDeployed(is25July);
-  }, []);
+  // useEffect(() => {
+  //   const today = new Date();
+  //   const is25July = today.getDate() === 25 && today.getMonth() === 7;
+  //   setIsDailyQuestDeployed(is25July);
+  // }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -120,6 +125,11 @@ function SendAnswer() {
 
   useEffect(() => {
     fetchDailyQuest();
+  }, []);
+
+  useEffect(() => {
+    hljs.registerLanguage('python', python);
+    hljs.highlightAll();
   }, []);
 
   if (loading) {
@@ -219,6 +229,24 @@ function SendAnswer() {
               >
                 <X size={38} />
               </button>
+
+              {dailyQuest.code && (
+                <pre className="mb-4 rounded-lg p-4 overflow-x-auto">
+                  <code
+                    className="hljs language-python"
+                    dangerouslySetInnerHTML={{
+                      __html: hljs.highlight(
+                        dailyQuest.code,
+                        { language: 'python' }
+                      ).value
+                    }}
+                  />
+                </pre>
+              )}
+
+              {dailyQuest.image && (
+                <img src={dailyQuest.image} alt="Daily Quest Image" className="w-full h-auto mb-4 mt-10" />
+              )}
 
               <div className="text-center text-2xl font-bold text-[#6b3e1d] mb-4 mt-10">
                 🍭 {dailyQuest.question}
