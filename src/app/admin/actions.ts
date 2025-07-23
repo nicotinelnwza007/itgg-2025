@@ -8,6 +8,7 @@ export interface StudentProfile {
   nickname: string
   it_id: string
   score: number
+  gate : string
 }
 
 export interface TeamGate {
@@ -21,7 +22,7 @@ export async function getStudentProfiles(): Promise<StudentProfile[]> {
   
   const { data, error } = await supabase
     .from('profiles')
-    .select('nickname, it_id, score')
+    .select('nickname, it_id, score, gate')
     .order('nickname')
 
   if (error) {

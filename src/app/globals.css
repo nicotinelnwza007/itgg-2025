@@ -2,6 +2,7 @@
 
 *{
     scroll-behavior: smooth;
+	  /* overflow-x: hidden;    */
 }
 .text-glow {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.952),
@@ -9,9 +10,9 @@
 }
 
 .button {
-  --main-color: #a05a2c;
-  --border-color: #804621;
-  --shadow-color: #a05a2c66;  
+  --main-color: #f472b6;
+  --border-color: #ec4899;
+  --shadow-color: #fd6ab666;
 
   cursor: pointer;
   width: 250px;
@@ -21,7 +22,7 @@
   justify-content: center;
   gap: 1rem;
   font-size: 20px;
-  font-weight: 800; 
+  font-weight: 800;
   letter-spacing: 2px;
   color: #fff;
   background: var(--main-color);
@@ -336,4 +337,12 @@
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-floating {
+  animation: floating 6s ease-in-out infinite;
 }

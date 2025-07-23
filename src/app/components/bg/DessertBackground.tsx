@@ -2,164 +2,92 @@ import Image from "next/image";
 
 const DessertBackground: React.FC = () => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-[-50] bg-gradient-to-br from-[#2A1810] via-[#342016] to-[#1F1209] overflow-hidden">
-      
-      {/* SVG Pattern Overlay - Full Cover */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-8"
+    <div className="fixed top-0 left-0 w-full h-full z-[-50] overflow-hidden bg-gradient-to-br from-[#2A1810] via-[#342016] to-[#1F1209]">
+      {/* Static SVG Pattern Background */}
+      <div
+        className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-5"
         style={{
-          zIndex: 1,
-          backgroundImage: 'url(/line.svg)'
+          backgroundImage: 'url(/line.svg)',
         }}
       />
 
-      <div 
-        className="absolute -top-[120px] -left-[120px] w-96 h-96 bg-gradient-to-r from-[#B2842E] to-[#D4A574] opacity-15 blur-[80px] rounded-full animate-pulse" 
-      />
-      <div 
-        className="absolute top-[20%] -right-[100px] w-80 h-80 bg-gradient-to-l from-[#C9965F] to-[#B2842E] opacity-12 blur-[70px] rounded-full animate-pulse"
-        style={{ animationDelay: '1s' }} 
-      />
-      <div 
-        className="absolute -bottom-[100px] -right-[100px] w-96 h-96 bg-gradient-to-t from-[#B2842E] to-[#E6C79C] opacity-15 blur-[80px] rounded-full animate-pulse"
-        style={{ animationDelay: '0.5s' }} 
-      />
-      <div 
-        className="absolute bottom-[30%] -left-[80px] w-72 h-72 bg-gradient-to-br from-[#D4A574] to-[#B2842E] opacity-10 blur-[60px] rounded-full animate-pulse"
-        style={{ animationDelay: '2s' }} 
-      />
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#B2842E] opacity-5 blur-[120px] rounded-full animate-pulse"
-        style={{ animationDelay: '1.5s' }} 
-      />
+      {/* Soft Gradient Blurs - repositioned to stay within viewport */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#B2842E] opacity-10 blur-[60px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#E6C79C] opacity-10 blur-[60px] rounded-full" />
+      <div className="absolute top-[30%] left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] bg-[#B2842E] opacity-5 blur-[100px] rounded-full" />
 
-      {/* Gradient Overlays - positioned above pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#342016]/20 to-[#342016]/40" style={{ zIndex: 2 }} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#342016]/30 via-transparent to-[#342016]/20" style={{ zIndex: 2 }} />
+      {/* Floating Dessert Images */}
+      <FloatingImage src="/dessert/hawaii.svg" alt="Hawaii" className="top-[8%] left-[5%]" width={100} delay="0s" />
+      <FloatingImage src="/dessert/macaron.svg" alt="Macaron" className="top-[25%] right-[6%]" width={120} delay="1s" />
+      <FloatingImage src="/dessert/matcha.svg" alt="Matcha" className="bottom-[20%] left-[8%]" width={110} delay="2s" />
+      <FloatingImage src="/dessert/strawberry.svg" alt="Strawberry" className="bottom-[8%] right-[12%]" width={110} delay="3s" />
+      <FloatingImage src="/dessert/cake.svg" alt="Cake" className="top-[15%] left-[35%]" width={80} delay="4s" />
 
-      {/* Dessert Images - positioned above everything */}
-      <Image
-        src="/dessert/hawaii.svg"
-        alt="Strawberry"
-        width={120}
-        height={120}
-        className="absolute top-[8%] left-[5%] dessert-float-up opacity-50 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
-        style={{ 
-          animationDuration: '7s',
-          animationDelay: '0s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/macaron.svg"
-        alt="Cake"
-        width={140}
-        height={140}
-        className="absolute top-[25%] right-[6%] dessert-float-right opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-xl"
-        style={{ 
-          animationDuration: '8s',
-          animationDelay: '1.5s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/matcha.svg"
-        alt="Matcha"
-        width={130}
-        height={130}
-        className="absolute bottom-[20%] left-[8%] dessert-float-left opacity-85 hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
-        style={{ 
-          animationDuration: '6.5s',
-          animationDelay: '3s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/strawberry.svg"
-        alt="Blue Hawaii"
-        width={140}
-        height={140}
-        className="absolute bottom-[8%] right-[12%] dessert-float-diagonal opacity-90 hover:opacity-100 transition-opacity duration-300 drop-shadow-xl"
-        style={{ 
-          animationDuration: '7.5s',
-          animationDelay: '0.8s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/cake.svg"
-        alt="Macaron"
-        width={100}
-        height={100}
-        className="absolute top-[15%] left-[35%] dessert-float-up opacity-75 hover:opacity-100 transition-opacity duration-300 drop-shadow-md"
-        style={{ 
-          animationDuration: '6s',
-          animationDelay: '2.2s',
-          zIndex: 3
-        }}
-      />
-
-      <Image
-        src="/dessert/cake1.svg"
-        alt="Strawberry"
-        width={80}
-        height={80}
-        className="absolute top-[60%] left-[25%] dessert-float-right opacity-60 hover:opacity-90 transition-opacity duration-300 drop-shadow-md"
-        style={{ 
-          animationDuration: '8.5s',
-          animationDelay: '4.1s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/cake2.svg"
-        alt="Macaron"
-        width={110}
-        height={110}
-        className="absolute bottom-[40%] right-[40%] dessert-float-left opacity-70 hover:opacity-95 transition-opacity duration-300 drop-shadow-lg"
-        style={{ 
-          animationDuration: '7.2s',
-          animationDelay: '5.3s',
-          zIndex: 3
-        }}
-      />
-      
-      <Image
-        src="/dessert/cake3.svg"
-        alt="Cake"
-        width={90}
-        height={90}
-        className="absolute top-[45%] right-[25%] dessert-float-diagonal opacity-65 hover:opacity-90 transition-opacity duration-300 drop-shadow-md"
-        style={{ 
-          animationDuration: '6.8s',
-          animationDelay: '1.7s',
-          zIndex: 3
-        }}
-      />
-
-      <div 
-        className="absolute top-[20%] left-[20%] w-2 h-2 bg-[#E6C79C] rounded-full animate-ping opacity-40"
-        style={{ animationDelay: '0.5s', zIndex: 4 }}
-      />
-      <div 
-        className="absolute top-[70%] left-[60%] w-1 h-1 bg-[#D4A574] rounded-full animate-ping opacity-50"
-        style={{ animationDelay: '2.1s', zIndex: 4 }}
-      />
-      <div 
-        className="absolute top-[40%] right-[15%] w-1.5 h-1.5 bg-[#B2842E] rounded-full animate-ping opacity-45"
-        style={{ animationDelay: '3.7s', zIndex: 4 }}
-      />
-      <div 
-        className="absolute bottom-[30%] left-[70%] w-1 h-1 bg-[#E6C79C] rounded-full animate-ping opacity-40"
-        style={{ animationDelay: '1.3s', zIndex: 4 }}
-      />
+      {/* Ping Dots - within screen bounds */}
+      <PingDot top="20%" left="20%" delay="0.5s" />
+      <PingDot top="70%" left="60%" delay="2.1s" />
+      <PingDot top="40%" right="15%" delay="3.7s" />
+      <PingDot bottom="30%" left="70%" delay="1.3s" />
     </div>
   );
 };
+
+// Floating Image Component
+function FloatingImage({
+  src,
+  alt,
+  className,
+  width,
+  delay,
+}: {
+  src: string;
+  alt: string;
+  className: string;
+  width: number;
+  delay: string;
+}) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={width}
+      className={`absolute ${className} animate-floating transition-opacity duration-300 opacity-70 hover:opacity-100`}
+      style={{
+        animationDelay: delay,
+        zIndex: 3,
+      }}
+    />
+  );
+}
+
+// Ping Dot Component
+function PingDot({
+  top,
+  left,
+  right,
+  bottom,
+  delay,
+}: {
+  top?: string;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  delay?: string;
+}) {
+  return (
+    <div
+      className="absolute w-1.5 h-1.5 bg-[#E6C79C] rounded-full animate-ping opacity-40"
+      style={{
+        top,
+        left,
+        right,
+        bottom,
+        animationDelay: delay,
+        zIndex: 4,
+      }}
+    />
+  );
+}
 
 export default DessertBackground;
