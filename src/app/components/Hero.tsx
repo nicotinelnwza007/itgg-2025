@@ -35,7 +35,7 @@ const Hero = () => {
         <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto h-[10px] mt-12">
           <PrimaryButton href="/auth/login">เข้าสู่ระบบ</PrimaryButton>
 
-          <PrimaryButton href="/tournament">ตารางการแข่งขัน</PrimaryButton>
+          {/* <PrimaryButton href="/tournament">ตารางการแข่งขัน</PrimaryButton> */}
         </div>
 		<SendAnswer/>
       </div>

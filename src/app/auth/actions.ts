@@ -23,8 +23,8 @@ export async function login(formData: FormData) {
     redirect('/auth/login?message=' + error.message)
   }
 
-  revalidatePath('/')
-  redirect('/auth/login')
+  revalidatePath('/', 'layout')
+  redirect('/')
 }
 
 export async function register(formData: FormData) {
@@ -94,13 +94,14 @@ export async function register(formData: FormData) {
         redirect('/auth/register?message=' + error.message)
     }
 
-    revalidatePath('/')
+    revalidatePath('/', 'layout')
     redirect('/')
 }
 
 export async function logout() {
     const supabase = await createClient()
     await supabase.auth.signOut()
-    revalidatePath('/')
+
+    revalidatePath('/', 'layout')
     redirect('/')
 }

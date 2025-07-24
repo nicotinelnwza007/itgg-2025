@@ -7,7 +7,7 @@ async function Page({ searchParams }: { searchParams: { message: string } }) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
-    const message = searchParams.message;
+    const message = (await searchParams).message;
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br">
@@ -118,7 +118,7 @@ async function Page({ searchParams }: { searchParams: { message: string } }) {
 
                             <div className="text-center">
                                 <a href="/auth/register" className="text-sm text-[#a05a2c] hover:underline">
-                                    Forgot password?
+                                    Create an account?
                                 </a>
                             </div>
                         </form>

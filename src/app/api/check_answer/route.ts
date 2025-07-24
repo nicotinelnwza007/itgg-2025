@@ -150,7 +150,7 @@ export async function POST(request: Request) {
 
         const response = NextResponse.json({ 
             correct: isCorrect,
-            message: isCorrect ? `ถูกต้อง! คุณได้รับ ${dailyQuest.score} คะแนน!` : "คำตอบไม่ถูกต้อง ลองใหม่อีกครั้ง!",
+            message: isCorrect ? `ถูกต้อง!` : "คำตอบไม่ถูกต้อง ลองใหม่อีกครั้ง!",
             score: isCorrect ? dailyQuest.score : 0,
             answerStatus: isCorrect ? 'correct' : 'incorrect',
             quest: {

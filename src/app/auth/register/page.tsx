@@ -1,14 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { register } from "../actions";
 
 function Page({ searchParams }: { searchParams: { message: string } }) {
   const [isOldStudent, setIsOldStudent] = useState(false);
   const [isGateValid, setIsGateValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const gates = ['AND', 'OR', 'NOR', 'NOT'];
+  const [message, setMessage] = useState("");
 
-  const message = searchParams.message;
+  useEffect(() => {
+    const fetchMessage = async () => {
+      const message = (await searchParams).message;
+      setMessage(message);
+    }
+    fetchMessage();
+  }, [searchParams]);
+
+  const gates = ['AND', 'OR', 'NOR', 'NOT'];
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
