@@ -14,17 +14,35 @@ async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>)
         .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
         .eq('is_answered', false);
-    
+
     if (!allQuests || allQuests.length === 0) {
         return null;
     }
 
-    // Use date as seed to always get the same quest for the same day
+    // Shuffle the quests using today's date as a seed for deterministic shuffling
+    function seededShuffle(array: any[], seed: number) {
+        // Simple seeded random generator (mulberry32)
+        function mulberry32(a: number) {
+            return function() {
+                var t = a += 0x6D2B79F5;
+                t = Math.imul(t ^ t >>> 15, t | 1);
+                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            }
+        }
+        const random = mulberry32(seed);
+        const arr = array.slice();
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
     const dateString = getTodayDateString();
     const dateNumber = new Date(dateString).getTime();
-    const questIndex = dateNumber % allQuests.length;
-    
-    return allQuests[questIndex];
+    const shuffledQuests = seededShuffle(allQuests, dateNumber);
+    return shuffledQuests[0];
 }
 
 export async function POST(request: Request) {
@@ -46,14 +64,14 @@ export async function POST(request: Request) {
 
         const cookieStore = await cookies();
         const todayDateString = getTodayDateString();
-        const answerCookieName = `quest_answered_${todayDateString}`;
+        const correctCookieName = `quest_correct_${todayDateString}`;
         
-        // Check if user already answered today's quest
-        const hasAnsweredToday = cookieStore.get(answerCookieName);
-        if (hasAnsweredToday) {
+        // Check if user already got the correct answer today
+        const hasAnsweredCorrectly = cookieStore.get(correctCookieName);
+        if (hasAnsweredCorrectly) {
             return NextResponse.json({ 
-                error: "You have already answered today's quest!",
-                alreadyAnswered: true
+                error: "You have already answered this quest correctly today!",
+                alreadyAnsweredCorrectly: true
             }, { status: 400 });
         }
 
@@ -76,6 +94,7 @@ export async function POST(request: Request) {
 
         const isCorrect = answer.toLowerCase().trim() === dailyQuest.answer.toLowerCase().trim();
 
+        // Award points if answer is correct
         if (isCorrect) {
             // Add score to user's gate (USING SERVICE ROLE CLIENT)
             const { data: gateData } = await serviceRoleClient
@@ -131,22 +150,17 @@ export async function POST(request: Request) {
 
         const response = NextResponse.json({ 
             correct: isCorrect,
-            message: isCorrect ? `Correct! You earned ${dailyQuest.score} points!` : "Wrong answer, try again tomorrow!",
+            message: isCorrect ? `ถูกต้อง! คุณได้รับ ${dailyQuest.score} คะแนน!` : "คำตอบไม่ถูกต้อง ลองใหม่อีกครั้ง!",
             score: isCorrect ? dailyQuest.score : 0,
             answerStatus: isCorrect ? 'correct' : 'incorrect',
             quest: {
                 id: dailyQuest.id,
                 question: dailyQuest.question,
-                score: dailyQuest.score
-            }
-        });
-
-        // Set cookie that expires at midnight
-        response.cookies.set(answerCookieName, 'true', {
-            expires: tomorrow,
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax'
+                score: dailyQuest.score,
+                code: dailyQuest.code,
+                image: dailyQuest.image
+            },
+            hasAnsweredCorrectly: isCorrect
         });
 
         // Always store the quest ID so we can show the same quest later
@@ -158,12 +172,14 @@ export async function POST(request: Request) {
             sameSite: 'lax'
         });
 
-        // Store quest data so we can reconstruct the same quest
+        // Always store quest data so we can show the same quest
         const questDataCookieName = `quest_data_${todayDateString}`;
         response.cookies.set(questDataCookieName, JSON.stringify({
             id: dailyQuest.id,
             question: dailyQuest.question,
-            score: dailyQuest.score
+            score: dailyQuest.score,
+            code: dailyQuest.code,
+            image: dailyQuest.image
         }), {
             expires: tomorrow,
             httpOnly: true,
@@ -171,9 +187,8 @@ export async function POST(request: Request) {
             sameSite: 'lax'
         });
 
-        // If answer was correct, set another cookie to track correctness
+        // If answer was correct, set the correct cookie to prevent further attempts
         if (isCorrect) {
-            const correctCookieName = `quest_correct_${todayDateString}`;
             response.cookies.set(correctCookieName, 'true', {
                 expires: tomorrow,
                 httpOnly: true,
@@ -202,19 +217,17 @@ export async function GET() {
 
         const cookieStore = await cookies();
         const todayDateString = getTodayDateString();
-        const answerCookieName = `quest_answered_${todayDateString}`;
         const correctCookieName = `quest_correct_${todayDateString}`;
         const questDataCookieName = `quest_data_${todayDateString}`;
 
-        // Check if user already answered today's quest
-        const hasAnsweredToday = cookieStore.get(answerCookieName);
-        const wasCorrect = cookieStore.get(correctCookieName);
+        // Check if user already answered correctly today
+        const hasAnsweredCorrectly = cookieStore.get(correctCookieName);
         const storedQuestData = cookieStore.get(questDataCookieName);
 
         let questToReturn;
 
-        // If user has already answered, return the stored quest data
-        if (hasAnsweredToday && storedQuestData) {
+        // If we have stored quest data, use it to ensure consistency
+        if (storedQuestData) {
             try {
                 questToReturn = JSON.parse(storedQuestData.value);
             } catch (error) {
@@ -223,7 +236,7 @@ export async function GET() {
                 questToReturn = await getDailyQuest(supabase);
             }
         } else {
-            // Get today's quest for users who haven't answered yet
+            // Get today's quest for first-time users
             questToReturn = await getDailyQuest(supabase);
         }
 
@@ -237,8 +250,7 @@ export async function GET() {
             score: questToReturn.score,
             code: questToReturn.code,
             image: questToReturn.image,
-            hasAnswered: !!hasAnsweredToday,
-            wasCorrect: !!wasCorrect,
+            hasAnsweredCorrectly: !!hasAnsweredCorrectly,
             date: todayDateString
         });
 

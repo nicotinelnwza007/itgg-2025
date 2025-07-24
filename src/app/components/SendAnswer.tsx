@@ -12,8 +12,7 @@ interface DailyQuest {
   score: number;
   code: string;
   image: string;
-  hasAnswered: boolean;
-  wasCorrect: boolean;
+  hasAnsweredCorrectly: boolean;
   date: string;
 }
 
@@ -78,8 +77,7 @@ function SendAnswer() {
               ? {
                 ...prev,
                 ...data.quest,
-                hasAnswered: true,
-                wasCorrect: data.correct,
+                hasAnsweredCorrectly: data.hasAnsweredCorrectly,
               }
               : null
           );
@@ -193,7 +191,7 @@ function SendAnswer() {
     return (
       <div className="w-full px-4 py-10 relative">
         <div className="flex items-center justify-center">
-          <div className="text-[#6b3e1d] text-lg">No quest available today</div>
+          <div className="text-[#6b3e1d] text-lg">ยังไม่มีภารกิจประจำวัน</div>
         </div>
       </div>
     );
@@ -204,12 +202,10 @@ function SendAnswer() {
       <div className="flex items-center justify-center">
         <button
           onClick={toggleQuiz}
-          className={`button ${dailyQuest.hasAnswered ? "opacity-75" : ""}`}
+          className="button"
         >
-          {dailyQuest.hasAnswered
-            ? dailyQuest.wasCorrect
-              ? "🎉 Quest Completed!"
-              : "😔 Quest Attempted"
+          {dailyQuest.hasAnsweredCorrectly
+            ? "🎉 Quest Completed!"
             : "🎀 Start Quiz 🎀"}
         </button>
 
@@ -256,20 +252,16 @@ function SendAnswer() {
                 Reward: {dailyQuest.score} points
               </div>
 
-              {dailyQuest.hasAnswered ? (
+              {dailyQuest.hasAnsweredCorrectly ? (
                 <div className="text-center space-y-4">
-                  <div
-                    className={`text-lg font-bold ${dailyQuest.wasCorrect ? "text-green-600" : "text-red-600"
-                      }`}
-                  >
-                    {dailyQuest.wasCorrect
-                      ? "✅ Correct Answer!"
-                      : "❌ Wrong Answer"}
+                  <div className="text-lg font-bold text-green-600">
+                    🎉 ภารกิจสำเร็จ!
                   </div>
-                  <div className="text-pink-600">
-                    {dailyQuest.wasCorrect
-                      ? `You earned ${dailyQuest.score} points!`
-                      : "Try again tomorrow for a new quest!"}
+                  <div className="text-md text-[#6b3e1d]">
+                    คุณได้ทำภารกิจประจำวันสำเร็จและได้รับ {dailyQuest.score} คะแนน!
+                  </div>
+                  <div className="text-sm text-amber-600">
+                    กลับมาใหม่พรุ่งนี้เพื่อรับภารกิจใหม่!
                   </div>
                 </div>
               ) : (
