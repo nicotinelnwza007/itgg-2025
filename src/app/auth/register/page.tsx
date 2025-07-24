@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import { register } from "../actions";
 
-function Page() {
+function Page({ searchParams }: { searchParams: { message: string } }) {
   const [isOldStudent, setIsOldStudent] = useState(false);
   const [isGateValid, setIsGateValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const gates = ['AND', 'OR', 'NOR', 'NOT'];
+
+  const message = searchParams.message;
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
@@ -100,6 +102,12 @@ function Page() {
             >
               Submit
             </button>
+
+            {message && (
+              <div className="text-red-500 text-sm text-center">
+                {message}
+              </div>
+            )}
           </form>
         </div>
       </div>

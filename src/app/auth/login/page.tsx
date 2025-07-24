@@ -3,9 +3,11 @@ import { login, logout } from '../actions'
 import { createClient } from '@/utils/supabase/server'
 import InputField from '@/app/components/InputField'
 
-async function Page() {
+async function Page({ searchParams }: { searchParams: { message: string } }) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
+
+    const message = searchParams.message;
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br">
@@ -107,6 +109,12 @@ async function Page() {
                             >
                                 Submit
                             </button>
+
+                            {message && (
+                                <div className="text-red-500 text-sm">
+                                    {message}
+                                </div>
+                            )}
 
                             <div className="text-center">
                                 <a href="/auth/register" className="text-sm text-[#a05a2c] hover:underline">

@@ -20,11 +20,11 @@ export async function login(formData: FormData) {
 
   if (error) {
     console.log(error)
-    redirect('/error')
+    redirect('/auth/login?message=' + error.message)
   }
 
   revalidatePath('/')
-  redirect('/')
+  redirect('/auth/login')
 }
 
 export async function register(formData: FormData) {
@@ -42,7 +42,7 @@ export async function register(formData: FormData) {
 
     // Check if email is from kmitl.ac.th
     if (!data.email.includes('@kmitl.ac.th')) {
-        redirect('/error?message=Only KMITL email is allowed')
+        redirect('/auth/register?message=Only KMITL email is allowed')
     }
 
     let assignedGate: string | null = null;
@@ -55,7 +55,7 @@ export async function register(formData: FormData) {
         );
     
         if (!studentRecord) {
-            redirect('/error?message=Invalid student ID. Your ID is not found in the IT22-23 student list.');
+            redirect('/auth/register?message=Invalid student ID. Your ID is not found in the IT22-23 student list.');
         }
     
         // Assign the gate from the studentGateData
@@ -63,7 +63,7 @@ export async function register(formData: FormData) {
     } else {
         // Check if student ID is valid (5 digits) and gate is valid
         if (!studentId.match(/^\d{5}$/) || !gates.includes(data.gate)) {
-            redirect('/error?message=Invalid credentials. IT students must use student ID and a valid gate (AND, OR, NOR, NOT)')
+            redirect('/auth/register?message=Invalid credentials. IT students must use student ID and a valid gate (AND, OR, NOR, NOT)')
         }
         assignedGate = data.gate;
     }
@@ -89,8 +89,9 @@ export async function register(formData: FormData) {
         })
     }
 
+
     if (error) {
-        redirect('/error?message=' + error.message)
+        redirect('/auth/register?message=' + error.message)
     }
 
     revalidatePath('/')
