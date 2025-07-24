@@ -11,7 +11,7 @@ function getTodayDateString(): string {
 // Get daily quest using date as seed for consistent selection
 async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>) {
     const { data: allQuests } = await supabase
-        .from('quests_test')
+        .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
         .eq('is_answered', false);
     
