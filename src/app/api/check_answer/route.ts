@@ -8,11 +8,14 @@ function getTodayDateString(): string {
     return today.toISOString().split('T')[0]; // YYYY-MM-DD format
 }
 
-// Get daily quest using date as seed for consistent selection
+// Get daily quest using date as seed for consistent selection (MODIFIED FOR TESTING)
 async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>) {
+    // MODIFIED: Only get quests with IDs 94-102 for testing
     const { data: allQuests } = await supabase
         .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
+        .gte('id', 94)
+        .lte('id', 102)
         .eq('is_answered', false);
 
     if (!allQuests || allQuests.length === 0) {
@@ -158,6 +161,7 @@ export async function POST(request: Request) {
                 question: dailyQuest.question,
                 score: dailyQuest.score,
                 code: dailyQuest.code,
+                type : dailyQuest.type,
                 image: dailyQuest.image
             },
             hasAnsweredCorrectly: isCorrect
@@ -178,6 +182,7 @@ export async function POST(request: Request) {
             id: dailyQuest.id,
             question: dailyQuest.question,
             score: dailyQuest.score,
+            type: dailyQuest.type,
             code: dailyQuest.code,
             image: dailyQuest.image
         }), {
@@ -249,6 +254,7 @@ export async function GET() {
             question: questToReturn.question,
             score: questToReturn.score,
             code: questToReturn.code,
+            type: questToReturn.type,
             image: questToReturn.image,
             hasAnsweredCorrectly: !!hasAnsweredCorrectly,
             date: todayDateString
