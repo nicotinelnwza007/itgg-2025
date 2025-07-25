@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { register } from "../actions";
 
-function Page({ searchParams }: { searchParams: { message: string } }) {
+function Page({ searchParams }: { searchParams: Promise<any> }) {
   const [isOldStudent, setIsOldStudent] = useState(false);
   const [isGateValid, setIsGateValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +11,7 @@ function Page({ searchParams }: { searchParams: { message: string } }) {
   useEffect(() => {
     const fetchMessage = async () => {
       const message = (await searchParams).message;
-      setMessage(message);
+      setMessage(await message);
     }
     fetchMessage();
   }, [searchParams]);

@@ -204,7 +204,7 @@ const TournamentBracket: React.FC = () => {
     );
   }
   
-  const currentTournament = TOURNAMENT_DATA[selectedTournament];
+  const currentTournament = TOURNAMENT_DATA[selectedTournament as keyof typeof TOURNAMENT_DATA];
 
   const MatchCard: React.FC<{ match: TransformedMatch; roundName: string; isSmall?: boolean }> = ({ match, roundName, isSmall = false }) => {
     const isCompleted = match.status === "completed";
@@ -509,7 +509,7 @@ return (
             
             container.classList.add('dragging');
             
-            const handleMouseMove = (e) => {
+            const handleMouseMove = (e: MouseEvent) => {
               e.preventDefault();
               const x = e.pageX - container.offsetLeft;
               const y = e.pageY - container.offsetTop;

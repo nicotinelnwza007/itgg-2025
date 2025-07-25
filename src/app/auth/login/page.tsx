@@ -3,7 +3,7 @@ import { login, logout } from '../actions'
 import { createClient } from '@/utils/supabase/server'
 import InputField from '@/app/components/InputField'
 
-async function Page({ searchParams }: { searchParams: { message: string } }) {
+async function Page({ searchParams }: { searchParams: Promise<any> }) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
