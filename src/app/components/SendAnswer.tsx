@@ -167,40 +167,33 @@ export default function SendAnswer() {
 								</div>
 							) : dailyQuest.type === 'image' ? (
 								<div className="text-center">
-									<a
-										href="https://discord.gg/smxy9qph"
-										target="_blank"
-										rel="noreferrer"
-									>
+									<a href="https://discord.gg/smxy9qph" target="_blank" rel="noreferrer">
 										<button className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-6 rounded-full transition text-md">
 											📷 ส่งรูปใน Discord
 										</button>
 									</a>
 								</div>
-							)}
-
 							) : (
-							<form onSubmit={handleSubmit} className="space-y-4">
-								<input
-									name="answer"
-									type="text"
-									value={answer}
-									onChange={(e) => setAnswer(e.target.value)}
-									placeholder="Type your sweet answer..."
-									className="w-full px-4 py-3 border border-[#a05a2c] rounded-xl bg-white text-[#6b3e1d] placeholder-[#a05a2c] focus:outline-none focus:ring-4 focus:ring-[#e8cbb5]"
-									disabled={isSubmitting}
-									required
-								/>
-								<button
-									type="submit"
-									disabled={isSubmitting}
-									className="w-full bg-[#a05a2c] hover:bg-[#804621] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold px-5 py-3 rounded-full shadow transition"
-								>
-									{isSubmitting ? '⏳ Submitting...' : '✨ Send Answer'}
-								</button>
-							</form>
+								<form onSubmit={handleSubmit} className="space-y-4">
+									<input
+										name="answer"
+										type="text"
+										value={answer}
+										onChange={(e) => setAnswer(e.target.value)}
+										placeholder="Type your sweet answer..."
+										className="w-full px-4 py-3 border border-[#a05a2c] rounded-xl bg-white text-[#6b3e1d] placeholder-[#a05a2c] focus:outline-none focus:ring-4 focus:ring-[#e8cbb5]"
+										disabled={isSubmitting}
+										required
+									/>
+									<button
+										type="submit"
+										disabled={isSubmitting}
+										className="w-full bg-[#a05a2c] hover:bg-[#804621] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold px-5 py-3 rounded-full shadow transition"
+									>
+										{isSubmitting ? '⏳ Submitting...' : '✨ Send Answer'}
+									</button>
+								</form>
 							)}
-
 							{message && (
 								<div
 									className={`mt-4 text-center font-semibold ${message.includes('Correct') || message.includes('✅')
@@ -216,4 +209,4 @@ export default function SendAnswer() {
 				</AnimatePresence>
 			</div>
 		</div>
-	)
+	)}
