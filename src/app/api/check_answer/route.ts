@@ -157,6 +157,7 @@ export async function POST(request: Request) {
                 id: dailyQuest.id,
                 question: dailyQuest.question,
                 score: dailyQuest.score,
+                type : dailyQuest.type,
                 code: dailyQuest.code,
                 image: dailyQuest.image
             },
@@ -178,6 +179,7 @@ export async function POST(request: Request) {
             id: dailyQuest.id,
             question: dailyQuest.question,
             score: dailyQuest.score,
+            type : dailyQuest.type,
             code: dailyQuest.code,
             image: dailyQuest.image
         }), {
@@ -248,6 +250,7 @@ export async function GET() {
             id: questToReturn.id,
             question: questToReturn.question,
             score: questToReturn.score,
+            type : questToReturn.type,
             code: questToReturn.code,
             image: questToReturn.image,
             hasAnsweredCorrectly: !!hasAnsweredCorrectly,
