@@ -7,7 +7,7 @@ const benefits = [
 	{
 		icon: "/dessert/hawaii.svg",
 		title: "AND",
-		description: "เงื่อนไขทั้งสองต้องเป็นจริง",
+		description: "อาณาจักรบลูฮาวาย ดินแดนที่เต็มเปี่ยมไปด้วยความซ่า พร้อมความหวานอมเปรี้ยวของไซรัปสีฟ้า เติมความสดใสในทุกจังหวะของอารมณ์",
 		bgColor: "bg-[#070158]",
 		borderColor: "border-blue-300",
 		accentColor: "bg-blue-500",
@@ -15,7 +15,7 @@ const benefits = [
 	{
 		icon: "/dessert/matcha.svg",
 		title: "OR",
-		description: "เงื่อนไขอย่างน้อยหนึ่งข้อหรือทั้งสองข้อต้องเป็นจริง",
+		description: "อาณาจักรชาเขียว ดินแดนแห่งความสงบและความสมดุลท่ามกลางกลิ่นหอมของใบชาเขียวขจี ให้ความรู้สึกผ่อนคลาย อบอุ่น แต่แฝงไปด้วยความแข็งแกร่ง",
 		bgColor: "bg-[#1a2f1c]",
 		borderColor: "border-green-300",
 		accentColor: "bg-green-500",
@@ -23,7 +23,7 @@ const benefits = [
 	{
 		icon: "/dessert/strawberry.svg",
 		title: "NOR",
-		description: "เงื่อนไขทั้งสองข้อจะต้องไม่เป็นจริงเลย",
+		description: "อาณาจักรเค้กสตรอว์เบอร์รี ดินแดนที่มาพร้อมรอยยิ้มอันสดใสดั่งผลสตรอว์เบอร์รีสีแดงฉ่ำ พร้อมส่งต่อพลังบวกที่อบอุ่นและหอมหวานในทุกคำที่ลิ้มลอง",
 		bgColor: "bg-[#390101]",
 		borderColor: "border-red-300",
 		accentColor: "bg-red-500",
@@ -31,7 +31,7 @@ const benefits = [
 	{
 		icon: "/dessert/macaron.svg",
 		title: "NOT",
-		description: "กลับค่าความจริง เช่น จริงจะกลายเป็นเท็จ และเท็จจะกลายเป็นจริง",
+		description: "อาณาจักรมาการอง ดินแดนอันพราวเสน่ห์และน่าค้นหา แฝงไปด้วยความซับซ้อนในรสชาติ ภายใต้เปลือกบางกรอบ และไส้อันหลากหลายที่ไม่อาจคาดเดาได้",
 		bgColor: "bg-[#230d3d]",
 		borderColor: "border-purple-300",
 		accentColor: "bg-purple-500",
