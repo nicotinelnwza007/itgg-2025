@@ -13,7 +13,7 @@ export const TOURNAMENT_DATA = {
     bgGradient: "from-orange-900/20 to-orange-800/10",
     borderColor: "border-orange-500/30",
     accentColor: "bg-orange-500",
-    glowColor: "shadow-orange-500/20"
+    glowColor: "shadow-orange-500/15"
   },
   chairball: {
     title: "Chairball",
