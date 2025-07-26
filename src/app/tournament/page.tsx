@@ -214,7 +214,7 @@ const TournamentBracket: React.FC = () => {
     // Helper function to get team name
     const getTeamName = (team: { id?: string; name?: string } | string): string => {
       if (typeof team === 'string') return team;
-      return team?.name || 'TBD';
+      return team?.name || '';
     };
 
     // Helper function to get team ID

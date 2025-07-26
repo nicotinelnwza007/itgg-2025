@@ -449,14 +449,14 @@
       "participants": [
         {
           "id": "rov-t1",
-          "name": "RoV Team 1",
+          "name": "มอรอง",
           "logoUrl": "/logos/rov1.png",
           "isWinner": false,
           "resultText": "3"
         },
         {
           "id": "rov-t2",
-          "name": "RoV Team 2",
+          "name": "RAPTORs",
           "logoUrl": "/logos/rov2.png",
           "isWinner": false,
           "resultText": "0"
@@ -473,159 +473,15 @@
       "participants": [
         {
           "id": "rov-t3",
-          "name": "RoV Team 3",
+          "name": "RAPTORs",
           "logoUrl": "/logos/rov3.png",
           "isWinner": false,
           "resultText": "3"
         },
         {
           "id": "rov-t4",
-          "name": "RoV Team 4",
+          "name": "CapBearMaDoo",
           "logoUrl": "/logos/rov4.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m3",
-      "name": "Round of 16 - Match 3",
-      "nextMatchId": "rov-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t5",
-          "name": "RoV Team 5",
-          "logoUrl": "/logos/rov5.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t6",
-          "name": "RoV Team 6",
-          "logoUrl": "/logos/rov6.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m4",
-      "name": "Round of 16 - Match 4",
-      "nextMatchId": "rov-r2-m2",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t7",
-          "name": "RoV Team 7",
-          "logoUrl": "/logos/rov7.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t8",
-          "name": "RoV Team 8",
-          "logoUrl": "/logos/rov8.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m5",
-      "name": "Round of 16 - Match 5",
-      "nextMatchId": "rov-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t9",
-          "name": "RoV Team 9",
-          "logoUrl": "/logos/rov9.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t10",
-          "name": "RoV Team 10",
-          "logoUrl": "/logos/rov10.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "rov-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t11",
-          "name": "RoV Team 11",
-          "logoUrl": "/logos/rov11.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t12",
-          "name": "RoV Team 12",
-          "logoUrl": "/logos/rov12.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "rov-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t13",
-          "name": "RoV Team 13",
-          "logoUrl": "/logos/rov13.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t14",
-          "name": "RoV Team 14",
-          "logoUrl": "/logos/rov14.png",
-          "isWinner": false,
-          "resultText": "0"
-        }
-      ]
-    },
-    {
-      "id": "rov-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "rov-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "rov-t15",
-          "name": "RoV Team 15",
-          "logoUrl": "/logos/rov15.png",
-          "isWinner": false,
-          "resultText": "3"
-        },
-        {
-          "id": "rov-t16",
-          "name": "RoV Team 16",
-          "logoUrl": "/logos/rov16.png",
           "isWinner": false,
           "resultText": "0"
         }
@@ -641,14 +497,14 @@
       "participants": [
         {
           "id": "rov-r2-m1-p1",
-          "name": "Winner of rov-r1-m1",
+          "name": "แฉงให้หมด",
           "logoUrl": "/logos/rov-r2p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r2-m1-p2",
-          "name": "Winner of rov-r1-m2",
+          "name": "",
           "logoUrl": "/logos/rov-r2p2.png",
           "isWinner": false,
           "resultText": ""
@@ -665,14 +521,14 @@
       "participants": [
         {
           "id": "rov-r2-m2-p1",
-          "name": "Winner of rov-r1-m3",
+          "name": "พี่มาตรวจงาน",
           "logoUrl": "/logos/rov-r2p3.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r2-m2-p2",
-          "name": "Winner of rov-r1-m4",
+          "name": "คิดไม่ออกใช้ชื่อนี้ไปก่อน",
           "logoUrl": "/logos/rov-r2p4.png",
           "isWinner": false,
           "resultText": ""
@@ -689,14 +545,14 @@
       "participants": [
         {
           "id": "rov-r2-m3-p1",
-          "name": "Winner of rov-r1-m5",
+          "name": "DataMiSaeng",
           "logoUrl": "/logos/rov-r2p5.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r2-m3-p2",
-          "name": "Winner of rov-r1-m6",
+          "name": "",
           "logoUrl": "/logos/rov-r2p6.png",
           "isWinner": false,
           "resultText": ""
@@ -713,14 +569,14 @@
       "participants": [
         {
           "id": "rov-r2-m4-p1",
-          "name": "Winner of rov-r1-m7",
+          "name": "มาเอาฮาไม่เอาชนะ",
           "logoUrl": "/logos/rov-r2p7.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r2-m4-p2",
-          "name": "Winner of rov-r1-m8",
+          "name": "ตุ่นอร่อย",
           "logoUrl": "/logos/rov-r2p8.png",
           "isWinner": false,
           "resultText": ""
@@ -737,14 +593,14 @@
       "participants": [
         {
           "id": "rov-r3-m1-p1",
-          "name": "Winner of rov-r2-m1",
+          "name": "",
           "logoUrl": "/logos/rov-r3p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r3-m1-p2",
-          "name": "Winner of rov-r2-m2",
+          "name": "",
           "logoUrl": "/logos/rov-r3p2.png",
           "isWinner": false,
           "resultText": ""
@@ -761,14 +617,14 @@
       "participants": [
         {
           "id": "rov-r3-m2-p1",
-          "name": "Winner of rov-r2-m3",
+          "name": "",
           "logoUrl": "/logos/rov-r3p3.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r3-m2-p2",
-          "name": "Winner of rov-r2-m4",
+          "name": "",
           "logoUrl": "/logos/rov-r3p4.png",
           "isWinner": false,
           "resultText": ""
@@ -785,14 +641,14 @@
       "participants": [
         {
           "id": "rov-r4-m1-p1",
-          "name": "Winner of rov-r3-m1",
+          "name": "",
           "logoUrl": "/logos/rov-r4p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "rov-r4-m1-p2",
-          "name": "Winner of rov-r3-m2",
+          "name": "",
           "logoUrl": "/logos/rov-r4p2.png",
           "isWinner": false,
           "resultText": ""
@@ -811,14 +667,14 @@
       "participants": [
         {
           "id": "valorant-t1",
-          "name": "Valorant Team 1",
+          "name": "LaggingLegends",
           "logoUrl": "/logos/valorant1.png",
           "isWinner": false,
           "resultText": "13"
         },
         {
           "id": "valorant-t2",
-          "name": "Valorant Team 2",
+          "name": "GEN Z ",
           "logoUrl": "/logos/valorant2.png",
           "isWinner": false,
           "resultText": "11"
@@ -835,14 +691,14 @@
       "participants": [
         {
           "id": "valorant-t3",
-          "name": "Valorant Team 3",
+          "name": "มาตบไอ้ก้อง",
           "logoUrl": "/logos/valorant3.png",
           "isWinner": false,
           "resultText": "13"
         },
         {
           "id": "valorant-t4",
-          "name": "Valorant Team 4",
+          "name": "Yamduek",
           "logoUrl": "/logos/valorant4.png",
           "isWinner": false,
           "resultText": "11"
@@ -859,14 +715,14 @@
       "participants": [
         {
           "id": "valorant-t5",
-          "name": "Valorant Team 5",
+          "name": "cancanuykongluaykongtuaytan",
           "logoUrl": "/logos/valorant5.png",
           "isWinner": false,
           "resultText": "13"
         },
         {
           "id": "valorant-t6",
-          "name": "Valorant Team 6",
+          "name": "แคปหมู แคปหมี",
           "logoUrl": "/logos/valorant6.png",
           "isWinner": false,
           "resultText": "11"
@@ -883,14 +739,14 @@
       "participants": [
         {
           "id": "valorant-t7",
-          "name": "Valorant Team 7",
+          "name": "หมาป่าGenZขี้เหงาติดสกินชิพ",
           "logoUrl": "/logos/valorant7.png",
           "isWinner": false,
           "resultText": "13"
         },
         {
           "id": "valorant-t8",
-          "name": "Valorant Team 8",
+          "name": "makillradiant",
           "logoUrl": "/logos/valorant8.png",
           "isWinner": false,
           "resultText": "11"
@@ -907,87 +763,15 @@
       "participants": [
         {
           "id": "valorant-t9",
-          "name": "Valorant Team 9",
+          "name": "Kuronami ของหนู",
           "logoUrl": "/logos/valorant9.png",
           "isWinner": false,
           "resultText": "13"
         },
         {
           "id": "valorant-t10",
-          "name": "Valorant Team 10",
+          "name": "โหดแต่โหลดไม่ทัน",
           "logoUrl": "/logos/valorant10.png",
-          "isWinner": false,
-          "resultText": "11"
-        }
-      ]
-    },
-    {
-      "id": "valorant-r1-m6",
-      "name": "Round of 16 - Match 6",
-      "nextMatchId": "valorant-r2-m3",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "valorant-t11",
-          "name": "Valorant Team 11",
-          "logoUrl": "/logos/valorant11.png",
-          "isWinner": false,
-          "resultText": "13"
-        },
-        {
-          "id": "valorant-t12",
-          "name": "Valorant Team 12",
-          "logoUrl": "/logos/valorant12.png",
-          "isWinner": false,
-          "resultText": "11"
-        }
-      ]
-    },
-    {
-      "id": "valorant-r1-m7",
-      "name": "Round of 16 - Match 7",
-      "nextMatchId": "valorant-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "valorant-t13",
-          "name": "Valorant Team 13",
-          "logoUrl": "/logos/valorant13.png",
-          "isWinner": false,
-          "resultText": "13"
-        },
-        {
-          "id": "valorant-t14",
-          "name": "Valorant Team 14",
-          "logoUrl": "/logos/valorant14.png",
-          "isWinner": false,
-          "resultText": "11"
-        }
-      ]
-    },
-    {
-      "id": "valorant-r1-m8",
-      "name": "Round of 16 - Match 8",
-      "nextMatchId": "valorant-r2-m4",
-      "tournamentRoundText": "Round of 16",
-      "startTime": "2025-07-10",
-      "state": "SCHEDULED",
-      "participants": [
-        {
-          "id": "valorant-t15",
-          "name": "Valorant Team 15",
-          "logoUrl": "/logos/valorant15.png",
-          "isWinner": false,
-          "resultText": "13"
-        },
-        {
-          "id": "valorant-t16",
-          "name": "Valorant Team 16",
-          "logoUrl": "/logos/valorant16.png",
           "isWinner": false,
           "resultText": "11"
         }
@@ -1003,14 +787,14 @@
       "participants": [
         {
           "id": "valorant-r2-m1-p1",
-          "name": "Winner of valorant-r1-m1",
+          "name": "MA6",
           "logoUrl": "/logos/valorant-r2p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r2-m1-p2",
-          "name": "Winner of valorant-r1-m2",
+          "name": "",
           "logoUrl": "/logos/valorant-r2p2.png",
           "isWinner": false,
           "resultText": ""
@@ -1027,14 +811,14 @@
       "participants": [
         {
           "id": "valorant-r2-m2-p1",
-          "name": "Winner of valorant-r1-m3",
+          "name": "",
           "logoUrl": "/logos/valorant-r2p3.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r2-m2-p2",
-          "name": "Winner of valorant-r1-m4",
+          "name": "",
           "logoUrl": "/logos/valorant-r2p4.png",
           "isWinner": false,
           "resultText": ""
@@ -1051,14 +835,14 @@
       "participants": [
         {
           "id": "valorant-r2-m3-p1",
-          "name": "Winner of valorant-r1-m5",
+          "name": "Yak gin shabu",
           "logoUrl": "/logos/valorant-r2p5.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r2-m3-p2",
-          "name": "Winner of valorant-r1-m6",
+          "name": "",
           "logoUrl": "/logos/valorant-r2p6.png",
           "isWinner": false,
           "resultText": ""
@@ -1075,14 +859,14 @@
       "participants": [
         {
           "id": "valorant-r2-m4-p1",
-          "name": "Winner of valorant-r1-m7",
+          "name": "Yak gin shabu",
           "logoUrl": "/logos/valorant-r2p7.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r2-m4-p2",
-          "name": "Winner of valorant-r1-m8",
+          "name": "",
           "logoUrl": "/logos/valorant-r2p8.png",
           "isWinner": false,
           "resultText": ""
@@ -1099,14 +883,14 @@
       "participants": [
         {
           "id": "valorant-r3-m1-p1",
-          "name": "Winner of valorant-r2-m1",
+          "name": "",
           "logoUrl": "/logos/valorant-r3p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r3-m1-p2",
-          "name": "Winner of valorant-r2-m2",
+          "name": "",
           "logoUrl": "/logos/valorant-r3p2.png",
           "isWinner": false,
           "resultText": ""
@@ -1123,14 +907,14 @@
       "participants": [
         {
           "id": "valorant-r3-m2-p1",
-          "name": "Winner of valorant-r2-m3",
+          "name": "",
           "logoUrl": "/logos/valorant-r3p3.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r3-m2-p2",
-          "name": "Winner of valorant-r2-m4",
+          "name": "",
           "logoUrl": "/logos/valorant-r3p4.png",
           "isWinner": false,
           "resultText": ""
@@ -1147,14 +931,14 @@
       "participants": [
         {
           "id": "valorant-r4-m1-p1",
-          "name": "Winner of valorant-r3-m1",
+          "name": "",
           "logoUrl": "/logos/valorant-r4p1.png",
           "isWinner": false,
           "resultText": ""
         },
         {
           "id": "valorant-r4-m1-p2",
-          "name": "Winner of valorant-r3-m2",
+          "name": "",
           "logoUrl": "/logos/valorant-r4p2.png",
           "isWinner": false,
           "resultText": ""
