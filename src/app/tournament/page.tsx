@@ -77,32 +77,53 @@ const TournamentBracket: React.FC = () => {
     // Group matches by tournament round
     const roundsMap = new Map<string, TransformedMatch[]>();
 
-    function transformMatch(rawMatch: Match): TransformedMatch {
-      return {
-        id: rawMatch.id,
-        team1: rawMatch.participants?.[0],
-        team2: rawMatch.participants?.[1],
-        score1: rawMatch.participants?.[0]?.resultText ?? null,
-        score2: rawMatch.participants?.[1]?.resultText ?? null,
-        winner: rawMatch.participants?.find(p => p.isWinner)?.id,
-        status: rawMatch.state.toLowerCase() === 'done' ? 'completed'
-          : rawMatch.state.toLowerCase() === 'running' ? 'live'
-            : 'upcoming',
-        date: rawMatch.startTime,
-        venue: rawMatch.venue,
-        time: rawMatch.time,
-      };
+    interface TransformedMatch {
+      id: string;
+      team1: Participant | string;
+      team2: Participant | string;
+      score1?: string | number;
+      score2?: string | number;
+      winner?: string;
+      status: 'completed' | 'live' | 'upcoming' | 'scheduled';
+      date?: string;
+      venue?: string;
+      time?: string;
     }
 
-    // Then in the loop
+    // ✅ Define transformMatch INSIDE the function so it's in scope
+    const transformMatch = (rawMatch: Match): TransformedMatch => ({
+      id: rawMatch.id,
+      team1: rawMatch.participants?.[0] ?? 'TBD',
+      team2: rawMatch.participants?.[1] ?? 'TBD',
+      score1:
+        typeof rawMatch.participants?.[0] === 'object' && 'resultText' in rawMatch.participants[0]
+          ? (rawMatch.participants[0] as Participant).resultText
+          : undefined,
+      score2:
+        typeof rawMatch.participants?.[1] === 'object' && 'resultText' in rawMatch.participants[1]
+          ? (rawMatch.participants[1] as Participant).resultText
+          : undefined,
+      winner: rawMatch.participants?.find(p => p.isWinner)?.id,
+      status:
+        rawMatch.state.toLowerCase() === 'done'
+          ? 'completed'
+          : rawMatch.state.toLowerCase() === 'running'
+            ? 'live'
+            : 'upcoming',
+      date: rawMatch.startTime,
+      venue: rawMatch.venue,
+      time: rawMatch.time,
+    });
+
+    // ✅ Then use it in your loop
     matches.forEach(match => {
       const roundName = match.tournamentRoundText;
       if (!roundsMap.has(roundName)) {
         roundsMap.set(roundName, []);
       }
 
-      const transformedMatch = transformMatch(match); // ✅ call it here
-      roundsMap.get(roundName)!.push(transformedMatch); // ✅ now this works
+      const transformedMatch = transformMatch(match);
+      roundsMap.get(roundName)!.push(transformedMatch);
     });
 
     // Convert to rounds array
@@ -112,25 +133,22 @@ const TournamentBracket: React.FC = () => {
       matches: matches
     }));
 
-    // Sort rounds by typical tournament order
+    // Optional: sort if needed
     const roundOrder: Record<string, number> = {
-      'first round': 1,
-      'round of 16': 1,
       'round of 32': 0,
-      'quarterfinal': 2,
-      'semifinal': 3,
-      '3rd place': 4,
-      'final': 5
+      'first round': 1,
+      'round of 16': 2,
+      'quarterfinal': 3,
+      'semifinal': 4,
+      '3rd place': 5,
+      'final': 6
     };
 
-    rounds.sort((a, b) => {
-      const orderA = roundOrder[a.name.toLowerCase()] ?? 999;
-      const orderB = roundOrder[b.name.toLowerCase()] ?? 999;
-      return orderA - orderB;
-    });
+    rounds.sort((a, b) => (roundOrder[a.name.toLowerCase()] ?? 99) - (roundOrder[b.name.toLowerCase()] ?? 99));
 
     return { rounds };
   };
+
 
   // Fetch bracket data on component mount
   useEffect(() => {
@@ -239,8 +257,19 @@ const TournamentBracket: React.FC = () => {
     const team2Id = getTeamId(match.team2);
 
     // Get scores from resultText or fallback to score1/score2
-    const team1Score = match.score1 ?? (typeof match.team1 === 'object' ? match.team1.resultText : undefined);
-    const team2Score = match.score2 ?? (typeof match.team2 === 'object' ? match.team2.resultText : undefined);
+    const team1Score: string | number | undefined =
+      match.score1 ??
+      (typeof match.team1 === 'object' && 'resultText' in match.team1
+        ? (match.team1 as Participant).resultText
+        : undefined);
+
+    const team2Score: string | number | undefined =
+      match.score2 ??
+      (typeof match.team2 === 'object' && 'resultText' in match.team2
+        ? (match.team2 as Participant).resultText
+        : undefined);
+
+
 
     return (
       <div className={`
