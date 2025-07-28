@@ -60,54 +60,58 @@ interface TournamentStats {
 }
 
 const TournamentBracket: React.FC = () => {
-  const [selectedTournament, setSelectedTournament] = useState<string>('football');
+  const [selectedTournament, setSelectedTournament] = useState<string>('valorant');
   const [bracketData, setBracketData] = useState<BracketData | null>(null);
   const [tournamentStats, setTournamentStats] = useState<TournamentStats | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Filter tournament data to only show Valorant and ROV
+  const filteredTournamentData = {
+    valorant: TOURNAMENT_DATA.valorant,
+    rov: TOURNAMENT_DATA.rov
+  };
+
   // Transform your data structure to match what the component expects
   const transformBracketData = (matches: Match[]): BracketData => {
     // Group matches by tournament round
     const roundsMap = new Map<string, TransformedMatch[]>();
-    
+
+    function transformMatch(rawMatch: Match): TransformedMatch {
+      return {
+        id: rawMatch.id,
+        team1: rawMatch.participants?.[0],
+        team2: rawMatch.participants?.[1],
+        score1: rawMatch.participants?.[0]?.resultText ?? null,
+        score2: rawMatch.participants?.[1]?.resultText ?? null,
+        winner: rawMatch.participants?.find(p => p.isWinner)?.id,
+        status: rawMatch.state.toLowerCase() === 'done' ? 'completed'
+          : rawMatch.state.toLowerCase() === 'running' ? 'live'
+            : 'upcoming',
+        date: rawMatch.startTime,
+        venue: rawMatch.venue,
+        time: rawMatch.time,
+      };
+    }
+
+    // Then in the loop
     matches.forEach(match => {
       const roundName = match.tournamentRoundText;
       if (!roundsMap.has(roundName)) {
         roundsMap.set(roundName, []);
       }
-      
-      // Transform match to component format
-      const transformedMatch: TransformedMatch = {
-        id: match.id,
-        team1: {
-          id: match.participants[0]?.id,
-          name: match.participants[0]?.name
-        },
-        team2: {
-          id: match.participants[1]?.id,
-          name: match.participants[1]?.name
-        },
-        score1: match.participants[0]?.resultText,
-        score2: match.participants[1]?.resultText,
-        winner: match.participants.find(p => p.isWinner)?.id,
-        status: match.state === 'DONE' ? 'completed' : 
-               match.state === 'RUNNING' ? 'live' : 'upcoming',
-        date: match.startTime,
-        venue: match.venue,
-        time: match.time
-      };
-      
-      roundsMap.get(roundName)!.push(transformedMatch);
+
+      const transformedMatch = transformMatch(match); // ✅ call it here
+      roundsMap.get(roundName)!.push(transformedMatch); // ✅ now this works
     });
-    
+
     // Convert to rounds array
     const rounds: Round[] = Array.from(roundsMap.entries()).map(([name, matches]) => ({
       id: name.toLowerCase().replace(/\s+/g, '-'),
       name: name,
       matches: matches
     }));
-    
+
     // Sort rounds by typical tournament order
     const roundOrder: Record<string, number> = {
       'first round': 1,
@@ -118,13 +122,13 @@ const TournamentBracket: React.FC = () => {
       '3rd place': 4,
       'final': 5
     };
-    
+
     rounds.sort((a, b) => {
       const orderA = roundOrder[a.name.toLowerCase()] ?? 999;
       const orderB = roundOrder[b.name.toLowerCase()] ?? 999;
       return orderA - orderB;
     });
-    
+
     return { rounds };
   };
 
@@ -138,27 +142,27 @@ const TournamentBracket: React.FC = () => {
           throw new Error('Failed to fetch bracket data');
         }
         const data: Record<string, Match[]> = await response.json();
-        
+
         // Get matches for selected tournament
         const tournamentMatches = data[selectedTournament] || [];
-        
+
         // Transform the data structure
         const transformedData = transformBracketData(tournamentMatches);
         setBracketData(transformedData);
-        
+
         // Calculate tournament stats
         const totalMatches = tournamentMatches.length;
         const completed = tournamentMatches.filter(match => match.state === 'DONE').length;
         const upcoming = tournamentMatches.filter(match => match.state === 'SCHEDULED').length;
         const live = tournamentMatches.filter(match => match.state === 'RUNNING').length;
-        
+
         // Calculate total teams (approximate from first round)
-        const firstRoundMatches = tournamentMatches.filter(match => 
+        const firstRoundMatches = tournamentMatches.filter(match =>
           match.tournamentRoundText.toLowerCase().includes('first') ||
           match.tournamentRoundText.toLowerCase().includes('round of')
         );
         const totalTeams = firstRoundMatches.length * 2;
-        
+
         setTournamentStats({
           totalMatches,
           completed,
@@ -166,7 +170,7 @@ const TournamentBracket: React.FC = () => {
           live,
           totalTeams
         });
-        
+
         setError(null);
       } catch (err) {
         console.error('Error fetching bracket data:', err);
@@ -203,14 +207,14 @@ const TournamentBracket: React.FC = () => {
       </div>
     );
   }
-  
-  const currentTournament = TOURNAMENT_DATA[selectedTournament as keyof typeof TOURNAMENT_DATA];
+
+  const currentTournament = filteredTournamentData[selectedTournament as keyof typeof filteredTournamentData];
 
   const MatchCard: React.FC<{ match: TransformedMatch; roundName: string; isSmall?: boolean }> = ({ match, roundName, isSmall = false }) => {
     const isCompleted = match.status === "completed";
     const isLive = match.status === "live";
     const isUpcoming = match.status === "upcoming" || match.status === "scheduled";
-    
+
     // Helper function to get team name
     const getTeamName = (team: { id?: string; name?: string } | string): string => {
       if (typeof team === 'string') return team;
@@ -223,25 +227,35 @@ const TournamentBracket: React.FC = () => {
       return team?.id;
     };
 
+    // Helper function to truncate team names
+    const truncateTeamName = (name: string, maxLength: number = isSmall ? 12 : 16): string => {
+      if (name.length <= maxLength) return name;
+      return name.substring(0, maxLength - 3) + '...';
+    };
+
     const team1Name = getTeamName(match.team1);
     const team2Name = getTeamName(match.team2);
     const team1Id = getTeamId(match.team1);
     const team2Id = getTeamId(match.team2);
-    
-   return (
+
+    // Get scores from resultText or fallback to score1/score2
+    const team1Score = match.score1 ?? (typeof match.team1 === 'object' ? match.team1.resultText : undefined);
+    const team2Score = match.score2 ?? (typeof match.team2 === 'object' ? match.team2.resultText : undefined);
+
+    return (
       <div className={`
-        bg-gradient-to-br ${currentTournament.bgGradient} 
-        ${currentTournament.borderColor} border-2 rounded-xl p-4 
-        backdrop-blur-lg transition-all duration-500 
-        hover:scale-105 hover:shadow-2xl ${currentTournament.glowColor}
-        ${isLive ? `ring-2 ring-yellow-400/50 animate-pulse` : ''}
-        ${isSmall ? 'min-w-[200px]' : 'min-w-[280px]'} group cursor-pointer
-        relative overflow-hidden
-      `}>
-        
+      bg-gradient-to-br ${currentTournament.bgGradient} 
+      ${currentTournament.borderColor} border-2 rounded-xl p-4 
+      backdrop-blur-lg transition-all duration-500 
+      hover:scale-105 hover:shadow-2xl ${currentTournament.glowColor}
+      ${isLive ? `ring-2 ring-yellow-400/50 animate-pulse` : ''}
+      ${isSmall ? 'w-[220px]' : 'w-[300px]'} group cursor-pointer
+      relative overflow-hidden flex flex-col h-auto
+    `}>
+
         {/* Live indicator */}
         {isLive && (
-          <div className="absolute top-2 right-2 flex items-center gap-1 bg-red-600 px-2 py-1 rounded-full text-xs">
+          <div className="absolute top-2 right-2 flex items-center gap-1 bg-red-600 px-2 py-1 rounded-full text-xs z-10">
             <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
             <span className="text-white font-bold">LIVE</span>
           </div>
@@ -250,17 +264,18 @@ const TournamentBracket: React.FC = () => {
         {/* Match Header */}
         <div className="flex items-center justify-between mb-3">
           <div className={`
-            px-3 py-1 rounded-full text-xs font-bold 
-            bg-gradient-to-r ${currentTournament.bgGradient} 
-            ${currentTournament.borderColor} border
-            ${currentTournament.color}
-          `}>
+          px-3 py-1 rounded-full text-xs font-bold 
+          bg-gradient-to-r ${currentTournament.bgGradient} 
+          ${currentTournament.borderColor} border
+          ${currentTournament.color}
+          flex-shrink-0
+        `}>
             {roundName.toUpperCase()}
           </div>
           {match.date && (
-            <div className="text-xs text-gray-400 flex items-center gap-1">
+            <div className="text-xs text-gray-400 flex items-center gap-1 flex-shrink-0">
               <Calendar size={10} />
-              {match.date}
+              <span className="truncate max-w-[80px]">{match.date}</span>
             </div>
           )}
         </div>
@@ -268,85 +283,93 @@ const TournamentBracket: React.FC = () => {
         {/* VS Badge */}
         <div className="flex justify-center mb-3">
           <div className={`
-            ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} 
-            text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg
-          `}>
+          ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} 
+          text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg
+        `}>
             VS
           </div>
         </div>
 
-        {/* Teams */}
-        <div className="space-y-2">
+        {/* Teams Container - Fixed height and proper alignment */}
+        <div className="flex flex-col gap-2 flex-grow">
           {/* Team 1 */}
           <div className={`
-            flex items-center justify-between p-3 rounded-lg 
-            ${isCompleted && (Number(match.score1) > Number(match.score2) || match.winner === team1Id)
-              ? `bg-gradient-to-r ${currentTournament.bgGradient} ${currentTournament.borderColor} border` 
+          flex items-center justify-between p-3 rounded-lg min-h-[60px]
+          ${isCompleted && (Number(match.score1) > Number(match.score2) || match.winner === team1Id)
+              ? `bg-gradient-to-r ${currentTournament.bgGradient} ${currentTournament.borderColor} border`
               : 'bg-gray-800/50 border border-gray-700/50'
             }
-            transform transition-transform group-hover:translate-x-1
-          `}>
-            <div className="flex items-center gap-2">
+          transform transition-transform group-hover:translate-x-1
+        `}>
+            <div className="flex items-center gap-2 flex-1 min-w-0">
               {isCompleted && (Number(match.score1) > Number(match.score2) || match.winner === team1Id) && (
-                <Crown size={14} className={currentTournament.color} />
+                <Crown size={14} className={`${currentTournament.color} flex-shrink-0`} />
               )}
               <div className={`
-                ${isSmall ? 'w-6 h-6 text-xs' : 'w-8 h-8 text-sm'} 
-                rounded-full flex items-center justify-center text-white font-bold
-                ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} shadow-lg
-              `}>
-                {team1Name.charAt(0)}
+              ${isSmall ? 'w-6 h-6 text-xs' : 'w-8 h-8 text-sm'} 
+              rounded-full flex items-center justify-center text-white font-bold
+              ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} shadow-lg
+              flex-shrink-0
+            `}>
+                {team1Name.charAt(0).toUpperCase()}
               </div>
-              <div>
-                <div className={`font-semibold text-white ${isSmall ? 'text-sm' : ''}`}>
-                  {team1Name}
+              <div className="min-w-0 flex-1">
+                <div
+                  className={`font-semibold text-white ${isSmall ? 'text-sm' : ''} truncate`}
+                  title={team1Name}
+                >
+                  {truncateTeamName(team1Name)}
                 </div>
               </div>
             </div>
             {!isUpcoming && match.score1 !== null && match.score1 !== undefined && (
               <div className={`
-                ${isSmall ? 'text-lg' : 'text-xl'} font-bold 
-                ${isCompleted && (Number(match.score1) > Number(match.score2) || match.winner === team1Id) ? currentTournament.color : 'text-gray-400'} 
-                bg-gray-900/50 px-2 py-1 rounded min-w-[32px] text-center
-              `}>
-                {match.score1}
+              ${isSmall ? 'text-lg' : 'text-xl'} font-bold 
+              ${isCompleted && (Number(match.score1) > Number(match.score2) || match.winner === team1Id) ? currentTournament.color : 'text-gray-400'} 
+              bg-gray-900/50 px-3 py-1 rounded min-w-[40px] text-center flex-shrink-0
+            `}>
+                {team1Score}
               </div>
             )}
           </div>
 
           {/* Team 2 */}
           <div className={`
-            flex items-center justify-between p-3 rounded-lg 
-            ${isCompleted && (Number(match.score2) > Number(match.score1) || match.winner === team2Id)
-              ? `bg-gradient-to-r ${currentTournament.bgGradient} ${currentTournament.borderColor} border` 
+          flex items-center justify-between p-3 rounded-lg min-h-[60px]
+          ${isCompleted && (Number(team2Score) > Number(team1Score) || match.winner === team2Id)
+              ? `bg-gradient-to-r ${currentTournament.bgGradient} ${currentTournament.borderColor} border`
               : 'bg-gray-800/50 border border-gray-700/50'
             }
-            transform transition-transform group-hover:translate-x-1
-          `}>
-            <div className="flex items-center gap-2">
-              {isCompleted && (Number(match.score2) > Number(match.score1) || match.winner === team2Id) && (
-                <Crown size={14} className={currentTournament.color} />
+          transform transition-transform group-hover:translate-x-1
+        `}>
+            <div className="flex items-center gap-2 flex-1 min-w-0">
+              {isCompleted && (Number(team2Score) > Number(team1Score) || match.winner === team2Id) && (
+                <Crown size={14} className={`${currentTournament.color} flex-shrink-0`} />
               )}
               <div className={`
-                ${isSmall ? 'w-6 h-6 text-xs' : 'w-8 h-8 text-sm'} 
-                rounded-full flex items-center justify-center text-white font-bold
-                ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} shadow-lg
-              `}>
-                {team2Name.charAt(0)}
+              ${isSmall ? 'w-6 h-6 text-xs' : 'w-8 h-8 text-sm'} 
+              rounded-full flex items-center justify-center text-white font-bold
+              ${isUpcoming ? 'bg-gray-600' : currentTournament.accentColor} shadow-lg
+              flex-shrink-0
+            `}>
+                {team2Name.charAt(0).toUpperCase()}
               </div>
-              <div>
-                <div className={`font-semibold text-white ${isSmall ? 'text-sm' : ''}`}>
-                  {team2Name}
+              <div className="min-w-0 flex-1">
+                <div
+                  className={`font-semibold text-white ${isSmall ? 'text-sm' : ''} truncate`}
+                  title={team2Name}
+                >
+                  {truncateTeamName(team2Name)}
                 </div>
               </div>
             </div>
-            {!isUpcoming && match.score2 !== null && match.score2 !== undefined && (
+            {!isUpcoming && team2Score !== null && team2Score !== undefined && team2Score !== '' && (
               <div className={`
-                ${isSmall ? 'text-lg' : 'text-xl'} font-bold 
-                ${isCompleted && (Number(match.score2) > Number(match.score1) || match.winner === team2Id) ? currentTournament.color : 'text-gray-400'} 
-                bg-gray-900/50 px-2 py-1 rounded min-w-[32px] text-center
-              `}>
-                {match.score2}
+              ${isSmall ? 'text-lg' : 'text-xl'} font-bold 
+              ${isCompleted && (Number(team2Score) > Number(team1Score) || match.winner === team2Id) ? currentTournament.color : 'text-gray-400'} 
+              bg-gray-900/50 px-3 py-1 rounded min-w-[40px] text-center flex-shrink-0
+            `}>
+                {team2Score}
               </div>
             )}
           </div>
@@ -354,7 +377,7 @@ const TournamentBracket: React.FC = () => {
 
         {/* Match Status */}
         {isLive && (
-          <div className="mt-2 text-center">
+          <div className="mt-3 text-center">
             <span className="text-xs text-yellow-400 font-semibold flex items-center justify-center gap-1">
               <Zap size={12} />
               Match in Progress
@@ -364,17 +387,17 @@ const TournamentBracket: React.FC = () => {
 
         {/* Match Info Footer */}
         {(match.venue || match.time) && (
-          <div className="mt-3 pt-3 border-t border-gray-700/50 flex items-center justify-between">
+          <div className="mt-3 pt-3 border-t border-gray-700/50 flex items-center justify-between gap-2">
             {match.venue && (
-              <div className="flex items-center gap-1 text-xs text-gray-400">
-                <MapPin size={10} />
-                {match.venue}
+              <div className="flex items-center gap-1 text-xs text-gray-400 flex-1 min-w-0">
+                <MapPin size={10} className="flex-shrink-0" />
+                <span className="truncate" title={match.venue}>{match.venue}</span>
               </div>
             )}
             {match.time && (
-              <div className="flex items-center gap-1 text-xs text-gray-400">
+              <div className="flex items-center gap-1 text-xs text-gray-400 flex-shrink-0">
                 <Clock size={10} />
-                {match.time}
+                <span>{match.time}</span>
               </div>
             )}
           </div>
@@ -383,19 +406,19 @@ const TournamentBracket: React.FC = () => {
     );
   };
 
-  const RoundColumn: React.FC<{ round: Round; isSmall?: boolean }> = ({ round, isSmall = false }) => (
-    <div className="flex flex-col items-center">
+  const RoundRow: React.FC<{ round: Round; isSmall?: boolean }> = ({ round, isSmall = false }) => (
+    <div className="w-full mb-8">
       <div className="text-center mb-6">
         <h3 className={`${isSmall ? 'text-lg' : 'text-2xl'} font-bold text-white mb-2`}>
           {round.name}
         </h3>
-        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto"></div>
+        <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto"></div>
       </div>
-      <div className="space-y-6">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
         {round.matches?.map((match, index) => (
-          <MatchCard 
-            key={match.id || index} 
-            match={match} 
+          <MatchCard
+            key={match.id || index}
+            match={match}
             roundName={round.name}
             isSmall={isSmall}
           />
@@ -404,9 +427,9 @@ const TournamentBracket: React.FC = () => {
     </div>
   );
 
-return (
+  return (
     <div className="min-h-screen mt-28 text-white p-4 sm:p-6">
-      
+
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8">
         <div className="text-center mb-8">
@@ -415,16 +438,16 @@ return (
           </h1>
         </div>
 
-        {/* Tournament Selector */}
+        {/* Tournament Selector - Only Valorant and ROV */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 px-2">
-          {Object.entries(TOURNAMENT_DATA).map(([key, tournament]) => (
+          {Object.entries(filteredTournamentData).map(([key, tournament]) => (
             <button
               key={key}
               onClick={() => setSelectedTournament(key)}
               className={`
                 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base
-                ${selectedTournament === key 
-                  ? `${tournament.accentColor} text-white shadow-xl scale-105` 
+                ${selectedTournament === key
+                  ? `${tournament.accentColor} text-white shadow-xl scale-105`
                   : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-white'
                 }
               `}
@@ -493,11 +516,11 @@ return (
         )}
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div 
+      <div className="max-w-screen mx-auto">
+        <div
           className="bracket-scroll-container overflow-auto"
-          style={{ 
-            maxHeight: '70vh', 
+          style={{
+            maxHeight: '70vh',
             minHeight: '400px'
           }}
           onMouseDown={(e) => {
@@ -506,25 +529,25 @@ return (
             const startY = e.pageY - container.offsetTop;
             const scrollLeft = container.scrollLeft;
             const scrollTop = container.scrollTop;
-            
+
             container.classList.add('dragging');
-            
+
             const handleMouseMove = (e: MouseEvent) => {
               e.preventDefault();
               const x = e.pageX - container.offsetLeft;
               const y = e.pageY - container.offsetTop;
-              const walkX = (x - startX) * 2; 
-              const walkY = (y - startY) * 2; 
+              const walkX = (x - startX) * 2;
+              const walkY = (y - startY) * 2;
               container.scrollLeft = scrollLeft - walkX;
               container.scrollTop = scrollTop - walkY;
             };
-            
+
             const handleMouseUp = () => {
               container.classList.remove('dragging');
               document.removeEventListener('mousemove', handleMouseMove);
               document.removeEventListener('mouseup', handleMouseUp);
             };
-            
+
             document.addEventListener('mousemove', handleMouseMove);
             document.addEventListener('mouseup', handleMouseUp);
           }}
@@ -532,11 +555,11 @@ return (
           role="region"
           aria-label="Tournament bracket"
         >
-          <div className="flex items-start justify-center gap-4 sm:gap-6 lg:gap-8 min-w-max px-2 sm:px-4">
+          <div className="px-2 sm:px-4 py-4">
             {bracketData?.rounds?.map((round, index) => (
-              <RoundColumn 
+              <RoundRow
                 key={round.id || index}
-                round={round} 
+                round={round}
                 isSmall={bracketData.rounds.length > 4}
               />
             ))}
@@ -549,31 +572,31 @@ return (
             <div className="flex items-center gap-2 sm:gap-3 text-gray-400 text-xs sm:text-sm animate-pulse px-3 sm:px-4 py-2 bg-gray-800/30 rounded-full backdrop-blur-sm">
               <div className="flex gap-1">
                 <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
-                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
               </div>
               <span className="hidden sm:inline font-medium">Click and drag to navigate • Scroll vertically</span>
               <span className="sm:hidden font-medium text-center">Touch and drag • Scroll</span>
               <div className="flex gap-1">
-                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.3s'}}></div>
-                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
-                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
               </div>
             </div>
           </div>
         )}
 
         {/* Enhanced Live Indicator */}
-        {bracketData?.rounds?.some(round => 
+        {bracketData?.rounds?.some(round =>
           round.matches?.some(match => match.status === 'live')
         ) && (
-          <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
-            <div className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-500 px-3 sm:px-4 py-2 rounded-full shadow-lg border border-red-400/30">
-              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-              <span className="text-white text-sm font-semibold tracking-wide">LIVE</span>
+            <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
+              <div className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-500 px-3 sm:px-4 py-2 rounded-full shadow-lg border border-red-400/30">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <span className="text-white text-sm font-semibold tracking-wide">LIVE</span>
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
 
     </div>
