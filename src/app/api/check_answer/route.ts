@@ -8,41 +8,34 @@ function getTodayDateString(): string {
     return today.toISOString().split('T')[0]; // YYYY-MM-DD format
 }
 
-// Get daily quest using date as seed for consistent selection
+// Get daily quest using completely random selection
 async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>) {
+    // MODIFIED: Only get quests with IDs 94-102 for testing
     const { data: allQuests } = await supabase
         .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
+        .gte('id', 94)
+        .lte('id', 102)
         .eq('is_answered', false);
 
     if (!allQuests || allQuests.length === 0) {
         return null;
     }
 
-    // Shuffle the quests using today's date as a seed for deterministic shuffling
-    function seededShuffle(array: any[], seed: number) {
-        // Simple seeded random generator (mulberry32)
-        function mulberry32(a: number) {
-            return function() {
-                var t = a += 0x6D2B79F5;
-                t = Math.imul(t ^ t >>> 15, t | 1);
-                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-                return ((t ^ t >>> 14) >>> 0) / 4294967296;
-            }
-        }
-        const random = mulberry32(seed);
-        const arr = array.slice();
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
+    // Completely random selection - no seeding
+    const randomIndex = Math.floor(Math.random() * allQuests.length);
+    return allQuests[randomIndex];
+}
 
-    const dateString = getTodayDateString();
-    const dateNumber = new Date(dateString).getTime();
-    const shuffledQuests = seededShuffle(allQuests, dateNumber);
-    return shuffledQuests[0];
+// Get quest by ID (including answer for server-side operations)
+async function getQuestById(supabase: Awaited<ReturnType<typeof createClient>>, questId: string) {
+    const { data: quest } = await supabase
+        .from('quests')
+        .select('id, question, answer, score, is_answered, type, code, image')
+        .eq('id', questId)
+        .single();
+
+    return quest;
 }
 
 export async function POST(request: Request) {
@@ -65,6 +58,7 @@ export async function POST(request: Request) {
         const cookieStore = await cookies();
         const todayDateString = getTodayDateString();
         const correctCookieName = `quest_correct_${todayDateString}`;
+        const questIdCookieName = `quest_id_${todayDateString}`;
         
         // Check if user already got the correct answer today
         const hasAnsweredCorrectly = cookieStore.get(correctCookieName);
@@ -75,8 +69,33 @@ export async function POST(request: Request) {
             }, { status: 400 });
         }
 
-        // Get today's quest
-        const dailyQuest = await getDailyQuest(supabase);
+        // Get today's quest - prioritize stored quest ID for consistency
+        let dailyQuest;
+        const storedQuestId = cookieStore.get(questIdCookieName);
+        
+        if (storedQuestId) {
+            // Fetch full quest data (including answer) using stored ID
+            console.log("Fetching quest by ID:", storedQuestId.value);
+            const questResult = await serviceRoleClient
+                .from('quests')
+                .select('id, question, answer, score, is_answered, type, code, image')
+                .eq('id', storedQuestId.value)
+                .single();
+            
+            console.log("Direct DB response:", questResult);
+            dailyQuest = questResult.data;
+            
+            if (!dailyQuest) {
+                // If stored quest ID is invalid, get a new random quest
+                console.log("No quest found, getting random quest");
+                dailyQuest = await getDailyQuest(serviceRoleClient);
+            }
+        } else {
+            // Get today's quest for first-time users
+            console.log("Getting random quest for first time user");
+            dailyQuest = await getDailyQuest(serviceRoleClient);
+        }
+        
         if (!dailyQuest) {
             return NextResponse.json({ error: "No quest available" }, { status: 404 });
         }
@@ -92,6 +111,13 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Profile not found" }, { status: 404 });
         }
 
+        console.log("USER ANSWER: ", answer);
+        console.log("DAILY QUEST OBJECT: ", JSON.stringify(dailyQuest, null, 2));
+        console.log("ANSWER FIELD TYPE: ", typeof dailyQuest.answer);
+        console.log("ANSWER FIELD LENGTH: ", dailyQuest.answer?.length);
+        console.log("ANSWER FIELD FIRST CHAR: ", dailyQuest.answer?.[0]);
+        console.log("TRIMMED: ", answer.toLowerCase().trim(), dailyQuest.answer.toLowerCase().trim());
+        console.log("IS CORRECT: ", answer.toLowerCase().trim() === dailyQuest.answer.toLowerCase().trim());
         const isCorrect = answer.toLowerCase().trim() === dailyQuest.answer.toLowerCase().trim();
 
         // Award points if answer is correct
@@ -159,13 +185,13 @@ export async function POST(request: Request) {
                 score: dailyQuest.score,
                 type : dailyQuest.type,
                 code: dailyQuest.code,
+                type : dailyQuest.type,
                 image: dailyQuest.image
             },
             hasAnsweredCorrectly: isCorrect
         });
 
-        // Always store the quest ID so we can show the same quest later
-        const questIdCookieName = `quest_id_${todayDateString}`;
+        // Always store quest ID so we can fetch the same quest later
         response.cookies.set(questIdCookieName, dailyQuest.id, {
             expires: tomorrow,
             httpOnly: true,
@@ -173,13 +199,13 @@ export async function POST(request: Request) {
             sameSite: 'lax'
         });
 
-        // Always store quest data so we can show the same quest
+        // Also store quest data (without answer) for GET method
         const questDataCookieName = `quest_data_${todayDateString}`;
         response.cookies.set(questDataCookieName, JSON.stringify({
             id: dailyQuest.id,
             question: dailyQuest.question,
             score: dailyQuest.score,
-            type : dailyQuest.type,
+            type: dailyQuest.type,
             code: dailyQuest.code,
             image: dailyQuest.image
         }), {
@@ -220,26 +246,86 @@ export async function GET() {
         const cookieStore = await cookies();
         const todayDateString = getTodayDateString();
         const correctCookieName = `quest_correct_${todayDateString}`;
+        const questIdCookieName = `quest_id_${todayDateString}`;
         const questDataCookieName = `quest_data_${todayDateString}`;
 
         // Check if user already answered correctly today
         const hasAnsweredCorrectly = cookieStore.get(correctCookieName);
+        const storedQuestId = cookieStore.get(questIdCookieName);
         const storedQuestData = cookieStore.get(questDataCookieName);
 
         let questToReturn;
 
-        // If we have stored quest data, use it to ensure consistency
+        // Priority 1: Use stored quest data (fastest, already parsed)
         if (storedQuestData) {
             try {
                 questToReturn = JSON.parse(storedQuestData.value);
             } catch (error) {
                 console.error('Error parsing stored quest data:', error);
-                // Fallback to daily quest if stored data is corrupted
-                questToReturn = await getDailyQuest(supabase);
+                questToReturn = null;
             }
-        } else {
-            // Get today's quest for first-time users
-            questToReturn = await getDailyQuest(supabase);
+        }
+
+        // Priority 2: Use stored quest ID to fetch from database  
+        if (!questToReturn && storedQuestId) {
+            const fullQuest = await getQuestById(supabase, storedQuestId.value);
+            if (fullQuest) {
+                // Remove answer field for client response
+                questToReturn = {
+                    id: fullQuest.id,
+                    question: fullQuest.question,
+                    score: fullQuest.score,
+                    code: fullQuest.code,
+                    image: fullQuest.image
+                };
+            }
+        }
+
+        // Priority 3: Get new random quest for first-time users
+        if (!questToReturn) {
+            const newQuest = await getDailyQuest(supabase);
+            if (newQuest) {
+                questToReturn = {
+                    id: newQuest.id,
+                    question: newQuest.question,
+                    score: newQuest.score,
+                    code: newQuest.code,
+                    image: newQuest.image
+                };
+                
+                // CRITICAL: Store quest ID and data for POST method consistency
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setHours(0, 0, 0, 0);
+                
+                const response = NextResponse.json({
+                    id: questToReturn.id,
+                    question: questToReturn.question,
+                    score: questToReturn.score,
+                    code: questToReturn.code,
+                    image: questToReturn.image,
+                    hasAnsweredCorrectly: !!hasAnsweredCorrectly,
+                    date: todayDateString
+                });
+                
+                // Store quest ID for POST method
+                response.cookies.set(questIdCookieName, newQuest.id, {
+                    expires: tomorrow,
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === 'production',
+                    sameSite: 'lax'
+                });
+                
+                // Store quest data for future GET requests
+                response.cookies.set(questDataCookieName, JSON.stringify(questToReturn), {
+                    expires: tomorrow,
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === 'production',
+                    sameSite: 'lax'
+                });
+                
+                return response;
+            }
         }
 
         if (!questToReturn) {
@@ -252,6 +338,7 @@ export async function GET() {
             score: questToReturn.score,
             type : questToReturn.type,
             code: questToReturn.code,
+            type: questToReturn.type,
             image: questToReturn.image,
             hasAnsweredCorrectly: !!hasAnsweredCorrectly,
             date: todayDateString

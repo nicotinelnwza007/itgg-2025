@@ -195,7 +195,6 @@ export default function SendAnswer() {
 									</button>
 								</form>
 							)}
-
 							{message && (
 								<div
 									className={`mt-4 text-center font-semibold ${message.includes('Correct') || message.includes('✅')
@@ -211,5 +210,4 @@ export default function SendAnswer() {
 				</AnimatePresence>
 			</div>
 		</div>
-	)
-}
+	)}
