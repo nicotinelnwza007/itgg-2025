@@ -72,7 +72,7 @@ export default function SendAnswer() {
 		setMessage('')
 
 		try {
-			const res = await fetch('/api/submit_answer', {
+			const res = await fetch('/api/check_answer', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ id: dailyQuest.id, answer }),
