@@ -275,7 +275,8 @@ export async function GET() {
                     question: fullQuest.question,
                     score: fullQuest.score,
                     code: fullQuest.code,
-                    image: fullQuest.image
+                    image: fullQuest.image,
+                    type: fullQuest.type
                 };
             }
         }
@@ -289,7 +290,8 @@ export async function GET() {
                     question: newQuest.question,
                     score: newQuest.score,
                     code: newQuest.code,
-                    image: newQuest.image
+                    image: newQuest.image,
+                    type: newQuest.type
                 };
                 
                 // CRITICAL: Store quest ID and data for POST method consistency
@@ -302,6 +304,7 @@ export async function GET() {
                     question: questToReturn.question,
                     score: questToReturn.score,
                     code: questToReturn.code,
+                    type : questToReturn.type,
                     image: questToReturn.image,
                     hasAnsweredCorrectly: !!hasAnsweredCorrectly,
                     date: todayDateString
