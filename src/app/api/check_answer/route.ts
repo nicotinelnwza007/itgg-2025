@@ -14,8 +14,8 @@ async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>)
     const { data: allQuests } = await supabase
         .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
-        .gte('id', 94)
-        .lte('id', 102)
+        // .gte('id', 94)
+        // .lte('id', 102)
         .eq('is_answered', false);
 
     if (!allQuests || allQuests.length === 0) {
