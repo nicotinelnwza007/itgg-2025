@@ -10,7 +10,7 @@ async function Page({ searchParams }: { searchParams: Promise<any> }) {
     const message = (await searchParams).message;
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-br">
+    <div className="flex flex-col justify-center items-center min-h-screen w-full  relative px-4 sm:px-6 lg:px-8 py-12">
             {user ? (
                 <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full text-center space-y-4">
                     <h2 className="text-2xl font-bold text-[#5e3c1b]">You're already logged in</h2>
@@ -18,76 +18,22 @@ async function Page({ searchParams }: { searchParams: Promise<any> }) {
                     <form action={logout}>
                         <button
                             type="submit"
-                            className="mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors"
+                            className="whitespace-nowrap w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 rounded-md border border-amber-700 text-white bg-amber-700 hover:bg-white hover:text-amber-700 shadow-md hover:scale-105 active:scale-95 outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out h-11 px-6 py-2 text-lg sm:text-xl font-bold"
+
                         >
                             Logout
                         </button>
                     </form>
                 </div>
             ) : (
-                // <form
-                //   action={login}
-                //   className="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6"
-                // >
-                //   <h2 className="text-2xl font-bold text-center text-[#5e3c1b]">Login</h2>
-                //   <div className="space-y-4">
-                //     <div>
-                //       <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                //         Email
-                //       </label>
-                //       <input
-                //         type="email"
-                //         name="email"
-                //         id="email"
-                //         required
-                //         placeholder="Enter your email"
-                //         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#c27a44] focus:border-[#c27a44]"
-                //       />
-                //     </div>
-                //     <div>
-                //       <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                //         Password
-                //       </label>
-                //       <input
-                //         type="password"
-                //         name="password"
-                //         id="password"
-                //         required
-                //         placeholder="Enter your password"
-                //         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#c27a44] focus:border-[#c27a44]"
-                //       />
-                //     </div>
-                //   </div>
-
-                //   <button
-                //     type="submit"
-                //     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#c27a44] hover:bg-[#a86438] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#c27a44]"
-                //   >
-                //     Sign in
-                //   </button>
-
-                //   <div className="text-center">
-                //     <a href="#" className="text-sm text-[#a05a2c] hover:underline">
-                //       Forgot password?
-                //     </a>
-                //   </div>
-                // </form>
-                <div className="flex flex-col items-center justify-center px-4">
-                    <div className="bg-[#fff7ef] rounded-2xl shadow-lg w-full max-w-sm p-8 space-y-6">
+    <div className="flex flex-col justify-center items-center min-h-screen w-full relative px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-[#fff7ef]/90 backdrop-blur-sm rounded-3xl shadow-2xl w-full max-w-2xl p-6 sm:p-8 md:p-10 lg:p-12 space-y-8 z-10">
 
                         <div className="flex flex-col items-center space-y-2">
                             <h1 className="text-2xl font-bold text-[#5e3c1b]">Login</h1>
                         </div>
 
                         <form className="space-y-4" action={login}>
-                            {/* <InputField
-                                icon="👤"
-                                type="text"
-                                name="nickname"
-                                id="nickname"
-                                placeholder="Enter your Nickname"
-                                required
-                            /> */}
                             <InputField
                                 icon="📧"
                                 type="email"

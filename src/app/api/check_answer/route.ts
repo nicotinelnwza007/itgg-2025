@@ -185,7 +185,6 @@ export async function POST(request: Request) {
                 score: dailyQuest.score,
                 type : dailyQuest.type,
                 code: dailyQuest.code,
-                type : dailyQuest.type,
                 image: dailyQuest.image
             },
             hasAnsweredCorrectly: isCorrect
@@ -338,7 +337,6 @@ export async function GET() {
             score: questToReturn.score,
             type : questToReturn.type,
             code: questToReturn.code,
-            type: questToReturn.type,
             image: questToReturn.image,
             hasAnsweredCorrectly: !!hasAnsweredCorrectly,
             date: todayDateString

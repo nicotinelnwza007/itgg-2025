@@ -156,6 +156,10 @@ export default function SendAnswer() {
 								Reward: {dailyQuest.score} points
 							</div>
 
+                            <div className="text-center text-sm text-[#a05a2c] mb-2">
+	(Type: {dailyQuest.type === 'image' ? 'image' : dailyQuest.type})
+</div>
+
 							{dailyQuest.hasAnsweredCorrectly ? (
 								<div className="text-center space-y-4">
 									<div className="text-lg font-bold text-green-600">🎉 ภารกิจสำเร็จ!</div>
