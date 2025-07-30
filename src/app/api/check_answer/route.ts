@@ -14,8 +14,8 @@ async function getDailyQuest(supabase: Awaited<ReturnType<typeof createClient>>)
     const { data: allQuests } = await supabase
         .from('quests')
         .select('id, question, answer, score, is_answered, type, code, image')
-        .gte('id', 94)
-        .lte('id', 102)
+        // .gte('id', 94)
+        // .lte('id', 102)
         .eq('is_answered', false);
 
     if (!allQuests || allQuests.length === 0) {
@@ -185,7 +185,6 @@ export async function POST(request: Request) {
                 score: dailyQuest.score,
                 type : dailyQuest.type,
                 code: dailyQuest.code,
-                type : dailyQuest.type,
                 image: dailyQuest.image
             },
             hasAnsweredCorrectly: isCorrect
@@ -338,7 +337,6 @@ export async function GET() {
             score: questToReturn.score,
             type : questToReturn.type,
             code: questToReturn.code,
-            type: questToReturn.type,
             image: questToReturn.image,
             hasAnsweredCorrectly: !!hasAnsweredCorrectly,
             date: todayDateString
