@@ -168,7 +168,7 @@ export default function SendAnswer() {
 								</div>
 							) : dailyQuest.type === 'image' ? (
 								<div className="text-center">
-									<a href="https://discord.gg/smxy9qph" target="_blank" rel="noreferrer">
+									<a href="https://discord.gg/WW8kr2YDU5" target="_blank" rel="noreferrer">
 										<button className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2 px-6 rounded-full transition text-md">
 											📷 ส่งรูปใน Discord
 										</button>
@@ -210,4 +210,5 @@ export default function SendAnswer() {
 				</AnimatePresence>
 			</div>
 		</div>
-	)}
+	)
+}
