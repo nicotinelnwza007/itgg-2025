@@ -22,7 +22,7 @@ export default function SweetScoreboard() {
 	const [percentages, setPercentages] = useState<number[]>([0, 0, 0, 0]);
 
 	const updatePercentages = (currentScores: number[]) => {
-		const newPercentages = currentScores.map(score => (score / 13000) * 100);
+		const newPercentages = currentScores.map(score => (score / 11000) * 100);
 		setPercentages(newPercentages);
 	};
 
